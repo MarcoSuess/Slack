@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "slack-55c68": {
+      "hosting": {
+        "slack": [
+          "slack-55c68"
+        ]
+      }
+    }
+  }
+}
