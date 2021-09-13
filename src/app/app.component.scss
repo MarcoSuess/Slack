@@ -54,6 +54,22 @@
     }
 }
 
+.message {
+
+    color: white;
+
+    p {
+
+        font-size: 20px;
+    }
+}
+
+.logo img {
+
+    height: 50px;
+    width: 50px;
+}
+
 .material-icons-outlined {
 
     position: absolute;
@@ -65,4 +81,10 @@
 .list {
 
     text-align: center;
+}
+
+.message-container {
+
+    padding-top: 50px;
+    
 }
