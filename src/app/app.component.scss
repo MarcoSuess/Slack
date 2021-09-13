@@ -1,0 +1,68 @@
+.toolbar-container {
+
+    margin: 0;
+    color: white;
+    background-color: #611f69;
+    border: 0.5px solid #8a2d94;
+
+}
+
+.sidenav-container {
+    
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+        
+}
+
+.drawer-field {
+
+    width: 300px;
+    color: white;
+    background-color: #611f69;
+    text-align: center;
+
+    .list-item {
+        
+        
+        color: white;
+        cursor: pointer;
+    }
+    
+    .list-item:hover {
+
+        color: lightgrey;
+
+    }
+    
+}
+
+.toolbar-container {
+
+    color: white;
+    background-color: #611f69;
+
+}
+
+.headline {
+
+    color: white;
+    
+    p{
+        padding-top: 20px;
+        font-size: 20px;
+    }
+}
+
+.material-icons-outlined {
+
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+
+}
+
+.list {
+
+    text-align: center;
+}
