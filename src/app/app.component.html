@@ -9,7 +9,7 @@
 
 <!--sidebar-->
 <mat-drawer-container class="sidenav-container">
-
+<!--channel-list-->
   <mat-drawer class="drawer-field" mode="side" opened><div class="headline"><p><b>Channels</b></p></div>
     <div class="list-container">
     <mat-list class="list">
@@ -21,22 +21,24 @@
     </mat-list>
   </div>
 
+  <!--messages-->
     <div class="message"><p><b>Direktnachrichten</b></p></div>
     <div class="list-container">
       <mat-list class="list">
-        <mat-list-item class="list-item">Username1</mat-list-item>
-        <mat-list-item class="list-item">Username2</mat-list-item>
-        <mat-list-item class="list-item">Username3</mat-list-item>
-        <mat-list-item class="list-item">Username4</mat-list-item>
-        <mat-list-item class="list-item">Username5</mat-list-item>
+        <mat-list-item class="list-item"><mat-icon><span class="user-icon">account_circle</span></mat-icon>UserName1</mat-list-item>
+        <mat-list-item class="list-item"><mat-icon><span class="user-icon">account_circle</span></mat-icon>UserName2</mat-list-item>
+        <mat-list-item class="list-item"><mat-icon><span class="user-icon">account_circle</span></mat-icon>UserName3</mat-list-item>
+        <mat-list-item class="list-item"><mat-icon><span class="user-icon">account_circle</span></mat-icon>UserName4</mat-list-item>
       </mat-list>
     
     </div>
   </mat-drawer>
 
+<!--content-->
+  <mat-drawer-content class="content-field">Main content
 
-  <mat-drawer-content>Main content
 
+<!--message-field-->
     <p>
       <mat-form-field class="message-field" appearance="outline">
         <mat-label>Nachricht senden</mat-label>
