@@ -15,11 +15,16 @@ import {MatListModule} from '@angular/material/list';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { LogInComponent } from './log-in/log-in.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { ChannelsComponent } from './channels/channels.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LogInComponent
+    LogInComponent,
+    ChannelsComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,8 @@ import { LogInComponent } from './log-in/log-in.component';
     MatIconModule,
     MatListModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
