@@ -1,6 +1,6 @@
 .toolbar-container {
 
-    margin: 0;
+  
     color: white;
     background-color: #611f69;
     border: 0.5px solid #8a2d94;
@@ -24,14 +24,13 @@
 
     .list-item {
         
-        
-        color: white;
+        color: lightgrey;
         cursor: pointer;
     }
     
     .list-item:hover {
 
-        color: lightgrey;
+        color: white;
 
     }
     
@@ -39,7 +38,7 @@
 
 .toolbar-container {
 
-    color: white;
+    color: lightgrey;
     background-color: #611f69;
 
 }
@@ -56,6 +55,7 @@
 
 .message {
 
+    padding-top: 70px;
     color: white;
 
     p {
@@ -78,13 +78,24 @@
 
 }
 
-.list {
+.list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    text-align: center;
 }
 
 .message-container {
 
     padding-top: 50px;
     
+}
+
+.message-field {
+
+    position: absolute;
+    bottom: 70px;
+    left: 20px;
+    right: 20px;
+
 }
