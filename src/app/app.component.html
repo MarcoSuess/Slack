@@ -1,10 +1,10 @@
 <!--toolbar-->
 <mat-toolbar class="toolbar-container">
-  <a routerLink="/log-in"><div class="logo"><img src="assets/img/slacklogo.png"></div></a>
+  <a routerLink="/"><div class="logo"><img src="assets/img/slacklogo.png"></div></a>
   <span>Slack Clone</span>
   <span class="example-spacer"></span>
   <mat-icon aria-hidden="false" aria-label="Example home icon">
-    <a href="/login"><div class="user-area">
+    <a href="/channels"><div class="user-area">
       <span class="material-icons-outlined">account_circle</span>
     </div></a>
   </mat-icon>
@@ -17,21 +17,10 @@
 
 <!--content-->
   <mat-drawer-content class="content-field">
-
+    
     <router-outlet></router-outlet>
 
-<!--message-field-->
-<!--<p>
-  <mat-form-field class="message-field" appearance="outline">
-    <mat-label>Nachricht senden</mat-label>
-    <input matInput placeholder="Nachricht senden">
-    <mat-icon matSuffix><span class="material-icons-outlined">
-      send
-      </span></mat-icon>
-    <mat-hint></mat-hint>
-  </mat-form-field>
-</p>
--->
+
   </mat-drawer-content>
 
 

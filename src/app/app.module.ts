@@ -19,13 +19,15 @@ import {MatMenuModule} from '@angular/material/menu';
 import { ChannelsComponent } from './channels/channels.component';
 import { UserComponent } from './user/user.component';
 import {MatCardModule} from '@angular/material/card';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
     ChannelsComponent,
-    UserComponent
+    UserComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

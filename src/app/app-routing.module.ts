@@ -7,11 +7,8 @@ import { LogInComponent } from './log-in/log-in.component';
 
 const routes: Routes = [
 
-  {path: '', component: ChannelsComponent},
-  {path: 'login', component: LogInComponent},
-
-  
-
+  {path: 'channels', component: ChannelsComponent},
+  {path: '', component: LogInComponent},
 
 ];
 
