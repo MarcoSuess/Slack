@@ -18,6 +18,7 @@ import { LogInComponent } from './log-in/log-in.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { ChannelsComponent } from './channels/channels.component';
 import { UserComponent } from './user/user.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UserComponent } from './user/user.component';
     MatListModule,
     MatInputModule,
     MatFormFieldModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

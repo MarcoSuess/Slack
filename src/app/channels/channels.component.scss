@@ -1,0 +1,108 @@
+.toolbar-container {
+
+  
+    color: white;
+    background-color: #611f69;
+    border: 0.5px solid #8a2d94;
+
+}
+
+.sidenav-container {
+    
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+        
+}
+
+.drawer-field {
+
+    width: 300px;
+    color: white;
+    background-color: #611f69;
+    text-align: center;
+
+    .list-item {
+        
+        color: lightgrey;
+        cursor: pointer;
+    }
+    
+    .list-item:hover {
+
+        color: white;
+
+    }
+    
+}
+
+.toolbar-container {
+
+    color: lightgrey;
+    background-color: #611f69;
+
+}
+
+.headline {
+
+    color: white;
+    
+    p{
+        padding-top: 40px;
+        font-size: 20px;
+    }
+}
+
+.message {
+
+    padding-top: 70px;
+    color: white;
+
+    p {
+
+        font-size: 20px;
+    }
+}
+
+.logo img {
+
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.material-icons-outlined {
+
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    color: white;
+
+}
+
+.list-item {
+
+    margin-right: 20px;
+}
+
+.list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.message-container {
+
+    padding-top: 50px;
+    
+}
+
+.message-field {
+
+    position: absolute;
+    bottom: 70px;
+    left: 20px;
+    right: 20px;
+
+}

@@ -1,2 +1,23 @@
-<p>channels works!</p>
-<router-outlet></router-outlet>
+<mat-drawer class="drawer-field" mode="side" opened><div class="headline"><p><b>Channels</b></p></div>
+    <div class="list-container">
+    <mat-list class="list">
+      <mat-list-item class="list-item"># allgemein</mat-list-item>
+      <mat-list-item class="list-item"># news</mat-list-item>
+      <mat-list-item class="list-item"># feedback</mat-list-item>
+      <mat-list-item class="list-item"># gruppe</mat-list-item>
+      <mat-list-item class="list-item"># hilfe</mat-list-item>
+    </mat-list>
+  </div>
+
+  <!--messages-->
+    <div class="message"><p><b>Direktnachrichten</b></p></div>
+    <div class="list-container">
+      <mat-list class="list">
+        <mat-list-item class="list-item"><mat-icon><span class="user-icon">account_circle</span></mat-icon>UserName1</mat-list-item>
+        <mat-list-item class="list-item"><mat-icon><span class="user-icon">account_circle</span></mat-icon>UserName2</mat-list-item>
+        <mat-list-item class="list-item"><mat-icon><span class="user-icon">account_circle</span></mat-icon>UserName3</mat-list-item>
+        <mat-list-item class="list-item"><mat-icon><span class="user-icon">account_circle</span></mat-icon>UserName4</mat-list-item>
+      </mat-list>
+    
+    </div>
+  </mat-drawer>
