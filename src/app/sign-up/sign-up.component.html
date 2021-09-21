@@ -8,13 +8,10 @@
       <mat-card-content>
 
         <mat-form-field class="example-full-width">
-          <input #firstname matInput placeholder="Firstname" />
+          <input #name matInput placeholder="Name" />
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-          <input #lastname matInput placeholder="Lastname" />
-        </mat-form-field>
-
+        
 
         <mat-form-field class="example-full-width">
           <input #email matInput placeholder="Email" />
@@ -26,7 +23,7 @@
       </mat-card-content>
       <a>
         <button
-          (click)="authService.signUpUser(email.value, password.value)"
+          (click)="authService.signUpUser(email.value, password.value, name.value)"
           mat-stroked-button
           color="accent"
           class="btn-block"

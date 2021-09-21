@@ -23,16 +23,22 @@ export class AuthService {
 
   }
 
-  signUpUser(email: string, password: string) {
+  signUpUser(email: string, password: string, name:string) {
+
+  
+    
     this
       .afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         // sends verification Email
         result.user?.sendEmailVerification();
-        this.navigateToSignIn()
-
+        this.navigateToSignIn();
         
+        return result.user?.updateProfile({
+          displayName: name
+        })
+          
       }).catch((error) => {
         console.log('error: ', error);
       })
