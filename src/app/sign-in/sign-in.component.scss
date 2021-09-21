@@ -123,4 +123,11 @@ p.outside-message {
     width: 95%;
     text-align: end;
     margin-top: 32px;
+	font-weight: 500;
+
+	a {
+		text-decoration: none;
+		cursor: pointer;
+	} 
+
 }

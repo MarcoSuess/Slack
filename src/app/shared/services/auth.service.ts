@@ -2,6 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { FirebaseApp } from '@angular/fire/compat';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { User } from '../services/user';
 
@@ -11,14 +12,18 @@ import { User } from '../services/user';
 })
 export class AuthService {
 
+
+
+
   userData: any; // Save logged in user data
+  currentUserID: any;
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public firebase: FirebaseApp,
     public afAuth: AngularFireAuth, // Inject Firestore auth service
     public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone, // NgZone service to remove outside scope warning
   ) {
 
   }
@@ -33,6 +38,7 @@ export class AuthService {
       .then((result) => {
         // sends verification Email
         result.user?.sendEmailVerification();
+        
         this.navigateToSignIn();
         
         return result.user?.updateProfile({
@@ -54,6 +60,7 @@ export class AuthService {
     .then((result) => {
       console.log(result.user);
       this.SetUserData(result.user)
+      this.currentUserID = result.user?.uid;
 
       this.navigateToBoard();
     }).catch((error) => {
@@ -65,13 +72,13 @@ export class AuthService {
 
 
   navigateToBoard() {
-    this.router.navigateByUrl('/channels');
+    this.router.navigateByUrl('/channels/' + this.currentUserID);
  }
 
 
 
   navigateToSignIn() {
-    this.router.navigateByUrl('/sign-in');
+    this.router.navigateByUrl('/sign-in' );
  }
 
 
@@ -82,7 +89,7 @@ export class AuthService {
     email: user.email,
     displayName: user.displayName,
     photoURL: user.photoURL,
-    emailVerified: user.emailVerified
+    emailVerified: user.emailVerified,
   }
   return userRef.set(userData, {
     merge: true

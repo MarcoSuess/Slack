@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-channels',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChannelsComponent implements OnInit {
 
-  constructor() { }
+  constructor(  private route: ActivatedRoute,    private firestore: AngularFirestore,) { }
+
+
 
   ngOnInit(): void {
+
+    this.route.params.subscribe((params) =>{
+      console.log(params.id);
+      
+    })
   }
 
 }

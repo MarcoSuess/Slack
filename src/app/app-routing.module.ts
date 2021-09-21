@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ChannelsComponent } from './channels/channels.component';
 import { ContentComponent } from './content/content.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AuthService } from './shared/services/auth.service';
 // import { LogInComponent } from './log-in/log-in.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -18,7 +19,7 @@ const routes: Routes = [
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'verify-email-address', component: VerifyEmailComponent},
 
-  {path: 'channels', component: ChannelsComponent},
+  {path: 'channels/:id', component: ChannelsComponent},
   {path: 'content', component: ContentComponent},
   // {path: '', component: LogInComponent},
 
