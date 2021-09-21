@@ -40,8 +40,47 @@ export class AuthService {
 
 
 
+  signInUser(email:string , password: string) {
+    console.log(this.afAuth);
+    
+    this.afAuth
+    .signInWithEmailAndPassword(email, password)
+    .then((result) => {
+      console.log(result.user);
+      this.SetUserData(result.user)
+
+      this.navigateToBoard();
+    }).catch((error) => {
+        console.log('error', error);
+        
+    })
+
+  }
+
+
+  navigateToBoard() {
+    this.router.navigateByUrl('/channels');
+ }
+
+
+
   navigateToSignIn() {
     this.router.navigateByUrl('/sign-in');
  }
+
+
+ SetUserData(user: any) {
+  const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+  const userData: User = {
+    uid: user.uid,
+    email: user.email,
+    displayName: user.displayName,
+    photoURL: user.photoURL,
+    emailVerified: user.emailVerified
+  }
+  return userRef.set(userData, {
+    merge: true
+  })
+}
 
 }

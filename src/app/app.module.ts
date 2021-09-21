@@ -14,7 +14,6 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { LogInComponent } from './log-in/log-in.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { ChannelsComponent } from './channels/channels.component';
 import { UserComponent } from './user/user.component';
@@ -31,7 +30,6 @@ import { FormsModule }   from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    LogInComponent,
     ChannelsComponent,
     UserComponent,
     ContentComponent,
