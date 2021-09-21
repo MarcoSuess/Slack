@@ -25,6 +25,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthService } from './shared/services/auth.service';
+import { FormsModule }   from '@angular/forms';
+ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { AuthService } from './shared/services/auth.service';
     MatInputModule,
     MatFormFieldModule,
     MatMenuModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService

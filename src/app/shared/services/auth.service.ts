@@ -5,6 +5,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat
 import { Router } from '@angular/router';
 import { User } from '../services/user';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,11 +30,18 @@ export class AuthService {
       .then((result) => {
         // sends verification Email
         result.user?.sendEmailVerification();
+        this.navigateToSignIn()
 
         
       }).catch((error) => {
         console.log('error: ', error);
       })
   }
+
+
+
+  navigateToSignIn() {
+    this.router.navigateByUrl('/sign-in');
+ }
 
 }
