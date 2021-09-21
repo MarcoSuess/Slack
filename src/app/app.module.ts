@@ -20,6 +20,11 @@ import { ChannelsComponent } from './channels/channels.component';
 import { UserComponent } from './user/user.component';
 import {MatCardModule} from '@angular/material/card';
 import { ContentComponent } from './content/content.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -27,14 +32,18 @@ import { ContentComponent } from './content/content.component';
     LogInComponent,
     ChannelsComponent,
     UserComponent,
-    ContentComponent
+    ContentComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
@@ -44,7 +53,9 @@ import { ContentComponent } from './content/content.component';
     MatMenuModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
