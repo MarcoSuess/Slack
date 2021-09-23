@@ -106,3 +106,39 @@
     right: 20px;
 
 }
+
+.menu-bar {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    width: 200px;
+    
+}
+
+.profile-menuBox {
+    display: flex;
+    align-items: center;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+
+   
+}
+
+.user-area {
+
+    img {
+        height: 32px;
+    }
+}
+
+.profile-image {
+    height: 32px;
+}
+
+.profile-status {
+    display: flex;
+}

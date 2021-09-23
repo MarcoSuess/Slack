@@ -1,31 +1,63 @@
 <!--toolbar-->
 <mat-toolbar class="toolbar-container">
-  <a routerLink="/"><div class="logo"><img src="assets/img/slacklogo.png"></div></a>
+  <a routerLink="/"
+    ><div class="logo"><img src="assets/img/slacklogo.png" /></div
+  ></a>
   <span>Slack Clone</span>
   <span class="example-spacer"></span>
+
+  <!--   profile-icon -->
   <mat-icon aria-hidden="false" aria-label="Example home icon">
-    <a href="/channels"><div class="user-area">
-      <span class="material-icons-outlined">account_circle</span>
-    </div></a>
+    <div class="user-area">
+      <span *ngIf="!authService.login" class="material-icons-outlined"
+        >account_circle</span
+      >
+      <!-- logged in -->
+
+      <img
+        [matMenuTriggerFor]="menu"
+        class="material-icons-outlined"
+        *ngIf="authService.login"
+        src="assets/img/1.webp"
+      />
+    </div>
   </mat-icon>
 </mat-toolbar>
 
 <!--sidebar-->
 <mat-drawer-container class="sidenav-container">
-<!--channel-list-->
- 
+  <!--channel-list-->
 
-<!--content-->
+  <!--content-->
   <mat-drawer-content class="content-field">
-    
     <router-outlet></router-outlet>
-
-
   </mat-drawer-content>
-
-
-
-  
 </mat-drawer-container>
 
-  
+<!-- profile-menu-bar -->
+<mat-menu  #menu="matMenu">
+
+  <div class="menu-bar">
+
+
+  <div class="profile-menuBox">
+    <img class="profile-image" src="assets/img/1.webp" />
+
+    <div class="profile-info">
+      <h4>Name</h4>
+      <div class="profile-status">
+        <div>
+
+        </div>
+        <p>Status</p>
+
+      </div>
+    </div>
+  </div>
+<!-- 
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+ -->
+</div>
+
+</mat-menu>
