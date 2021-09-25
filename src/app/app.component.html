@@ -9,7 +9,7 @@
   <!--   profile-icon -->
   <mat-icon aria-hidden="false" aria-label="Example home icon">
     <div class="user-area">
-      <span *ngIf="!authService.login" class="material-icons-outlined"
+      <span *ngIf="!userService.user" class="material-icons-outlined"
         >account_circle</span
       >
       <!-- logged in -->
@@ -17,7 +17,7 @@
       <img
         [matMenuTriggerFor]="menu"
         class="material-icons-outlined"
-        *ngIf="authService.login"
+        *ngIf="userService.user"
         src="assets/img/1.webp"
       />
     </div>
@@ -35,21 +35,18 @@
 </mat-drawer-container>
 
 <!-- profile-menu-bar -->
-<mat-menu  #menu="matMenu">
-
+<mat-menu   #menu="matMenu">
   <div class="menu-bar">
-
-
-  <div class="profile-menuBox">
+  <div *ngIf="userService.user" class="profile-menuBox">
     <img class="profile-image" src="assets/img/1.webp" />
 
-    <div class="profile-info">
-      <h4>Name</h4>
+    <div    class="profile-info">
+      <h4>{{userService.user.displayName}}</h4>
       <div class="profile-status">
         <div>
 
         </div>
-        <p>Status</p>
+        <p>Online</p>
 
       </div>
     </div>

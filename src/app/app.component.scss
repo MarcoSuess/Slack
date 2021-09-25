@@ -1,144 +1,132 @@
 .toolbar-container {
-
-  
-    color: white;
-    background-color: #611f69;
-    border: 0.5px solid #8a2d94;
-
+  color: white;
+  background-color: #611f69;
+  border: 0.5px solid #8a2d94;
 }
 
 .sidenav-container {
-    
-    width: 100vw;
-    height: 100vh;
-    overflow-y: scroll;
-        
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .drawer-field {
+  width: 300px;
+  color: white;
+  background-color: #611f69;
+  text-align: center;
 
-    width: 300px;
+  .list-item {
+    color: lightgrey;
+    cursor: pointer;
+  }
+
+  .list-item:hover {
     color: white;
-    background-color: #611f69;
-    text-align: center;
-
-    .list-item {
-        
-        color: lightgrey;
-        cursor: pointer;
-    }
-    
-    .list-item:hover {
-
-        color: white;
-
-    }
-    
+  }
 }
 
 .toolbar-container {
-
-    color: lightgrey;
-    background-color: #611f69;
-
+  color: lightgrey;
+  background-color: #611f69;
 }
 
 .headline {
+  color: white;
 
-    color: white;
-    
-    p{
-        padding-top: 40px;
-        font-size: 20px;
-    }
+  p {
+    padding-top: 40px;
+    font-size: 20px;
+  }
 }
 
 .message {
+  padding-top: 70px;
+  color: white;
 
-    padding-top: 70px;
-    color: white;
-
-    p {
-
-        font-size: 20px;
-    }
+  p {
+    font-size: 20px;
+  }
 }
 
 .logo img {
-
-    height: 50px;
-    width: 50px;
-    cursor: pointer;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
 }
 
 .material-icons-outlined {
-
-    position: absolute;
-    right: 20px;
-    cursor: pointer;
-    color: white;
-
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  color: white;
 }
 
 .list-item {
-
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .list-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .message-container {
-
-    padding-top: 50px;
-    
+  padding-top: 50px;
 }
 
 .message-field {
-
-    position: absolute;
-    bottom: 70px;
-    left: 20px;
-    right: 20px;
-
+  position: absolute;
+  bottom: 70px;
+  left: 20px;
+  right: 20px;
 }
 
 .menu-bar {
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    width: 200px;
-    
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 248px;
 }
 
 .profile-menuBox {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .profile-info {
-    display: flex;
-    flex-direction: column;
-    margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
 
-   
+  h4 {
+    margin: 0;
+  }
 }
 
 .user-area {
-
-    img {
-        height: 32px;
-    }
+  img {
+    height: 32px;
+  }
 }
 
 .profile-image {
-    height: 32px;
+  height: 32px;
 }
 
 .profile-status {
-    display: flex;
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0;
+  }
+
+  div {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: green;
+    margin-right: 4px;
+  }
 }

@@ -7,16 +7,13 @@ import {
 } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { User } from '../services/user';
 import { getAuth, signOut } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  userData: any; // Save logged in user data
-  currentUserID: any;
-  login: boolean = true;
+  currentUserID: any; 
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -37,7 +34,7 @@ export class AuthService {
       .then((result) => {
         // sends verification Email
         result.user?.sendEmailVerification();
-
+        this.setUserData(result.user);
         this.navigateToSignIn();
 
         return result.user?.updateProfile({
@@ -58,9 +55,7 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         console.log(result.user);
-        this.setUserData(result.user);
         this.currentUserID = result.user?.uid;
-        this.login = true;
         this.navigateToBoard();
       })
       .catch((error) => {
@@ -71,7 +66,7 @@ export class AuthService {
   }
 
   navigateToBoard() {
-    this.router.navigateByUrl('/channels/' + this.currentUserID);
+    this.router.navigateByUrl('/dashboard/' + this.currentUserID);
   }
 
   navigateToSignIn() {
@@ -82,16 +77,19 @@ export class AuthService {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
-    const userData: User = {
+    const userData = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
+      online: false
     };
     return userRef.set(userData, {
       merge: true,
     });
+
+    
   }
 
   signOut() {

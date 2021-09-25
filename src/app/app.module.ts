@@ -15,7 +15,6 @@ import {MatListModule} from '@angular/material/list';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
-import { ChannelsComponent } from './channels/channels.component';
 import { UserComponent } from './user/user.component';
 import {MatCardModule} from '@angular/material/card';
 import { ContentComponent } from './content/content.component';
@@ -26,17 +25,18 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthService } from './shared/services/auth.service';
 import { FormsModule }   from '@angular/forms';
  import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChannelsComponent,
     UserComponent,
     ContentComponent,
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    DashboardComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

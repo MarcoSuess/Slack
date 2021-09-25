@@ -1,7 +1,7 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ChannelsComponent } from './channels/channels.component';
 import { ContentComponent } from './content/content.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AuthService } from './shared/services/auth.service';
 // import { LogInComponent } from './log-in/log-in.component';
@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'verify-email-address', component: VerifyEmailComponent},
 
-  {path: 'channels/:id', component: ChannelsComponent},
+  {path: 'dashboard/:id', component: DashboardComponent},
   {path: 'content', component: ContentComponent},
   // {path: '', component: LogInComponent},
 
