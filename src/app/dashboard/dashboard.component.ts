@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 import { UserService } from '../shared/user.service';
@@ -9,10 +10,13 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  allUser: any = [];
+  
   constructor(
     private route: ActivatedRoute,
     public userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private firestore: AngularFirestore
   ) {}
 
   ngOnInit(): void {
@@ -22,5 +26,13 @@ export class DashboardComponent implements OnInit {
       console.log(params.id);
       this.userService.loadUserData(params.id);
     });
+
+    this
+    .firestore
+    .collection('users')
+    .valueChanges()
+    .subscribe((user) => {
+      this.allUser = user;
+    })
   }
 }

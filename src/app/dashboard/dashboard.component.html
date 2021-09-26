@@ -15,17 +15,14 @@
         <div class="message"><p><b>Direktnachrichten</b></p></div>
         <div class="list-container">
           <mat-list class="list">
-            <mat-list-item class="list-item"><mat-icon><span class="user-icon">account_circle</span></mat-icon>UserName1</mat-list-item>
-            <mat-list-item class="list-item"><mat-icon><span class="user-icon">account_circle</span></mat-icon>UserName2</mat-list-item>
-            <mat-list-item class="list-item"><mat-icon><span class="user-icon">account_circle</span></mat-icon>UserName3</mat-list-item>
-            <mat-list-item class="list-item"><mat-icon><span class="user-icon">account_circle</span></mat-icon>UserName4</mat-list-item>
+            <mat-list-item *ngFor="let user of allUser" class="list-item"><mat-icon><span class="user-icon">account_circle</span></mat-icon>{{ user.displayName }}</mat-list-item>
           </mat-list>
         
         </div>
       </mat-drawer>
     
     
-    <!--<div class="message-container">
+    <div class="message-container">
       <p>
         <mat-form-field class="message-field" appearance="outline">
           <mat-label>Nachricht senden</mat-label>
@@ -38,6 +35,6 @@
       </p>
     
     </div>
-    -->
+   
     
     </mat-drawer-container>
