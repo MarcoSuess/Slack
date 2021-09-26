@@ -14,6 +14,7 @@ import { getAuth, signOut } from 'firebase/auth';
 })
 export class AuthService {
   currentUserID: any; 
+  loadScreen: boolean = false;
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -34,12 +35,8 @@ export class AuthService {
       .then((result) => {
         // sends verification Email
         result.user?.sendEmailVerification();
-        this.setUserData(result.user);
+        this.setUserData(result.user, name);
         this.navigateToSignIn();
-
-        return result.user?.updateProfile({
-          displayName: name,
-        });
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -50,6 +47,8 @@ export class AuthService {
 
   signInUser(email: string, password: string) {
     console.log(this.afAuth);
+
+    this.loadScreen = true;
 
     this.afAuth
       .signInWithEmailAndPassword(email, password)
@@ -73,17 +72,18 @@ export class AuthService {
     this.router.navigateByUrl('/sign-in');
   }
 
-  setUserData(user: any) {
+  setUserData(user: any, name:string) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
     const userData = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
+      displayName: name,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
-      online: false
+      online: false,
+      status: ''
     };
     return userRef.set(userData, {
       merge: true,

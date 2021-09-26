@@ -83,50 +83,12 @@
   right: 20px;
 }
 
-.menu-bar {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  width: 248px;
-}
-
-.profile-menuBox {
-  display: flex;
-  align-items: center;
-}
-
-.profile-info {
-  display: flex;
-  flex-direction: column;
-  margin-left: 16px;
-
-  h4 {
-    margin: 0;
-  }
-}
-
 .user-area {
   img {
     height: 32px;
   }
 }
 
-.profile-image {
-  height: 32px;
-}
 
-.profile-status {
-  display: flex;
-  align-items: center;
-  p {
-    margin: 0;
-  }
 
-  div {
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-    background-color: green;
-    margin-right: 4px;
-  }
-}
+

@@ -35,26 +35,6 @@
 </mat-drawer-container>
 
 <!-- profile-menu-bar -->
-<mat-menu   #menu="matMenu">
-  <div class="menu-bar">
-  <div *ngIf="userService.user" class="profile-menuBox">
-    <img class="profile-image" src="assets/img/1.webp" />
-
-    <div    class="profile-info">
-      <h4>{{userService.user.displayName}}</h4>
-      <div class="profile-status">
-        <div>
-
-        </div>
-        <p>Online</p>
-
-      </div>
-    </div>
-  </div>
-<!-- 
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
- -->
-</div>
-
+<mat-menu #menu="matMenu">
+  <app-menu-bar *ngIf="userService.user"></app-menu-bar>
 </mat-menu>

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,6 +26,11 @@ import { AuthService } from './shared/services/auth.service';
 import { FormsModule }   from '@angular/forms';
  import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import { DialogUserStatusComponent } from './dialog-user-status/dialog-user-status.component';
+import { PickerModule } from '@ctrl/ngx-emoji-mart'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +41,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    DashboardComponent
+    DashboardComponent,
+    MenuBarComponent,
+    DialogUserStatusComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -53,7 +60,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatMenuModule,
     MatCardModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    PickerModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     AuthService

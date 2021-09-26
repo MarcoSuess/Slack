@@ -1,0 +1,42 @@
+<div class="menu-bar">
+  <div *ngIf="userService.user" class="profile-menuBox">
+    <img class="profile-image" src="assets/img/1.webp" />
+
+    <div class="profile-info">
+      <h4>{{ userService.user.displayName }}</h4>
+      <div class="profile-status">
+        <div
+          [ngStyle]="{
+            'background-color': userService.user.online ? 'green' : 'red'
+          }"
+        ></div>
+        <p *ngIf="userService.user.online">Online</p>
+        <p *ngIf="!userService.user.online">Offline</p>
+      </div>
+    </div>
+  </div>
+
+  <button
+    *ngIf="userService.user.status == '' || undefined"
+    (click)="openDialog()"
+    (mouseover)="changeText = true"
+    (mouseout)="changeText = false"
+    class="status-btn"
+  >
+    <p *ngIf="!changeText">😶</p>
+    <p *ngIf="changeText">😃</p>
+    <h5>Update your status</h5>
+  </button>
+
+  <button
+    (click)="openDialog()"
+    class="status-btn"
+    *ngIf="userService.user.status"
+    (mouseover)="changeText = true"
+    (mouseout)="changeText = false"
+  >
+
+    <p *ngIf="changeText">🖋</p>
+    <p *ngIf="!changeText">{{ userService.user.status }}</p>
+  </button>
+</div>

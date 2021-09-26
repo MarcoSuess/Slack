@@ -1,0 +1,13 @@
+input {
+    width: 300px;
+    height: 40px;
+    text-indent: 10px;
+}
+.mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        margin: 0px 8px 0px 8px;
+    }
+}
