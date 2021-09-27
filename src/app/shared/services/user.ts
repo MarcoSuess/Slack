@@ -6,6 +6,7 @@ export class User {
   public emailVerified: boolean | undefined;
   public online: boolean | undefined;
   public status: string | undefined;
+  public privateChatUID:any =  [];
 
   constructor() {}
 
@@ -18,6 +19,7 @@ export class User {
       emailVerified: this.emailVerified,
       online: this.online,
       status: this.status,
+      privateChatUID: this.privateChatUID
     };
   }
 }

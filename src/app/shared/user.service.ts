@@ -27,6 +27,7 @@ export class UserService {
         this.user.emailVerified = currentUser.emailVerified;
         this.user.online = true;
         this.user.status = currentUser.status;
+        this.user.privateChatUID = currentUser.privateChatUID
       });
   }
 
@@ -51,5 +52,29 @@ export class UserService {
       .collection('users')
       .doc(this.user.uid)
       .update(this.user.toJson());
+  }
+
+
+
+  saveOtherUserData(user:any) {
+
+    
+    this.firestore
+      .collection('users')
+      .doc(user.uid)
+      .update(this.OtherUserToJson(user)) 
+  }
+
+  OtherUserToJson(user:any) {
+    return {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified,
+      online: user.online,
+      status: user.status,
+      privateChatUID: user.privateChatUID
+    };
   }
 }

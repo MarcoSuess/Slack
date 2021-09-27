@@ -21,8 +21,12 @@
       <mat-list class="list">
         <mat-list-item
           *ngFor="let user of userService.allUser"
+          (click)="goToChat(user)"
           class="list-item"
-          ><mat-icon><span class="user-icon">account_circle</span></mat-icon
+          ><mat-icon 
+            ><span  class="user-icon"
+              >account_circle</span
+            ></mat-icon
           >{{ user.displayName }}</mat-list-item
         >
       </mat-list>
@@ -30,5 +34,4 @@
   </mat-drawer>
 
   <app-message></app-message>
- 
 </mat-drawer-container>

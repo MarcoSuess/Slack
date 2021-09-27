@@ -83,7 +83,8 @@ export class AuthService {
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
       online: false,
-      status: ''
+      status: '',
+      privateChatUID: []
     };
     return userRef.set(userData, {
       merge: true,
