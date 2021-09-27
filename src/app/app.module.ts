@@ -30,6 +30,7 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { DialogUserStatusComponent } from './dialog-user-status/dialog-user-status.component';
 import { PickerModule } from '@ctrl/ngx-emoji-mart'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MessageComponent } from './message/message.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     VerifyEmailComponent,
     DashboardComponent,
     MenuBarComponent,
-    DialogUserStatusComponent
+    DialogUserStatusComponent,
+    MessageComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

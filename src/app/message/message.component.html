@@ -1,0 +1,33 @@
+<div class="message-container">
+  <div class="message-title">
+    <h3>#Chat Title</h3>
+  </div>
+
+  <div class="message-show-container">
+    <div class="scroll-container">
+      <div class="message-user-container">
+        <div>
+          <div class="message-userData">
+            <img src="assets/img/1.webp" />
+            <h4>Name</h4>
+            <p>Uhrzeit</p>
+          </div>
+          <p>Text</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>
+    <mat-form-field class="message-field" appearance="outline">
+      <mat-label>Nachricht senden</mat-label>
+      <input #inputText [(ngModel)]="text" matInput placeholder="Nachricht senden" />
+      <mat-icon matSuffix
+        ><span (click)="sendMessage()" class="material-icons-outlined">
+          send
+        </span></mat-icon
+      >
+      <mat-hint></mat-hint>
+    </mat-form-field>
+  </p>
+</div>

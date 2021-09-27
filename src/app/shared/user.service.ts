@@ -8,10 +8,11 @@ import { User } from './services/user';
 })
 export class UserService {
   user: User | any;
+  allUser: any = [];
 
   constructor(private firestore: AngularFirestore) {}
 
-  loadUserData(paramsID: any) {
+  loadCurrentUserData(paramsID: any) {
     this.user = new User();
     this.firestore
       .collection('users')
@@ -28,6 +29,20 @@ export class UserService {
         this.user.status = currentUser.status;
       });
   }
+
+
+  loadAllUserData() {
+    this
+    .firestore
+    .collection('users')
+    .valueChanges()
+    .subscribe((user) => {
+      console.log(user);
+      
+      this.allUser = user;
+    })
+  }
+
 
   saveUserData() {
     console.log(this.user);

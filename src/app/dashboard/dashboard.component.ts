@@ -10,7 +10,7 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  allUser: any = [];
+
   
   constructor(
     private route: ActivatedRoute,
@@ -24,15 +24,11 @@ export class DashboardComponent implements OnInit {
 
     this.route.params.subscribe((params) => {
       console.log(params.id);
-      this.userService.loadUserData(params.id);
+      this.userService.loadCurrentUserData(params.id);
     });
 
-    this
-    .firestore
-    .collection('users')
-    .valueChanges()
-    .subscribe((user) => {
-      this.allUser = user;
-    })
+    this.userService.loadAllUserData();
+
+
   }
 }
