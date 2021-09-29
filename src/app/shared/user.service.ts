@@ -32,15 +32,14 @@ export class UserService {
   }
 
 
-  loadAllUserData() {
+   loadAllUserData() {
     this
     .firestore
     .collection('users')
     .valueChanges()
     .subscribe((user) => {
-      console.log(user);
-      
       this.allUser = user;
+      console.log(user);
     })
   }
 
@@ -63,6 +62,7 @@ export class UserService {
       .collection('users')
       .doc(user.uid)
       .update(this.OtherUserToJson(user)) 
+      
   }
 
   OtherUserToJson(user:any) {

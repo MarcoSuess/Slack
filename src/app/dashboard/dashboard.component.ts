@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ChatService } from '../shared/chat.service';
 import { AuthService } from '../shared/services/auth.service';
 import { UserService } from '../shared/user.service';
 
@@ -15,7 +16,8 @@ export class DashboardComponent implements OnInit {
     public userService: UserService,
     private authService: AuthService,
     private firestore: AngularFirestore,
-    public router: Router
+    public router: Router,
+    public chatService: ChatService
   ) {}
 
   ngOnInit(): void {
@@ -30,44 +32,49 @@ export class DashboardComponent implements OnInit {
   }
 
   goToChat(user: any) {
-    console.log(this.userService.user.privateChatUID.length);
+    let currentUserUID = this.userService.user.uid;
 
-    this.userService.user.privateChatUID.forEach((chatuid:any) => {
-  
-    
-        
-        if (chatuid == user.privateChatUID) {
-          this.navigateToChat();
-        } else {
-          this.addPrivateChatUID(user);
-        }
-      
+    var indexOfUserUID = user.privateChatUID.findIndex(function (
+      item: any,
+      i: any
+    ) {
+      return item.userUID === currentUserUID;
     });
 
-
-
- 
+    if (indexOfUserUID >= 0) {
+      this.navigateToChat(user.privateChatUID[indexOfUserUID].chatID);
+    } else {
+      this.addPrivateChatUID(user);
+    }
   }
 
   addPrivateChatUID(user: any) {
-    let privateChatUID = String(user.uid + this.userService.user.uid);
+    let currentUser = {
+      userUID: user.uid,
+      chatID: this.userService.user.uid + user.uid,
+    };
 
+    let pickedUser = {
+      userUID: this.userService.user.uid,
+      chatID: this.userService.user.uid + user.uid,
+    };
 
-    this.userService.user.privateChatUID.push(privateChatUID);
-    console.log('test');
-
-    user.privateChatUID.push(privateChatUID);
+    this.userService.user.privateChatUID.push(currentUser);
     this.userService.saveUserData();
+
+    user.privateChatUID.push(pickedUser);
     this.userService.saveOtherUserData(user);
 
-    console.log(this.userService.user);
+    this.chatService.createNewChat(this.userService.user.uid + user.uid);
+
+    this.navigateToChat(this.userService.user.uid + user.uid);
   }
 
-  navigateToChat() {
-    /*     this.router.navigateByUrl('/dashboard/' + this.currentUserID);
-     */
+  navigateToChat(chatUID: any) {
+    this.router.navigateByUrl(
+      '/dashboard/' + this.userService.user.uid + '/chat/' + chatUID
+    );
 
-    console.log('navigate');
-
+    console.log('navigate', chatUID);
   }
 }

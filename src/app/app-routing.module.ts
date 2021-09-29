@@ -1,8 +1,9 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+  import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { MessageComponent } from './message/message.component';
 import { AuthService } from './shared/services/auth.service';
 // import { LogInComponent } from './log-in/log-in.component';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -18,7 +19,7 @@ const routes: Routes = [
   {path: 'sign-up', component: SignUpComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'verify-email-address', component: VerifyEmailComponent},
-
+  {path: 'dashboard/:id/chat/:id', component: MessageComponent},
   {path: 'dashboard/:id', component: DashboardComponent},
   {path: 'content', component: ContentComponent},
   // {path: '', component: LogInComponent},

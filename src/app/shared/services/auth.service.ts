@@ -1,4 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
+import { async } from '@angular/core/testing';
 import { FirebaseApp } from '@angular/fire/compat';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
@@ -8,12 +9,14 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { getAuth, signOut } from 'firebase/auth';
+import { ChatService } from '../chat.service';
+import { UserService } from '../user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  currentUserID: any; 
+  currentUserID: any;
   loadScreen: boolean = false;
 
   constructor(
@@ -21,13 +24,10 @@ export class AuthService {
     public firebase: FirebaseApp,
     public afAuth: AngularFireAuth, // Inject Firestore auth service
     public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone, // NgZone service to remove outside scope warning
+    public chatService: ChatService,
+    public userService: UserService
   ) {}
-
-
-
-
-
 
   signUpUser(email: string, password: string, name: string) {
     this.afAuth
@@ -72,7 +72,7 @@ export class AuthService {
     this.router.navigateByUrl('/sign-in');
   }
 
-  setUserData(user: any, name:string) {
+  setUserData(user: any, name: string) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
@@ -84,13 +84,11 @@ export class AuthService {
       emailVerified: user.emailVerified,
       online: false,
       status: '',
-      privateChatUID: []
+      privateChatUID: [],
     };
     return userRef.set(userData, {
       merge: true,
     });
-
-    
   }
 
   signOut() {
