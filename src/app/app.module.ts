@@ -45,7 +45,8 @@ import { MessageComponent } from './message/message.component';
     DashboardComponent,
     MenuBarComponent,
     DialogUserStatusComponent,
-    MessageComponent
+    MessageComponent,
+    
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

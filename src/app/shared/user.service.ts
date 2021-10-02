@@ -55,9 +55,7 @@ export class UserService {
 
 
 
-  saveOtherUserData(user:any) {
-
-    
+  saveOtherUserData(user:any) {    
     this.firestore
       .collection('users')
       .doc(user.uid)

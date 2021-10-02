@@ -11,6 +11,8 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+
+
   constructor(
     private route: ActivatedRoute,
     public userService: UserService,
@@ -74,7 +76,6 @@ export class DashboardComponent implements OnInit {
     this.router.navigateByUrl(
       '/dashboard/' + this.userService.user.uid + '/chat/' + chatUID
     );
-
     console.log('navigate', chatUID);
   }
 }
