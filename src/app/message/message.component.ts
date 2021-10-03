@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ChatService } from '../shared/chat.service';
 import { UserService } from '../shared/user.service';
 
@@ -15,35 +15,33 @@ export class MessageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public chatService: ChatService,
-    public userService: UserService
+    public userService: UserService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       console.log(params.id);
+    
+          
       this.chatService.loadCurrentChat(params.id);
     });
   }
 
   sendMessage() {
     let date = new Date();
-    let getTime  = date.getHours() + ":" + date.getMinutes();
-
- 
-      
-    
+    let getTime = date.getHours() + ':' + date.getMinutes();
 
     console.log(this.text);
     this.inputText.nativeElement.value = '';
     this.chatService.chat.text.push({
       name: this.userService.user.displayName,
-      time : getTime,
+      time: getTime,
       image: this.userService.user.photoURL,
       message: this.text,
-      answer: []
+      answer: [],
     });
 
-    this.chatService.updateCurrentChat(); 
-
+    this.chatService.updateCurrentChat();
   }
 }
