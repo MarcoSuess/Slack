@@ -35,9 +35,24 @@
 .headline {
   color: white;
 
+ 
+
   p {
+    position: relative;
     padding-top: 40px;
     font-size: 20px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  mat-icon {
+    position: absolute;
+    right: 8px;
+    
+    &:hover {
+      background-color:grey;
+    }
   }
 }
 

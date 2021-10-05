@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ChatService } from '../shared/chat.service';
 import { UserService } from '../shared/user.service';
 
@@ -15,16 +15,14 @@ export class MessageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public chatService: ChatService,
-    public userService: UserService,
-    private router: Router
+    public userService: UserService
   ) {}
 
-  ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      console.log(params.id);
-    
-          
-      this.chatService.loadCurrentChat(params.id);
+  async ngOnInit() {
+    let location = await this.chatService.loadCurrentChatroom();
+  
+    await this.route.params.subscribe((params) => {
+      this.chatService.loadCurrentChat(params.id, location);
     });
   }
 

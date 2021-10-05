@@ -31,6 +31,7 @@ import { DialogUserStatusComponent } from './dialog-user-status/dialog-user-stat
 import { PickerModule } from '@ctrl/ngx-emoji-mart'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MessageComponent } from './message/message.component';
+import { DialogCreateChannelComponent } from './dialog-create-channel/dialog-create-channel.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { MessageComponent } from './message/message.component';
     MenuBarComponent,
     DialogUserStatusComponent,
     MessageComponent,
+    DialogCreateChannelComponent,
     
   ],
   imports: [

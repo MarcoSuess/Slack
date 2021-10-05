@@ -3,6 +3,7 @@ import {
   AngularFirestore,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
+import * as firebase from 'firebase/compat';
 import { Chat } from './services/chat';
 import { UserService } from './user.service';
 
@@ -31,11 +32,27 @@ export class ChatService {
     });
   }
 
-  loadCurrentChat(paramsID: any) {
+  createNewChannel() {
+    const newID = this.afs.createId();
+ 
+
+    const channelRef: AngularFirestoreDocument<any> = this.afs.doc(
+      `channels/${newID}`
+    );
+    const channelData = {
+      text: [],
+    };
+    return channelRef.set(channelData, {
+      merge: true,
+    });
+    
+  }
+
+  loadCurrentChat(paramsID: any, location: any) {
     this.currentChatID = paramsID;
     this.chat = new Chat();
     this.firestore
-      .collection('chats')
+      .collection(location)
       .doc(paramsID)
       .valueChanges()
       .subscribe((chat: any) => {
@@ -48,5 +65,18 @@ export class ChatService {
       .collection('chats')
       .doc(this.currentChatID)
       .update(this.chat.toJson());
+  }
+
+  saveCurrentChatroom(location: string) {
+    localStorage.setItem('chatRoom', location);
+  }
+
+  loadCurrentChatroom() {
+    let location = localStorage.getItem('chatRoom');
+    return location;
+  }
+
+  deleteCurrentChatroom() {
+    localStorage.clear();
   }
 }

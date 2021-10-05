@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DialogCreateChannelComponent } from '../dialog-create-channel/dialog-create-channel.component';
 import { ChatService } from '../shared/chat.service';
 import { AuthService } from '../shared/services/auth.service';
 import { UserService } from '../shared/user.service';
@@ -12,6 +14,8 @@ import { UserService } from '../shared/user.service';
 })
 export class DashboardComponent implements OnInit {
 
+  showAdd: boolean;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -19,10 +23,14 @@ export class DashboardComponent implements OnInit {
     private authService: AuthService,
     private firestore: AngularFirestore,
     public router: Router,
-    public chatService: ChatService
-  ) {}
+    public chatService: ChatService,
+    public dialog: MatDialog
+  ) {
+    this.showAdd = false;
+  }
 
   ngOnInit(): void {
+ 
     this.authService.loadScreen = false;
 
     this.route.params.subscribe((params) => {
@@ -32,6 +40,12 @@ export class DashboardComponent implements OnInit {
 
     this.userService.loadAllUserData();
   }
+
+
+  openDialog() {
+    this.dialog.open(DialogCreateChannelComponent);
+  }
+
 
   goToChat(user: any) {
     let currentUserUID = this.userService.user.uid;
@@ -72,7 +86,13 @@ export class DashboardComponent implements OnInit {
     this.navigateToChat(this.userService.user.uid + user.uid);
   }
 
+
+
+
   navigateToChat(chatUID: any) {
+
+    this.chatService.saveCurrentChatroom('chats')
+
     this.router.navigateByUrl(
       '/dashboard/' + this.userService.user.uid + '/chat/' + chatUID
     );

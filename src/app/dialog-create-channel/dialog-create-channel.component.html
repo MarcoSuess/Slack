@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Create Channel</h2>
+<div mat-dialog-content>
+  <input [(ngModel)]="channelName" placeholder="Channel Name" type="text"  />
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button *ngIf="channelName" (click)="createChannel()" mat-button mat-dialog-close>Create</button>
+</div>

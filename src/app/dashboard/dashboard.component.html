@@ -1,15 +1,14 @@
 <mat-drawer-container class="sidenav-container">
   <mat-drawer class="drawer-field" mode="side" opened
-    ><div class="headline">
-      <p><b>Channels</b></p>
+    ><div (mouseenter)="showAdd=true" (mouseleave)="showAdd=false" class="headline">
+      <p>
+        <b>Channels</b>
+        <mat-icon (click)="openDialog()"   *ngIf="showAdd" >add</mat-icon>
+      </p>
     </div>
     <div class="list-container">
       <mat-list class="list">
         <mat-list-item class="list-item"># allgemein</mat-list-item>
-        <mat-list-item class="list-item"># news</mat-list-item>
-        <mat-list-item class="list-item"># feedback</mat-list-item>
-        <mat-list-item class="list-item"># gruppe</mat-list-item>
-        <mat-list-item class="list-item"># hilfe</mat-list-item>
       </mat-list>
     </div>
 
@@ -23,10 +22,7 @@
           *ngFor="let user of userService.allUser"
           (click)="goToChat(user)"
           class="list-item"
-          ><mat-icon 
-            ><span  class="user-icon"
-              >account_circle</span
-            ></mat-icon
+          ><mat-icon><span class="user-icon">account_circle</span></mat-icon
           >{{ user.displayName }}</mat-list-item
         >
       </mat-list>
@@ -34,4 +30,3 @@
   </mat-drawer>
   <router-outlet></router-outlet>
 </mat-drawer-container>
-
