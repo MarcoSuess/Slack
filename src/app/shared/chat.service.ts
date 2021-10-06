@@ -13,6 +13,7 @@ import { UserService } from './user.service';
 export class ChatService {
   chat: Chat | any;
   currentChatID: string | undefined;
+  allChannels: any;
 
   constructor(
     public userService: UserService,
@@ -32,7 +33,7 @@ export class ChatService {
     });
   }
 
-  createNewChannel() {
+  createNewChannel(channelName: any) {
     const newID = this.afs.createId();
  
 
@@ -40,6 +41,8 @@ export class ChatService {
       `channels/${newID}`
     );
     const channelData = {
+      name:channelName,
+      ID: newID,
       text: [],
     };
     return channelRef.set(channelData, {
@@ -60,11 +63,21 @@ export class ChatService {
       });
   }
 
-  updateCurrentChat() {
+  updateCurrentChat(location: string) {
     this.firestore
-      .collection('chats')
+      .collection(location)
       .doc(this.currentChatID)
       .update(this.chat.toJson());
+  }
+
+  loadAllChannels() {
+    this
+    .firestore
+    .collection('channels')
+    .valueChanges()
+    .subscribe((channel) => {      
+      this.allChannels = channel;      
+    })
   }
 
   saveCurrentChatroom(location: string) {

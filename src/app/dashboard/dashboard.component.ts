@@ -13,9 +13,7 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-
   showAdd: boolean;
-
 
   constructor(
     private route: ActivatedRoute,
@@ -29,23 +27,21 @@ export class DashboardComponent implements OnInit {
     this.showAdd = false;
   }
 
-  ngOnInit(): void {
- 
+  async ngOnInit() {
     this.authService.loadScreen = false;
 
-    this.route.params.subscribe((params) => {
+    await this.route.params.subscribe((params) => {
       console.log(params.id);
       this.userService.loadCurrentUserData(params.id);
     });
 
-    this.userService.loadAllUserData();
+    await this.userService.loadAllUserData();
+    await this.chatService.loadAllChannels();
   }
-
 
   openDialog() {
     this.dialog.open(DialogCreateChannelComponent);
   }
-
 
   goToChat(user: any) {
     let currentUserUID = this.userService.user.uid;
@@ -86,16 +82,21 @@ export class DashboardComponent implements OnInit {
     this.navigateToChat(this.userService.user.uid + user.uid);
   }
 
-
-
-
   navigateToChat(chatUID: any) {
-
-    this.chatService.saveCurrentChatroom('chats')
+    this.chatService.deleteCurrentChatroom();
+    this.chatService.saveCurrentChatroom('chats');
 
     this.router.navigateByUrl(
       '/dashboard/' + this.userService.user.uid + '/chat/' + chatUID
     );
-    console.log('navigate', chatUID);
+  }
+
+  goToChannel(channel: any) {
+    this.chatService.deleteCurrentChatroom();
+    this.chatService.saveCurrentChatroom('channels');
+
+    this.router.navigateByUrl(
+      '/dashboard/' + this.userService.user.uid + '/channel/' + channel.ID
+    );
   }
 }

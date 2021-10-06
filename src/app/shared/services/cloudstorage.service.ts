@@ -21,7 +21,7 @@ export class CloudstorageService {
     // Create a root reference
     const storage = getStorage();
 
-    // Create a reference to 'mountains.jpg'
+    // Create a reference to 'uploadIMG'
     const mountainsRef = ref(storage, this.fileToUpload);
 
     // Create a reference to 'images/mountains.jpg'

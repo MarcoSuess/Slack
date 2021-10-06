@@ -6,9 +6,9 @@
         <mat-icon (click)="openDialog()"   *ngIf="showAdd" >add</mat-icon>
       </p>
     </div>
-    <div class="list-container">
+    <div *ngFor="let channel of this.chatService.allChannels " class="list-container">
       <mat-list class="list">
-        <mat-list-item class="list-item"># allgemein</mat-list-item>
+        <mat-list-item (click)="goToChannel(channel)" class="list-item"># {{channel.name}}</mat-list-item>
       </mat-list>
     </div>
 

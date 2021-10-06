@@ -10,6 +10,8 @@ import { UserService } from '../shared/user.service';
 })
 export class MessageComponent implements OnInit {
   text: any;
+  currentlocation: any;
+
   @ViewChild('inputText') inputText: any;
 
   constructor(
@@ -19,10 +21,10 @@ export class MessageComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    let location = await this.chatService.loadCurrentChatroom();
-  
+    this.currentlocation = await this.chatService.loadCurrentChatroom();
+
     await this.route.params.subscribe((params) => {
-      this.chatService.loadCurrentChat(params.id, location);
+      this.chatService.loadCurrentChat(params.id, this.currentlocation);
     });
   }
 
@@ -30,7 +32,6 @@ export class MessageComponent implements OnInit {
     let date = new Date();
     let getTime = date.getHours() + ':' + date.getMinutes();
 
-    console.log(this.text);
     this.inputText.nativeElement.value = '';
     this.chatService.chat.text.push({
       name: this.userService.user.displayName,
@@ -40,6 +41,6 @@ export class MessageComponent implements OnInit {
       answer: [],
     });
 
-    this.chatService.updateCurrentChat();
+    this.chatService.updateCurrentChat(this.currentlocation);
   }
 }
