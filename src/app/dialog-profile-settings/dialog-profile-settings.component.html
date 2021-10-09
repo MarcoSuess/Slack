@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Profile setting</h2>
+<div mat-dialog-content>
+   
+      <input type="file"  (change)="cloudstorageService.handleFileInput($event)" >
+
+
+
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button (click)="saveSettings()" mat-button mat-dialog-close>Save</button>
+
+</div>
+
+

@@ -80,7 +80,7 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: name,
-      photoURL: user.photoURL,
+      photoURL: 'assets/img/1.webp',
       emailVerified: user.emailVerified,
       online: false,
       status: '',

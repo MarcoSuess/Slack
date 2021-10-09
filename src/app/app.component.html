@@ -18,7 +18,7 @@
         [matMenuTriggerFor]="menu"
         class="material-icons-outlined"
         *ngIf="userService.user"
-        src="assets/img/1.webp"
+        src="{{userService.user.photoURL}}"
       />
     </div>
   </mat-icon>

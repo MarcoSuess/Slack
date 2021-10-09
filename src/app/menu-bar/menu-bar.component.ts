@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogUserStatusComponent } from '../dialog-user-status/dialog-user-status.component';
+import { DialogProfileSettingsComponent } from '../dialog-profile-settings/dialog-profile-settings.component';
 
 @Component({
   selector: 'app-menu-bar',
@@ -17,7 +18,10 @@ export class MenuBarComponent implements OnInit {
 
   openDialog() {
   this.dialog.open(DialogUserStatusComponent);
+  }
 
- 
+  openDialogSettings() {
+    this.dialog.open(DialogProfileSettingsComponent);
+
   }
 }

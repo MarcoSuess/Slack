@@ -8,7 +8,7 @@
       <div  *ngFor="let chat of this.chatService.chat.text" class="message-user-container">
       
           <div  class="message-userData">
-            <img src="assets/img/1.webp" />
+            <img src="{{chat.image}}" />
             <h4>{{chat.name}}</h4>
             <p>{{chat.time}}</p>
           </div>

@@ -7,7 +7,7 @@ import { ChatService } from '../shared/chat.service';
   styleUrls: ['./dialog-create-channel.component.scss'],
 })
 export class DialogCreateChannelComponent implements OnInit {
-  channelName: string | undefined;
+  channelName: any;
 
   constructor(public chatService: ChatService) {}
 

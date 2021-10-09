@@ -27,22 +27,19 @@ export class UserService {
         this.user.emailVerified = currentUser.emailVerified;
         this.user.online = true;
         this.user.status = currentUser.status;
-        this.user.privateChatUID = currentUser.privateChatUID
+        this.user.privateChatUID = currentUser.privateChatUID;
       });
   }
 
-
-   loadAllUserData() {
-    this
-    .firestore
-    .collection('users')
-    .valueChanges()
-    .subscribe((user) => {
-      this.allUser = user;
-      console.log(user);
-    })
+  loadAllUserData() {
+    this.firestore
+      .collection('users')
+      .valueChanges()
+      .subscribe((user) => {
+        this.allUser = user;
+        console.log(user);
+      });
   }
-
 
   saveUserData() {
     console.log(this.user);
@@ -53,17 +50,14 @@ export class UserService {
       .update(this.user.toJson());
   }
 
-
-
-  saveOtherUserData(user:any) {    
+  saveOtherUserData(user: any) {
     this.firestore
       .collection('users')
       .doc(user.uid)
-      .update(this.OtherUserToJson(user)) 
-      
+      .update(this.OtherUserToJson(user));
   }
 
-  OtherUserToJson(user:any) {
+  OtherUserToJson(user: any) {
     return {
       uid: user.uid,
       email: user.email,
@@ -72,7 +66,7 @@ export class UserService {
       emailVerified: user.emailVerified,
       online: user.online,
       status: user.status,
-      privateChatUID: user.privateChatUID
+      privateChatUID: user.privateChatUID,
     };
   }
 }
