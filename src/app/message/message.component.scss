@@ -12,6 +12,17 @@
     span {
       cursor: pointer;
     }
+
+    textarea {
+      resize: none;
+    }
+
+  }
+
+  .codeFormat {
+    color: orange;
+    width: auto;
+      
   }
   
   .message-title {

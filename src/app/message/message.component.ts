@@ -11,6 +11,7 @@ import { UserService } from '../shared/user.service';
 export class MessageComponent implements OnInit {
   text: any;
   currentlocation: any;
+  formatText: boolean;
 
   @ViewChild('inputText') inputText: any;
 
@@ -18,7 +19,9 @@ export class MessageComponent implements OnInit {
     private route: ActivatedRoute,
     public chatService: ChatService,
     public userService: UserService
-  ) {}
+  ) {
+    this.formatText = false;
+  }
 
   async ngOnInit() {
     this.currentlocation = await this.chatService.loadCurrentChatroom();
@@ -42,5 +45,17 @@ export class MessageComponent implements OnInit {
     });
 
     this.chatService.updateCurrentChat(this.currentlocation);
+  }
+
+  changeText(value: any) {
+    let replaceValue = value.replace(/^(.)|(.)$/g, '');
+
+    if (value.includes('`' + replaceValue + '`') && replaceValue) {
+      this.formatText = true;
+      console.log(this.formatText);
+    } else if (value.length <= 0) {
+        this.formatText = false;
+    }
+    
   }
 }
