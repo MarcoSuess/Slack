@@ -1,86 +1,78 @@
 .message-container {
-    width: 100%;
-  }
-  
-  .message-field {
-    position: absolute;
-    bottom: 70px;
-    left: 20px;
-    right: 20px;
-    
+  width: 100%;
+}
 
-    span {
-      cursor: pointer;
-    }
+.message-field {
+  position: absolute;
+  bottom: 70px;
+  left: 20px;
+  right: 20px;
 
-    textarea {
-      resize: none;
-    }
-
+  span {
+    cursor: pointer;
   }
 
-  .codeFormat {
-    color: orange;
-    width: auto;
-      
+  textarea {
+    resize: none;
   }
-  
-  .message-title {
-    background-color: #cdd4d5;
-    height: 48px;
-    display: flex;
-    align-items: center;
-  
-    h3 {
-      margin: 0px 0px 0px 20px;
-    }
+}
+
+.codeFormat {
+  color: orange;
+  width: auto;
+}
+
+.message-title {
+  background-color: #cdd4d5;
+  height: 48px;
+  display: flex;
+  align-items: center;
+
+  h3 {
+    margin: 0px 0px 0px 20px;
   }
-  
-  .message-show-container {
-    overflow-y: auto;
-    position: absolute;
-    bottom: 200px;
-    left: 20;
-    left: 20px;
-    right: 20px;
-    top: 100px;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
+}
+
+.message-show-container {
+  overflow-y: auto;
+  position: absolute;
+  bottom: 200px;
+  left: 20;
+  left: 20px;
+  right: 20px;
+  top: 100px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.message-userData {
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 32px;
+    object-fit: cover;
   }
-  
-  .message-userData {
-    display: flex;
-    align-items: center;
-  
-    img {
-      height: 32px;
-      object-fit: cover;
-    }
-  
-    h4 {
-      margin-bottom: 0;
-      margin-left: 8px;
-    }
-  
-    p {
-      margin-bottom: 0;
-      margin-left: 8px;
-    }
+
+  h4 {
+    margin-bottom: 0;
+    margin-left: 8px;
   }
-  
-  .message-user-container {
-      border-bottom: 1px solid grey;
-      margin-bottom: 16px;
-      
+
+  p {
+    margin-bottom: 0;
+    margin-left: 8px;
   }
-  
-  
-  .scroll-container {
-      overflow-y: auto;
-      height: 100%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-  }
+}
+
+.message-user-container {
+  border-bottom: 1px solid grey;
+  margin-bottom: 16px;
+}
+
+.scroll-container {
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+}
