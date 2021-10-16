@@ -14,7 +14,7 @@
           <h4>{{ chat.name }}</h4>
           <p>{{ chat.time }}</p>
         </div>
-        <p>{{ chat.message }}</p>
+        <p [ngClass]="chat.codeFormat ? 'codeFormat' : ''" >{{ chat.message }}</p>
       </div>
     </div>
   </div>
@@ -22,8 +22,10 @@
   <p>
     <mat-form-field class="message-field" appearance="outline">
       <mat-label>Nachricht senden</mat-label>
+    
       <textarea
         #inputText
+        type="text"
         [(ngModel)]="text"
         (ngModelChange)="changeText($event)"
         matInput

@@ -42,6 +42,7 @@ export class MessageComponent implements OnInit {
       image: this.userService.user.photoURL,
       message: this.text,
       answer: [],
+      codeFormat: this.formatText
     });
 
     this.chatService.updateCurrentChat(this.currentlocation);
@@ -51,8 +52,12 @@ export class MessageComponent implements OnInit {
     let replaceValue = value.replace(/^(.)|(.)$/g, '');
 
     if (value.includes('`' + replaceValue + '`') && replaceValue) {
+      this.inputText.nativeElement.value = replaceValue;
       this.formatText = true;
       console.log(this.formatText);
+
+    
+      
     } else if (value.length <= 0) {
         this.formatText = false;
     }
