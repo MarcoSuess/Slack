@@ -27,16 +27,15 @@ export class DashboardComponent implements OnInit {
     this.showAdd = false;
   }
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<any> {
+    await this.userService.loadAllUserData();
+    await this.chatService.loadAllChannels();
     this.authService.loadScreen = false;
 
-    await this.route.params.subscribe((params) => {
+   await  this.route.params.subscribe((params) => {
       console.log(params.id);
       this.userService.loadCurrentUserData(params.id);
     });
-
-    await this.userService.loadAllUserData();
-    await this.chatService.loadAllChannels();
   }
 
   openDialog() {
@@ -62,11 +61,13 @@ export class DashboardComponent implements OnInit {
 
   addPrivateChatUID(user: any) {
     let currentUser = {
+      chatName: user.displayName,
       userUID: user.uid,
       chatID: this.userService.user.uid + user.uid,
     };
 
     let pickedUser = {
+      chatName: this.userService.user.displayName,
       userUID: this.userService.user.uid,
       chatID: this.userService.user.uid + user.uid,
     };

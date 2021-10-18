@@ -12,6 +12,7 @@ export class MessageComponent implements OnInit {
   text: any;
   currentlocation: any;
   formatText: boolean;
+  privateChatData: any | undefined;
 
   @ViewChild('inputText') inputText: any;
 
@@ -28,7 +29,21 @@ export class MessageComponent implements OnInit {
 
     await this.route.params.subscribe((params) => {
       this.chatService.loadCurrentChat(params.id, this.currentlocation);
+
+      if (this.currentlocation == 'chats') {
+        this.privateChatData = this.returnUserData(
+          this.filterPrivateChatUser(params.id)[0].userUID
+        );
+      }
     });
+  }
+
+  filterPrivateChatUser(params: any) {
+    let chatData = this.userService.user.privateChatUID.filter(
+      (privateChatUID: any) => privateChatUID.chatID == params
+    );
+
+    return chatData;
   }
 
   sendMessage() {
@@ -37,12 +52,11 @@ export class MessageComponent implements OnInit {
 
     this.inputText.nativeElement.value = '';
     this.chatService.chat.text.push({
-      name: this.userService.user.displayName,
+      userID: this.userService.user.uid,
       time: getTime,
-      image: this.userService.user.photoURL,
       message: this.text,
       answer: [],
-      codeFormat: this.formatText
+      codeFormat: this.formatText,
     });
 
     this.chatService.updateCurrentChat(this.currentlocation);
@@ -55,12 +69,16 @@ export class MessageComponent implements OnInit {
       this.inputText.nativeElement.value = replaceValue;
       this.formatText = true;
       console.log(this.formatText);
-
-    
-      
     } else if (value.length <= 0) {
-        this.formatText = false;
+      this.formatText = false;
     }
-    
+  }
+
+  returnUserData(userUID: any) {
+    let getUser = this.userService.allUser.filter(
+      (user: { uid: any }) => user.uid == userUID
+    );
+
+    return getUser[0];
   }
 }

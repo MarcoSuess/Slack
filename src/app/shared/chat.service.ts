@@ -26,6 +26,7 @@ export class ChatService {
       `chats/${chatUID}`
     );
     const chatData = {
+      name: 'privateChat',
       text: [],
     };
     return chatRef.set(chatData, {
@@ -35,20 +36,18 @@ export class ChatService {
 
   createNewChannel(channelName: any) {
     const newID = this.afs.createId();
- 
 
     const channelRef: AngularFirestoreDocument<any> = this.afs.doc(
       `channels/${newID}`
     );
     const channelData = {
-      name:channelName,
+      name: channelName,
       ID: newID,
       text: [],
     };
     return channelRef.set(channelData, {
       merge: true,
     });
-    
   }
 
   loadCurrentChat(paramsID: any, location: any) {
@@ -59,6 +58,8 @@ export class ChatService {
       .doc(paramsID)
       .valueChanges()
       .subscribe((chat: any) => {
+        console.log(chat);
+        this.chat.name = chat.name;
         this.chat.text = chat.text;
       });
   }
@@ -71,13 +72,12 @@ export class ChatService {
   }
 
   loadAllChannels() {
-    this
-    .firestore
-    .collection('channels')
-    .valueChanges()
-    .subscribe((channel) => {      
-      this.allChannels = channel;      
-    })
+    this.firestore
+      .collection('channels')
+      .valueChanges()
+      .subscribe((channel) => {
+        this.allChannels = channel;
+      });
   }
 
   saveCurrentChatroom(location: string) {

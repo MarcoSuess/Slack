@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
@@ -25,7 +26,6 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthService } from './shared/services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { DialogUserStatusComponent } from './dialog-user-status/dialog-user-status.component';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
