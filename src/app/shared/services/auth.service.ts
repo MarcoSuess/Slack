@@ -6,6 +6,7 @@ import {
   AngularFirestore,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
+import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { getAuth, signOut } from 'firebase/auth';
@@ -18,6 +19,11 @@ import { UserService } from '../user.service';
 export class AuthService {
   currentUserID: any;
   loadScreen: boolean = false;
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [
+    Validators.required,
+    Validators.minLength(6),
+  ]);
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -29,6 +35,22 @@ export class AuthService {
     public userService: UserService
   ) {}
 
+  getErrorMessageEmail() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.email.hasError('email') ? 'Not a valid email' : '';
+  }
+
+  getErrorMessagePassword() {
+    if (this.password.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.password.hasError('minlength') ? 'min 6 length required' : '';
+  }
+
   signUpUser(email: string, password: string, name: string) {
     this.afAuth
       .createUserWithEmailAndPassword(email, password)
@@ -39,21 +61,19 @@ export class AuthService {
         this.navigateToSignIn();
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        console.log(error);
+        
+        console.log('errorMessage', error.message);
+        console.log('errorCode', error.code);
       });
   }
 
   signInUser(email: string, password: string) {
-    console.log(this.afAuth);
-
-    this.loadScreen = true;
-
     this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log(result.user);
+        this.loadScreen = true;
+
         this.currentUserID = result.user?.uid;
         this.navigateToBoard();
       })

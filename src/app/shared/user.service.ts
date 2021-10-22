@@ -9,8 +9,11 @@ import { User } from './services/user';
 export class UserService {
   user: User | any;
   allUser: any = [];
+  loadCurrentUser: boolean = false;
 
-  constructor(private firestore: AngularFirestore) {}
+  constructor(
+    private firestore: AngularFirestore,
+  ) {}
 
   loadCurrentUserData(paramsID: any) {
     this.user = new User();
@@ -20,6 +23,7 @@ export class UserService {
       .valueChanges()
       .subscribe((currentUser: any) => {
         console.log(currentUser, 'FROM FIRESTORE');
+
         this.user.uid = currentUser.uid;
         this.user.email = currentUser.email;
         this.user.displayName = currentUser.displayName;
@@ -28,6 +32,8 @@ export class UserService {
         this.user.online = true;
         this.user.status = currentUser.status;
         this.user.privateChatUID = currentUser.privateChatUID;
+
+        this.loadCurrentUser = true;
       });
   }
 

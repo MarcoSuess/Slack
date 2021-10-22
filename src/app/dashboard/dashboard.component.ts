@@ -27,12 +27,15 @@ export class DashboardComponent implements OnInit {
     this.showAdd = false;
   }
 
+  ngAfterViewInit() {
+    this.authService.loadScreen = false;
+  }
+
   async ngOnInit(): Promise<any> {
     await this.userService.loadAllUserData();
     await this.chatService.loadAllChannels();
-    this.authService.loadScreen = false;
 
-   await  this.route.params.subscribe((params) => {
+    await this.route.params.subscribe((params) => {
       console.log(params.id);
       this.userService.loadCurrentUserData(params.id);
     });

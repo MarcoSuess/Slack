@@ -12,7 +12,7 @@ export class MessageComponent implements OnInit {
   text: any;
   currentlocation: any;
   formatText: boolean;
-  privateChatData: any | undefined;
+  privateChatData: any;
 
   @ViewChild('inputText') inputText: any;
 
@@ -25,12 +25,14 @@ export class MessageComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.currentlocation = await this.chatService.loadCurrentChatroom();
+    this.currentlocation = this.chatService.loadCurrentChatroom();
 
-    await this.route.params.subscribe((params) => {
+    this.route.params.subscribe((params) => {
       this.chatService.loadCurrentChat(params.id, this.currentlocation);
 
-      if (this.currentlocation == 'chats') {
+      if (this.currentlocation == 'chats' && this.userService.user) {
+        console.log('getUserData');
+
         this.privateChatData = this.returnUserData(
           this.filterPrivateChatUser(params.id)[0].userUID
         );

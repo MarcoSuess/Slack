@@ -28,5 +28,5 @@
       </mat-list>
     </div>
   </mat-drawer>
-  <router-outlet></router-outlet>
+  <router-outlet *ngIf="userService.loadCurrentUser"></router-outlet>
 </mat-drawer-container>
