@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit {
 
   ngAfterViewInit() {
     this.authService.loadScreen = false;
+    this.authService.closeErrorMessage();
   }
 
   async ngOnInit(): Promise<any> {

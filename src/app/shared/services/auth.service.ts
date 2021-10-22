@@ -7,6 +7,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { getAuth, signOut } from 'firebase/auth';
@@ -32,7 +33,8 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone, // NgZone service to remove outside scope warning
     public chatService: ChatService,
-    public userService: UserService
+    public userService: UserService,
+    private _snackBar: MatSnackBar
   ) {}
 
   getErrorMessageEmail() {
@@ -62,9 +64,10 @@ export class AuthService {
       })
       .catch((error) => {
         console.log(error);
-        
+
         console.log('errorMessage', error.message);
         console.log('errorCode', error.code);
+        this.openErrorMessage(error.message);
       });
   }
 
@@ -81,7 +84,16 @@ export class AuthService {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        this.openErrorMessage(error.message);
       });
+  }
+
+  openErrorMessage(message: any) {
+    this._snackBar.open(message);
+  }
+
+  closeErrorMessage() {
+    this._snackBar.ngOnDestroy();
   }
 
   navigateToBoard() {

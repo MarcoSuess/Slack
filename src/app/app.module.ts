@@ -32,6 +32,8 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MessageComponent } from './message/message.component';
 import { DialogCreateChannelComponent } from './dialog-create-channel/dialog-create-channel.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -68,6 +70,7 @@ import { DialogCreateChannelComponent } from './dialog-create-channel/dialog-cre
     MatDialogModule,
     PickerModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

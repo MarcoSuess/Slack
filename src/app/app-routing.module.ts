@@ -24,6 +24,7 @@ const routes: Routes = [
       {
         path: 'chat/:id',
         component: MessageComponent,
+        
       },
       {
         path: 'channel/:id',
