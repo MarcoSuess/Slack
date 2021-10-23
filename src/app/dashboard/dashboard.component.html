@@ -1,14 +1,23 @@
 <mat-drawer-container class="sidenav-container">
   <mat-drawer class="drawer-field" mode="side" opened
-    ><div (mouseenter)="showAdd=true" (mouseleave)="showAdd=false" class="headline">
+    ><div
+      (mouseenter)="showAdd = true"
+      (mouseleave)="showAdd = false"
+      class="headline"
+    >
       <p>
         <b>Channels</b>
-        <mat-icon (click)="openDialog()"   *ngIf="showAdd" >add</mat-icon>
+        <mat-icon (click)="openDialog()" *ngIf="showAdd">add</mat-icon>
       </p>
     </div>
-    <div *ngFor="let channel of this.chatService.allChannels " class="list-container">
+    <div
+      *ngFor="let channel of this.chatService.allChannels"
+      class="list-container"
+    >
       <mat-list class="list">
-        <mat-list-item (click)="goToChannel(channel)" class="list-item"># {{channel.name}}</mat-list-item>
+        <mat-list-item (click)="goToChannel(channel)" class="list-item"
+          ># {{ channel.name }}</mat-list-item
+        >
       </mat-list>
     </div>
 
@@ -22,8 +31,16 @@
           *ngFor="let user of userService.allUser"
           (click)="goToChat(user)"
           class="list-item"
-          ><mat-icon><span class="user-icon">account_circle</span></mat-icon
-          >{{ user.displayName }}</mat-list-item
+        >
+          <div class="user-status">
+            <div
+              [ngStyle]="{
+                'background-color': user.online ? 'green' : 'red'
+              }"
+            ></div>
+            <img src="{{ user.photoURL }}" />
+          </div>
+          {{ user.displayName }}</mat-list-item
         >
       </mat-list>
     </div>

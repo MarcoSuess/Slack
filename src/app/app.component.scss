@@ -6,6 +6,10 @@
   font-size: 1.8rem;
 }
 
+.loggedIn-toolbarContainer {
+  border-bottom: 2px solid white;
+}
+
 .sidenav-container {
   width: 100vw;
   height: 100vh;
@@ -85,5 +89,8 @@
 .user-area {
   img {
     height: 32px;
+    width: 32px;
+    object-fit: cover;
+    border-radius: 4px;
   }
 }

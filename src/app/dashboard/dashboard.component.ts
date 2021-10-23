@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<any> {
+    
     await this.userService.loadAllUserData();
     await this.chatService.loadAllChannels();
 

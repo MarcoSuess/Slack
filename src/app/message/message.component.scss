@@ -22,10 +22,11 @@
 }
 
 .message-title {
-  background-color: #cdd4d5;
+  background-color: #d8d8d8;
   height: 48px;
   display: flex;
   align-items: center;
+  border: 8px solid #3f51b5b8;
 
   h3 {
     margin: 0px 0px 0px 20px;
@@ -50,7 +51,9 @@
   align-items: center;
 
   img {
-    height: 32px;
+    height: 40px;
+    width: 40px;
+    border-radius: 4px;
     object-fit: cover;
   }
 
@@ -74,4 +77,16 @@
   overflow-y: auto;
   height: 100%;
   width: 100%;
+}
+
+.privateChatDescription {
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-left: 20px;
+    height: 32px;
+    width: 32px;
+    object-fit: cover;
+  }
 }

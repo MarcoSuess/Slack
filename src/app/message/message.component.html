@@ -1,15 +1,15 @@
 <div *ngIf="chatService.chat && userService.user" class="message-container">
   <div *ngIf="this.currentlocation == 'channels'" class="message-title">
-    <h3>{{ this.chatService.chat.name }}</h3>
+    <h3># {{ this.chatService.chat.name }}</h3>
   </div>
 
   <div
     *ngIf="this.currentlocation == 'chats' && this.privateChatData"
     class="message-title"
   >
-    <div>
-      <img src="" />
-      <h3>{{ this.privateChatData.displayName}}</h3>
+    <div class="privateChatDescription">
+      <img src="{{this.privateChatData.photoURL}}" />
+      <h3>{{ this.privateChatData.displayName }}</h3>
     </div>
   </div>
 
