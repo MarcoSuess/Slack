@@ -6,3 +6,14 @@ body {
   max-width: 100%;
   overflow: hidden;
 }
+
+
+.disabledIcon {
+  opacity: 0.4;
+  cursor: default !important;
+}
+
+
+.word-break {
+  word-wrap: break-word;
+}

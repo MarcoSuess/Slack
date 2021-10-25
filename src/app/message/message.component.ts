@@ -1,6 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ThisReceiver } from '@angular/compiler';
+import {
+  AfterViewChecked,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ChatService } from '../shared/chat.service';
+import { CloudstorageService } from '../shared/services/cloudstorage.service';
 import { UserService } from '../shared/user.service';
 
 @Component({
@@ -8,20 +16,30 @@ import { UserService } from '../shared/user.service';
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.scss'],
 })
-export class MessageComponent implements OnInit {
+export class MessageComponent implements OnInit, AfterViewChecked {
   text: any;
   currentlocation: any;
   formatText: boolean;
   privateChatData: any;
 
   @ViewChild('inputText') inputText: any;
+  @ViewChild('scrollEnd')
+  private myScrollContainer!: ElementRef;
 
   constructor(
     private route: ActivatedRoute,
     public chatService: ChatService,
-    public userService: UserService
+    public userService: UserService,
+    public cloudstorageService: CloudstorageService
   ) {
     this.formatText = false;
+  }
+
+  scrollToBottom(): void {
+    try {
+      this.myScrollContainer.nativeElement.scrollTop =
+        this.myScrollContainer.nativeElement.scrollHeight;
+    } catch (err) {}
   }
 
   async ngOnInit() {
@@ -38,6 +56,12 @@ export class MessageComponent implements OnInit {
         );
       }
     });
+
+    this.scrollToBottom();
+  }
+
+  ngAfterViewChecked() {
+    this.scrollToBottom();
   }
 
   filterPrivateChatUser(params: any) {
@@ -49,19 +73,21 @@ export class MessageComponent implements OnInit {
   }
 
   sendMessage() {
-    let date = new Date();
-    let getTime = date.getHours() + ':' + date.getMinutes();
+    if (this.text) {
+      let date = new Date();
+      let getTime = date.getHours() + ':' + date.getMinutes();
 
-    this.inputText.nativeElement.value = '';
-    this.chatService.chat.text.push({
-      userID: this.userService.user.uid,
-      time: getTime,
-      message: this.text,
-      answer: [],
-      codeFormat: this.formatText,
-    });
-
-    this.chatService.updateCurrentChat(this.currentlocation);
+      this.inputText.nativeElement.value = '';
+      this.chatService.chat.text.push({
+        userID: this.userService.user.uid,
+        time: getTime,
+        message: this.text,
+        answer: [],
+        codeFormat: this.formatText,
+      });
+      this.text = "";
+      this.chatService.updateCurrentChat(this.currentlocation);
+    }
   }
 
   changeText(value: any) {

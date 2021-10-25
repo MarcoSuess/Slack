@@ -10,11 +10,21 @@
 
   span {
     cursor: pointer;
+    margin-bottom: 8px;
   }
 
   textarea {
     resize: none;
+    height: 6vh;
   }
+}
+
+.input-icons-container {
+  position: absolute;
+  right: 0px;
+  display: flex;
+  bottom: 8px;
+  flex-direction: column;
 }
 
 .codeFormat {
@@ -34,7 +44,6 @@
 }
 
 .message-show-container {
-  overflow-y: auto;
   position: absolute;
   bottom: 200px;
   left: 20;
@@ -51,10 +60,10 @@
   align-items: center;
 
   img {
-    height: 40px;
-    width: 40px;
-    border-radius: 4px;
+    height: 32px;
+    width: 32px;
     object-fit: cover;
+    border-radius: 4px;
   }
 
   h4 {
@@ -69,7 +78,7 @@
 }
 
 .message-user-container {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #9e9e9e;
   margin-bottom: 16px;
 }
 
@@ -88,5 +97,21 @@
     height: 32px;
     width: 32px;
     object-fit: cover;
+  }
+}
+
+.imagePreview {
+
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 10vh;
+  overflow-y: auto;
+  margin-top: 16px;
+
+  img {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    margin: 0px 8px 0px 8px;
   }
 }

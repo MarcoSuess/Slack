@@ -1,6 +1,6 @@
 <div class="menu-bar">
   <div *ngIf="userService.user" class="profile-menuBox">
-    <img class="profile-image" src="{{userService.user.photoURL}}" />
+    <img class="profile-image" src="{{ userService.user.photoURL }}" />
     <div class="profile-info">
       <h4>{{ userService.user.displayName }}</h4>
       <div class="profile-status">
@@ -41,4 +41,6 @@
   <button (click)="openDialogSettings()" class="status-btn">
     Profile settings
   </button>
+
+  <button>Logout</button>
 </div>

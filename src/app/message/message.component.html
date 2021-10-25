@@ -1,4 +1,4 @@
-<div *ngIf="chatService.chat && userService.user" class="message-container">
+<div *ngIf="chatService.chat" class="message-container">
   <div *ngIf="this.currentlocation == 'channels'" class="message-title">
     <h3># {{ this.chatService.chat.name }}</h3>
   </div>
@@ -8,13 +8,19 @@
     class="message-title"
   >
     <div class="privateChatDescription">
-      <img src="{{this.privateChatData.photoURL}}" />
+      <img src="{{ this.privateChatData.photoURL }}" />
       <h3>{{ this.privateChatData.displayName }}</h3>
     </div>
   </div>
 
   <div class="message-show-container">
-    <div class="scroll-container">
+    <div
+      [ngStyle]="{
+        'margin-bottom': cloudstorageService.imageURL.length > 0 ? '64px' : '24px'
+      }"
+      #scrollEnd
+      class="scroll-container"
+    >
       <div
         *ngFor="let chat of this.chatService.chat.text"
         class="message-user-container"
@@ -24,7 +30,7 @@
           <h4>{{ this.returnUserData(chat.userID).displayName }}</h4>
           <p>{{ chat.time }}</p>
         </div>
-        <p [ngClass]="chat.codeFormat ? 'codeFormat' : ''">
+        <p class="word-break" [ngClass]="chat.codeFormat ? 'codeFormat' : ''">
           {{ chat.message }}
         </p>
       </div>
@@ -43,16 +49,34 @@
         matInput
         placeholder="Nachricht senden"
         [ngClass]="formatText ? 'codeFormat' : ''"
-        wrap="soft"
-        style="max-height: 80px"
+        style="max-width: 80%"
       >
       </textarea>
-      <mat-icon matSuffix
-        ><span (click)="sendMessage()" class="material-icons-outlined">
-          send
-        </span></mat-icon
-      >
-      <mat-hint></mat-hint>
+
+      <div *ngIf="cloudstorageService.imageURL" class="imagePreview">
+        <img *ngFor="let img of cloudstorageService.imageURL" [src]="img" />
+      </div>
+
+      <div class="input-icons-container">
+        <label>
+          <span type="file" class="material-icons"> add_a_photo </span>
+          <input
+            type="file"
+            (change)="cloudstorageService.handleFileInput($event)"
+            style="display: none"
+          />
+        </label>
+
+        <mat-icon matSuffix
+          ><span
+            [ngClass]="!this.text ? 'disabledIcon' : ''"
+            (click)="sendMessage()"
+            class="material-icons-outlined"
+          >
+            send
+          </span></mat-icon
+        >
+      </div>
     </mat-form-field>
   </p>
 </div>
