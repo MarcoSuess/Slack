@@ -17,10 +17,11 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./message.component.scss'],
 })
 export class MessageComponent implements OnInit, AfterViewChecked {
-  text: any;
+  text: any = '';
   currentlocation: any;
   formatText: boolean;
   privateChatData: any;
+  showDeleteBTN: boolean = false;
 
   @ViewChild('inputText') inputText: any;
   @ViewChild('scrollEnd')
@@ -73,7 +74,8 @@ export class MessageComponent implements OnInit, AfterViewChecked {
   }
 
   sendMessage() {
-    if (this.text) {
+    if (this.text || this.cloudstorageService.uploaded) {
+      
       let date = new Date();
       let getTime = date.getHours() + ':' + date.getMinutes();
 
@@ -82,10 +84,14 @@ export class MessageComponent implements OnInit, AfterViewChecked {
         userID: this.userService.user.uid,
         time: getTime,
         message: this.text,
+        images: this.cloudstorageService.chatImages,
         answer: [],
         codeFormat: this.formatText,
       });
-      this.text = "";
+      this.text = '';
+      this.cloudstorageService.chatImages = [];
+      this.cloudstorageService.imageURL = [];
+      this.cloudstorageService.uploaded = false;
       this.chatService.updateCurrentChat(this.currentlocation);
     }
   }

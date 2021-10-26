@@ -16,7 +16,8 @@
   <div class="message-show-container">
     <div
       [ngStyle]="{
-        'margin-bottom': cloudstorageService.imageURL.length > 0 ? '64px' : '24px'
+        'margin-bottom':
+          cloudstorageService.imageURL.length > 0 ? '64px' : '24px'
       }"
       #scrollEnd
       class="scroll-container"
@@ -33,6 +34,10 @@
         <p class="word-break" [ngClass]="chat.codeFormat ? 'codeFormat' : ''">
           {{ chat.message }}
         </p>
+        <div *ngFor="let img of chat.images">
+         <h4>{{img.name}}</h4>
+         <img src="{{img.src}}">
+        </div>
       </div>
     </div>
   </div>
@@ -54,7 +59,14 @@
       </textarea>
 
       <div *ngIf="cloudstorageService.imageURL" class="imagePreview">
-        <img *ngFor="let img of cloudstorageService.imageURL" [src]="img" />
+        <div
+          (mouseenter)="showDeleteBTN = true"
+          (mouseleave)="showDeleteBTN = false"
+          *ngFor="let img of cloudstorageService.imageURL"
+        >
+          <img [src]="img.src" />
+          <span (click)="cloudstorageService.deletePickedImg(img)" *ngIf="showDeleteBTN" class="material-icons"> clear </span>
+        </div>
       </div>
 
       <div class="input-icons-container">
@@ -62,14 +74,21 @@
           <span type="file" class="material-icons"> add_a_photo </span>
           <input
             type="file"
-            (change)="cloudstorageService.handleFileInput($event)"
+            (change)="
+              cloudstorageService.handleFileInput($event);
+              cloudstorageService.uploadImg('chat')
+            "
             style="display: none"
           />
         </label>
 
         <mat-icon matSuffix
           ><span
-            [ngClass]="!this.text ? 'disabledIcon' : ''"
+            [ngClass]="
+              this.text || cloudstorageService.uploaded
+                ? ''
+                : 'disabledIcon'
+            "
             (click)="sendMessage()"
             class="material-icons-outlined"
           >
