@@ -74,8 +74,7 @@ export class MessageComponent implements OnInit, AfterViewChecked {
   }
 
   sendMessage() {
-    if (this.text || this.cloudstorageService.uploaded) {
-      
+    if (this.text && this.cloudstorageService.imageURL.length <= 0 || this.checkUploadAllImages()) {
       let date = new Date();
       let getTime = date.getHours() + ':' + date.getMinutes();
 
@@ -91,7 +90,6 @@ export class MessageComponent implements OnInit, AfterViewChecked {
       this.text = '';
       this.cloudstorageService.chatImages = [];
       this.cloudstorageService.imageURL = [];
-      this.cloudstorageService.uploaded = false;
       this.chatService.updateCurrentChat(this.currentlocation);
     }
   }
@@ -114,5 +112,12 @@ export class MessageComponent implements OnInit, AfterViewChecked {
     );
 
     return getUser[0];
+  }
+
+  checkUploadAllImages() {
+    for (var index in this.cloudstorageService.imageURL)
+      if (this.cloudstorageService.imageURL[index].uploaded) return true;
+
+    return false;
   }
 }

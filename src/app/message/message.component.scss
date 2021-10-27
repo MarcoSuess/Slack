@@ -117,6 +117,9 @@
 
   div {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   span {
     position: absolute;
@@ -129,5 +132,18 @@
     border-radius: 50%;
     background: black;
     cursor: pointer;
+  }
+
+  mat-spinner {
+    position: absolute;
+    
+  }
+}
+
+.chat-image {
+  img {
+    height: 64px;
+    width: 64px;
+    object-fit: cover;
   }
 }

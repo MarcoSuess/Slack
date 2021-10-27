@@ -18,7 +18,6 @@ export class CloudstorageService {
   imageURL: any = [];
   storage: any = getStorage();
   chatImages: any = [];
-  uploaded: boolean = false;
 
   handleFileInput(event: any) {
     this.fileToUpload = event.target.files[0];
@@ -30,6 +29,7 @@ export class CloudstorageService {
       this.imageURL.push({
         name: this.fileToUpload.name,
         src: imageResult,
+        uploaded: false,
       });
     };
     reader.readAsDataURL(this.fileToUpload);
@@ -64,8 +64,12 @@ export class CloudstorageService {
             name: this.fileToUpload.name,
             src: url,
           });
-          this.uploaded = true;
 
+          for (let i = 0; i < this.imageURL.length; i++) {
+            this.imageURL[i].uploaded = true;
+          }
+
+          // filter Upload array
         }
       })
 
@@ -75,19 +79,14 @@ export class CloudstorageService {
   }
 
   deletePickedImg(img: any) {
-    console.log(img);
-
     const desertRef = ref(this.storage, 'chat' + '/' + img.name);
+    let spiceIndex = this.imageURL.indexOf(img);
 
     // Delete the file
     deleteObject(desertRef)
       .then(() => {
-        for (let i = 0; i < this.chatImages.length; i++) {
-          const img = this.chatImages[i];
-          let spliceIndex = this.chatImages[i].name.indexOf(img.name);
-          this.chatImages.splice(spliceIndex, 1);
-          this.imageURL.splice(spliceIndex, 1);
-        }
+        this.chatImages.splice(spiceIndex, 1);
+        this.imageURL.splice(spiceIndex, 1);
       })
       .catch((error) => {
         console.log(error.message);

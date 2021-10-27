@@ -34,9 +34,9 @@
         <p class="word-break" [ngClass]="chat.codeFormat ? 'codeFormat' : ''">
           {{ chat.message }}
         </p>
-        <div *ngFor="let img of chat.images">
-         <h4>{{img.name}}</h4>
-         <img src="{{img.src}}">
+        <div class="chat-image" *ngFor="let img of chat.images">
+          <h4>{{ img.name }}</h4>
+          <img src="{{ img.src }}" />
         </div>
       </div>
     </div>
@@ -65,7 +65,15 @@
           *ngFor="let img of cloudstorageService.imageURL"
         >
           <img [src]="img.src" />
-          <span (click)="cloudstorageService.deletePickedImg(img)" *ngIf="showDeleteBTN" class="material-icons"> clear </span>
+          <mat-spinner [diameter]="24" *ngIf="!img.uploaded"></mat-spinner>
+
+          <span
+            (click)="cloudstorageService.deletePickedImg(img)"
+            *ngIf="showDeleteBTN && img.uploaded"
+            class="material-icons"
+          >
+            clear
+          </span>
         </div>
       </div>
 
@@ -85,7 +93,8 @@
         <mat-icon matSuffix
           ><span
             [ngClass]="
-              this.text || cloudstorageService.uploaded
+              (this.text && this.cloudstorageService.imageURL.length <= 0) ||
+              checkUploadAllImages()
                 ? ''
                 : 'disabledIcon'
             "
