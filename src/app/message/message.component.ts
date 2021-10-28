@@ -1,12 +1,15 @@
-import { ThisReceiver } from '@angular/compiler';
 import {
   AfterViewChecked,
   Component,
   ElementRef,
   OnInit,
+  QueryList,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { DialogChatImageComponent } from '../dialog-chat-image/dialog-chat-image.component';
 import { ChatService } from '../shared/chat.service';
 import { CloudstorageService } from '../shared/services/cloudstorage.service';
 import { UserService } from '../shared/user.service';
@@ -16,13 +19,16 @@ import { UserService } from '../shared/user.service';
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.scss'],
 })
-export class MessageComponent implements OnInit, AfterViewChecked {
+export class MessageComponent implements OnInit {
   text: any = '';
   currentlocation: any;
   formatText: boolean;
   privateChatData: any;
   showDeleteBTN: boolean = false;
+  showThreadIcon: boolean = false;
 
+  @ViewChildren('messages')
+  messages!: QueryList<any>;
   @ViewChild('inputText') inputText: any;
   @ViewChild('scrollEnd')
   private myScrollContainer!: ElementRef;
@@ -31,19 +37,20 @@ export class MessageComponent implements OnInit, AfterViewChecked {
     private route: ActivatedRoute,
     public chatService: ChatService,
     public userService: UserService,
-    public cloudstorageService: CloudstorageService
+    public cloudstorageService: CloudstorageService,
+    public dialog: MatDialog
   ) {
     this.formatText = false;
   }
 
-  scrollToBottom(): void {
+  scrollToBottom = () => {
     try {
-      this.myScrollContainer.nativeElement.scrollTop =
-        this.myScrollContainer.nativeElement.scrollHeight;
+      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
     } catch (err) {}
   }
 
-  async ngOnInit() {
+  ngOnInit() {
+
     this.currentlocation = this.chatService.loadCurrentChatroom();
 
     this.route.params.subscribe((params) => {
@@ -55,15 +62,18 @@ export class MessageComponent implements OnInit, AfterViewChecked {
         this.privateChatData = this.returnUserData(
           this.filterPrivateChatUser(params.id)[0].userUID
         );
-      }
+      } 
+      this.scrollToBottom();
+
     });
-
-    this.scrollToBottom();
   }
 
-  ngAfterViewChecked() {
+  ngAfterViewInit() {
     this.scrollToBottom();
+    this.messages.changes.subscribe(this.scrollToBottom);
   }
+
+  
 
   filterPrivateChatUser(params: any) {
     let chatData = this.userService.user.privateChatUID.filter(
@@ -74,7 +84,10 @@ export class MessageComponent implements OnInit, AfterViewChecked {
   }
 
   sendMessage() {
-    if (this.text && this.cloudstorageService.imageURL.length <= 0 || this.checkUploadAllImages()) {
+    if (
+      (this.text && this.cloudstorageService.imageURL.length <= 0) ||
+      this.checkUploadAllImages()
+    ) {
       let date = new Date();
       let getTime = date.getHours() + ':' + date.getMinutes();
 
@@ -119,5 +132,14 @@ export class MessageComponent implements OnInit, AfterViewChecked {
       if (this.cloudstorageService.imageURL[index].uploaded) return true;
 
     return false;
+  }
+
+  openImageDialog(img: any) {
+    this.dialog.open(DialogChatImageComponent, {
+      data: {
+        name: img.name,
+        src: img.src,
+      },
+    });
   }
 }

@@ -74,6 +74,7 @@
   p {
     margin-bottom: 0;
     margin-left: 8px;
+    font-weight: 200;
   }
 }
 
@@ -136,14 +137,21 @@
 
   mat-spinner {
     position: absolute;
-    
   }
 }
 
 .chat-image {
+  display: flex;
+  flex-wrap: wrap;
+
+  div {
+    max-width: 80px;
+    margin-right: 16px;
+  }
   img {
     height: 64px;
     width: 64px;
     object-fit: cover;
+    cursor: pointer;
   }
 }

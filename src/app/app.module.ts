@@ -33,6 +33,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MessageComponent } from './message/message.component';
 import { DialogCreateChannelComponent } from './dialog-create-channel/dialog-create-channel.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { DialogChatImageComponent } from './dialog-chat-image/dialog-chat-image.component';
 
 
 
@@ -51,6 +52,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     DialogUserStatusComponent,
     MessageComponent,
     DialogCreateChannelComponent,
+    DialogChatImageComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

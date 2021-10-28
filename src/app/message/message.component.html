@@ -23,20 +23,25 @@
       class="scroll-container"
     >
       <div
+      #messages
         *ngFor="let chat of this.chatService.chat.text"
         class="message-user-container"
+        (mouseenter)="showThreadIcon = true"
+        (mouseleave)="showThreadIcon = false"
       >
         <div class="message-userData">
+          <!--    showThreadIcon -->
           <img src="{{ this.returnUserData(chat.userID).photoURL }}" />
           <h4>{{ this.returnUserData(chat.userID).displayName }}</h4>
-          <p>{{ chat.time }}</p>
+          <p>{{ chat.time }} Uhr</p>
         </div>
         <p class="word-break" [ngClass]="chat.codeFormat ? 'codeFormat' : ''">
           {{ chat.message }}
         </p>
-        <div class="chat-image" *ngFor="let img of chat.images">
-          <h4>{{ img.name }}</h4>
-          <img src="{{ img.src }}" />
+        <div class="chat-image">
+          <div *ngFor="let img of chat.images">
+            <img (click)="openImageDialog(img)" src="{{ img.src }}" />
+          </div>
         </div>
       </div>
     </div>
