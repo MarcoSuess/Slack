@@ -14,6 +14,7 @@ export class ChatService {
   chat: Chat | any;
   currentChatID: string | undefined;
   allChannels: any;
+  loadChat : boolean = false;
 
   constructor(
     public userService: UserService,
@@ -61,6 +62,8 @@ export class ChatService {
         console.log(chat);
         this.chat.name = chat.name;
         this.chat.text = chat.text;
+
+        this.loadChat = true;
       });
   }
 

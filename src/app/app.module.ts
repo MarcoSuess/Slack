@@ -34,6 +34,7 @@ import { MessageComponent } from './message/message.component';
 import { DialogCreateChannelComponent } from './dialog-create-channel/dialog-create-channel.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { DialogChatImageComponent } from './dialog-chat-image/dialog-chat-image.component';
+import { ThreadComponent } from './thread/thread.component';
 
 
 
@@ -53,6 +54,7 @@ import { DialogChatImageComponent } from './dialog-chat-image/dialog-chat-image.
     MessageComponent,
     DialogCreateChannelComponent,
     DialogChatImageComponent,
+    ThreadComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

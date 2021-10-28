@@ -61,6 +61,7 @@ export class DashboardComponent implements OnInit {
       this.navigateToChat(user.privateChatUID[indexOfUserUID].chatID);
     } else {
       this.addPrivateChatUID(user);
+      
     }
   }
 

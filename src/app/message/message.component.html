@@ -1,5 +1,7 @@
 <div *ngIf="chatService.chat" class="message-container">
   <div *ngIf="this.currentlocation == 'channels'" class="message-title">
+    <span (click)="goBack()" *ngIf="isThreadRoute()" class="material-icons backIcon"> undo </span>
+    <h3 *ngIf="isThreadRoute()"><b> Thread </b></h3>
     <h3># {{ this.chatService.chat.name }}</h3>
   </div>
 
@@ -7,13 +9,17 @@
     *ngIf="this.currentlocation == 'chats' && this.privateChatData"
     class="message-title"
   >
+    <span (click)="goBack()" *ngIf="isThreadRoute()" class="material-icons backIcon"> undo </span>
     <div class="privateChatDescription">
       <img src="{{ this.privateChatData.photoURL }}" />
-      <h3>{{ this.privateChatData.displayName }}</h3>
+      <h3 *ngIf="isThreadRoute()"><b> Thread </b></h3>
+      <h3>
+        {{ this.privateChatData.displayName }}
+      </h3>
     </div>
   </div>
 
-  <div class="message-show-container">
+  <div *ngIf="!isThreadRoute()" class="message-show-container">
     <div
       [ngStyle]="{
         'margin-bottom':
@@ -23,14 +29,21 @@
       class="scroll-container"
     >
       <div
-      #messages
-        *ngFor="let chat of this.chatService.chat.text"
+        #messages
+        *ngFor="let chat of this.chatService.chat.text; let i = index"
         class="message-user-container"
-        (mouseenter)="showThreadIcon = true"
-        (mouseleave)="showThreadIcon = false"
+        (mouseenter)="onHoverThread(i)"
+        (mouseleave)="onHoverThread(-1)"
       >
+        <span
+          (click)="navigateToThread(i)"
+          *ngIf="i == hoverIndexThreadIcon"
+          class="material-icons"
+        >
+          comment
+        </span>
+
         <div class="message-userData">
-          <!--    showThreadIcon -->
           <img src="{{ this.returnUserData(chat.userID).photoURL }}" />
           <h4>{{ this.returnUserData(chat.userID).displayName }}</h4>
           <p>{{ chat.time }} Uhr</p>
@@ -43,8 +56,19 @@
             <img (click)="openImageDialog(img)" src="{{ img.src }}" />
           </div>
         </div>
+
+        <div class="chat-answer-container">
+
+            <p (click)="navigateToThread(i)" *ngIf="chat.answer.length == 1">{{chat.answer.length}} Antwort</p>
+            <p  (click)="navigateToThread(i)" *ngIf="chat.answer.length > 1">{{chat.answer.length}} Antworten</p>
+        </div>
+
       </div>
     </div>
+  </div>
+
+  <div *ngIf="isThreadRoute()" class="message-show-container">
+    <router-outlet *ngIf="this.chatService.loadChat"></router-outlet>
   </div>
 
   <p>
@@ -65,16 +89,16 @@
 
       <div *ngIf="cloudstorageService.imageURL" class="imagePreview">
         <div
-          (mouseenter)="showDeleteBTN = true"
-          (mouseleave)="showDeleteBTN = false"
-          *ngFor="let img of cloudstorageService.imageURL"
+          (mouseenter)="onHoverChatImage(i)"
+          (mouseleave)="onHoverChatImage(-1)"
+          *ngFor="let img of cloudstorageService.imageURL; let i = index"
         >
           <img [src]="img.src" />
           <mat-spinner [diameter]="24" *ngIf="!img.uploaded"></mat-spinner>
 
           <span
             (click)="cloudstorageService.deletePickedImg(img)"
-            *ngIf="showDeleteBTN && img.uploaded"
+            *ngIf="i == hoverIndexChatImageIcon && img.uploaded"
             class="material-icons"
           >
             clear

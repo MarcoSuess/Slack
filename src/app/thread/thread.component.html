@@ -1,0 +1,31 @@
+<div
+  [ngStyle]="{
+    'margin-bottom': cloudstorageService.imageURL.length > 0 ? '64px' : '24px'
+  }"
+  #messageComponent.scrollEnd
+  *ngIf="this.index"
+  class="scroll-container"
+>
+  <div
+    #messageComponent.messages
+    *ngFor="let chat of this.chatService.chat.text[index].answer"
+    class="message-user-container"
+  >
+    <div class="message-userData">
+      <img src="{{ messageComponent.returnUserData(chat.userID).photoURL }}" />
+      <h4>{{ messageComponent.returnUserData(chat.userID).displayName }}</h4>
+      <p>{{ chat.time }} Uhr</p>
+    </div>
+    <p  class="word-break" [ngClass]="chat.codeFormat ? 'codeFormat' : ''">
+      {{ chat.message }}
+    </p>
+    <div class="chat-image">
+      <div *ngFor="let img of chat.images">
+        <img
+          (click)="messageComponent.openImageDialog(img)"
+          src="{{ img.src }}"
+        />
+      </div>
+    </div>
+  </div>
+</div>

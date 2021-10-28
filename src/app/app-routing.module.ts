@@ -8,6 +8,7 @@ import { AuthService } from './shared/services/auth.service';
 // import { LogInComponent } from './log-in/log-in.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ThreadComponent } from './thread/thread.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 const routes: Routes = [
@@ -24,11 +25,23 @@ const routes: Routes = [
       {
         path: 'chat/:id',
         component: MessageComponent,
-        
+        children: [
+          {
+            path: 'thread/:id',
+            component: ThreadComponent,
+          },
+        ],
+    
       },
       {
         path: 'channel/:id',
         component: MessageComponent,
+        children: [
+          {
+            path: 'thread/:id',
+            component: ThreadComponent,
+          },
+        ],
       },
     ],
   },
