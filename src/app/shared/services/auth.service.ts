@@ -76,7 +76,6 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.loadScreen = true;
-
         this.currentUserID = result.user?.uid;
         this.navigateToBoard();
       })
@@ -128,6 +127,9 @@ export class AuthService {
     signOut(auth)
       .then((result) => {
         console.log(result);
+        this.router.navigateByUrl('/');
+        this.userService.user.online = false
+        this.userService.saveUserData();
       })
       .catch((error) => {
         const errorCode = error.code;

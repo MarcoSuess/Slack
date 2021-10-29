@@ -1,6 +1,15 @@
-<div *ngIf="chatService.chat" class="message-container">
+<div
+  *ngIf="chatService.chat && this.chatService.loadChat"
+  class="message-container"
+>
   <div *ngIf="this.currentlocation == 'channels'" class="message-title">
-    <span (click)="goBack()" *ngIf="isThreadRoute()" class="material-icons backIcon"> undo </span>
+    <span
+      (click)="goBack()"
+      *ngIf="isThreadRoute()"
+      class="material-icons backIcon"
+    >
+      undo
+    </span>
     <h3 *ngIf="isThreadRoute()"><b> Thread </b></h3>
     <h3># {{ this.chatService.chat.name }}</h3>
   </div>
@@ -9,7 +18,13 @@
     *ngIf="this.currentlocation == 'chats' && this.privateChatData"
     class="message-title"
   >
-    <span (click)="goBack()" *ngIf="isThreadRoute()" class="material-icons backIcon"> undo </span>
+    <span
+      (click)="goBack()"
+      *ngIf="isThreadRoute()"
+      class="material-icons backIcon"
+    >
+      undo
+    </span>
     <div class="privateChatDescription">
       <img src="{{ this.privateChatData.photoURL }}" />
       <h3 *ngIf="isThreadRoute()"><b> Thread </b></h3>
@@ -44,7 +59,33 @@
         </span>
 
         <div class="message-userData">
-          <img src="{{ this.returnUserData(chat.userID).photoURL }}" />
+          <img
+            [matMenuTriggerFor]="showUserData"
+            src="{{ returnUserData(chat.userID).photoURL }}"
+          />
+          <mat-menu #showUserData="matMenu">
+            <div class="show-user">
+              <img src="{{ returnUserData(chat.userID).photoURL }}" />
+              <div>
+                <h3>{{ returnUserData(chat.userID).displayName }}</h3>
+                <div
+                  class="userOnline"
+                  [ngStyle]="{
+                    'background-color': this.returnUserData(chat.userID).online
+                      ? 'green'
+                      : 'red'
+                  }"
+                ></div>
+              </div>
+              <h4>
+                Status: <i>{{ this.returnUserData(chat.userID).status }} </i>
+              </h4>
+              <h4>
+                Email: <b>{{ this.returnUserData(chat.userID).email }} </b>
+              </h4>
+            </div>
+          </mat-menu>
+
           <h4>{{ this.returnUserData(chat.userID).displayName }}</h4>
           <p>{{ chat.time }} Uhr</p>
         </div>
@@ -58,17 +99,21 @@
         </div>
 
         <div class="chat-answer-container">
-
-            <p (click)="navigateToThread(i)" *ngIf="chat.answer.length == 1">{{chat.answer.length}} Antwort</p>
-            <p  (click)="navigateToThread(i)" *ngIf="chat.answer.length > 1">{{chat.answer.length}} Antworten</p>
+          <p (click)="navigateToThread(i)" *ngIf="chat.answer.length == 1">
+            {{ chat.answer.length }} Antwort
+          </p>
+          <p (click)="navigateToThread(i)" *ngIf="chat.answer.length > 1">
+            {{ chat.answer.length }} Antworten
+          </p>
         </div>
-
       </div>
     </div>
   </div>
 
   <div *ngIf="isThreadRoute()" class="message-show-container">
-    <router-outlet *ngIf="this.chatService.loadChat"></router-outlet>
+    <router-outlet
+      *ngIf="this.chatService.chat.text.length > 0"
+    ></router-outlet>
   </div>
 
   <p>
@@ -112,7 +157,7 @@
           <input
             type="file"
             (change)="
-              cloudstorageService.handleFileInput($event);
+              cloudstorageService.handleFileInput($event, 'chat');
               cloudstorageService.uploadImg('chat')
             "
             style="display: none"

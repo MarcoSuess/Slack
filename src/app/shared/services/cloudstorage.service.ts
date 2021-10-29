@@ -18,24 +18,34 @@ export class CloudstorageService {
   imageURL: any = [];
   storage: any = getStorage();
   chatImages: any = [];
+  currentUserIMG: any;
+  userImageUpload: boolean = false;
 
-  handleFileInput(event: any) {
+  handleFileInput(event: any, location: string) {
     this.fileToUpload = event.target.files[0];
 
     // File Preview
     const reader = new FileReader();
     reader.onload = () => {
       let imageResult = reader.result as string;
-      this.imageURL.push({
-        name: this.fileToUpload.name,
-        src: imageResult,
-        uploaded: false,
-      });
+      if(location == 'chat') {
+        this.imageURL.push({
+          name: this.fileToUpload.name,
+          src: imageResult,
+          uploaded: false,
+        });
+      } else {
+     
+        this.currentUserIMG = imageResult;
+      }
+   
     };
     reader.readAsDataURL(this.fileToUpload);
+
   }
 
   uploadImg(folder: string) {
+    this.userImageUpload = true;
     console.log(this.fileToUpload);
 
     const storageRef = ref(this.storage, folder + '/' + this.fileToUpload.name);
@@ -57,6 +67,7 @@ export class CloudstorageService {
         xhr.open('GET', url);
         xhr.send();
         if (folder == 'users') {
+          this.userImageUpload = false;
           this.userService.user.photoURL = url;
           this.userService.saveUserData();
         } else if (folder == 'chat') {

@@ -35,6 +35,8 @@ import { DialogCreateChannelComponent } from './dialog-create-channel/dialog-cre
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { DialogChatImageComponent } from './dialog-chat-image/dialog-chat-image.component';
 import { ThreadComponent } from './thread/thread.component';
+import { CommonModule } from '@angular/common';
+import { DialogProfileSettingsComponent } from './dialog-profile-settings/dialog-profile-settings.component';
 
 
 
@@ -55,6 +57,7 @@ import { ThreadComponent } from './thread/thread.component';
     DialogCreateChannelComponent,
     DialogChatImageComponent,
     ThreadComponent,
+    DialogProfileSettingsComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -76,6 +79,7 @@ import { ThreadComponent } from './thread/thread.component';
     PickerModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    CommonModule
     
   ],
   providers: [AuthService],

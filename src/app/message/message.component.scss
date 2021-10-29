@@ -178,12 +178,42 @@
   &:hover {
     opacity: 1;
   }
-
 }
 .chat-answer-container {
- 
   p {
     color: #3f51b5;
     font-weight: 500;
   }
+}
+
+
+
+.show-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #d4d4d4;
+  img {
+    height: 128px;
+    width: 100%;
+    object-fit: cover;
+    padding-bottom: 16px;
+  }
+  div {
+    display: flex;  
+    align-items: center;
+    h3 {
+      margin: 0;
+      padding-right: 8px;
+      font-weight: 500;
+    }
+  }
+
+  h4 {
+    margin: 0;
+  }
+}
+
+::ng-deep .mat-menu-content {
+  padding: 0px !important;
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CloudstorageService } from '../shared/services/cloudstorage.service';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-dialog-profile-settings',
@@ -8,9 +9,13 @@ import { CloudstorageService } from '../shared/services/cloudstorage.service';
 })
 export class DialogProfileSettingsComponent implements OnInit {
 
-  constructor(public cloudstorageService: CloudstorageService) { }
+  showAddIcon: boolean = false;
+
+  constructor(public cloudstorageService: CloudstorageService,
+   public userService: UserService) { }
 
   ngOnInit(): void {
+    
   }
 
 

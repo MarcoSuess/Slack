@@ -30,17 +30,24 @@ export class DashboardComponent implements OnInit {
   ngAfterViewInit() {
     this.authService.loadScreen = false;
     this.authService.closeErrorMessage();
+
+    
+    if(this.userService.loadCurrentUser) {
+      this.userService.saveUserData()
+    }    
   }
 
   async ngOnInit(): Promise<any> {
-    
     await this.userService.loadAllUserData();
     await this.chatService.loadAllChannels();
 
+    
     await this.route.params.subscribe((params) => {
       console.log(params.id);
       this.userService.loadCurrentUserData(params.id);
     });
+
+  
   }
 
   openDialog() {
@@ -61,7 +68,6 @@ export class DashboardComponent implements OnInit {
       this.navigateToChat(user.privateChatUID[indexOfUserUID].chatID);
     } else {
       this.addPrivateChatUID(user);
-      
     }
   }
 

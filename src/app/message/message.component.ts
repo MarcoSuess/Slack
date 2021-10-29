@@ -73,8 +73,6 @@ export class MessageComponent implements OnInit {
       this.chatService.loadCurrentChat(params.id, this.currentlocation);
 
       if (this.currentlocation == 'chats' && this.userService.user) {
-        console.log('getUserData');
-
         this.privateChatData = this.returnUserData(
           this.filterPrivateChatUser(params.id)[0].userUID
         );
@@ -172,10 +170,14 @@ export class MessageComponent implements OnInit {
   }
 
   navigateToThread(index: number) {
+    let loction = this.currentlocation == 'channels' ? 'channel' : 'chat';
+
     this.router.navigateByUrl(
       '/dashboard/' +
         this.userService.user.uid +
-        '/chat/' +
+        '/' +
+        loction +
+        '/' +
         this.chatID +
         '/thread/' +
         index
