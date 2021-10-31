@@ -1,5 +1,4 @@
 import { Injectable, NgZone } from '@angular/core';
-import { async } from '@angular/core/testing';
 import { FirebaseApp } from '@angular/fire/compat';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
@@ -8,11 +7,11 @@ import {
 } from '@angular/fire/compat/firestore';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { getAuth, signOut } from 'firebase/auth';
 import { ChatService } from '../chat.service';
 import { UserService } from '../user.service';
+import { doc, getDoc } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -34,7 +33,8 @@ export class AuthService {
     public ngZone: NgZone, // NgZone service to remove outside scope warning
     public chatService: ChatService,
     public userService: UserService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private firestore: AngularFirestore
   ) {}
 
   getErrorMessageEmail() {
@@ -76,6 +76,7 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.loadScreen = true;
+        this.userOnline(result.user?.uid);
         this.currentUserID = result.user?.uid;
         this.navigateToBoard();
       })
@@ -85,6 +86,12 @@ export class AuthService {
         console.log(errorCode, errorMessage);
         this.openErrorMessage(error.message);
       });
+  }
+
+  userOnline(uid: any) {
+    var db = this.firebase.firestore();
+
+    db.collection('users').doc(uid).update({ online: true });
   }
 
   openErrorMessage(message: any) {
@@ -128,7 +135,7 @@ export class AuthService {
       .then((result) => {
         console.log(result);
         this.router.navigateByUrl('/');
-        this.userService.user.online = false
+        this.userService.user.online = false;
         this.userService.saveUserData();
       })
       .catch((error) => {

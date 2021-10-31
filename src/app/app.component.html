@@ -20,7 +20,7 @@
       <img
         [matMenuTriggerFor]="menu"
         class="material-icons-outlined"
-        *ngIf="userService.user"
+        *ngIf="userService.user?.online"
         src="{{ userService.user.photoURL }}"
       />
     </div>

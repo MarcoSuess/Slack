@@ -1,4 +1,4 @@
-<mat-drawer-container class="sidenav-container">
+<mat-drawer-container class="sidenav-container" *ngIf="userService.user?.online">
   <mat-drawer class="drawer-field" mode="side" opened
     ><div
       (mouseenter)="showAdd = true"

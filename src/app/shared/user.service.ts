@@ -11,9 +11,7 @@ export class UserService {
   allUser: any = [];
   loadCurrentUser: boolean = false;
 
-  constructor(
-    private firestore: AngularFirestore,
-  ) {}
+  constructor(private firestore: AngularFirestore) {}
 
   loadCurrentUserData(paramsID: any) {
     this.user = new User();
