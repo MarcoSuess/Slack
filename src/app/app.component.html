@@ -3,11 +3,14 @@
   class="toolbar-container"
 [ngClass]="{ 'loggedIn-toolbarContainer': userService.user}"
 >
-  <a routerLink="/"
-    ><div class="logo"><img src="assets/img/slacklogo.png" /></div
-  ></a>
-  <span>Slack Clone</span>
-  <span class="example-spacer"></span>
+<mat-icon *ngIf="mobile"  (click)="sidenav.toggle()"  >menu</mat-icon>
+  <div class="logo-container">
+    <a  ><div class="logo"><img src="assets/img/slacklogo.png" /></div
+      ></a>
+      <span>Slack Clone</span>
+  </div>
+  
+ <!--  <span class="example-spacer"></span> -->
 
   <!--   profile-icon -->
   <mat-icon aria-hidden="false" aria-label="Example home icon">

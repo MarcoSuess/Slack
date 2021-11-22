@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { SideNavService } from './services/sidenav.service';
+
 import { ChatService } from './shared/chat.service';
 import { AuthService } from './shared/services/auth.service';
 import { User } from './shared/services/user';
 import { UserService } from './shared/user.service';
+
 
 @Component({
   selector: 'app-root',
@@ -12,14 +15,25 @@ import { UserService } from './shared/user.service';
 })
 export class AppComponent {
   title = 'slack';
-
+  mobile: boolean = false;
 
   constructor(
     public authService: AuthService,
     public userService: UserService,
-    public chatService: ChatService
+    public chatService: ChatService,
+    public sidenav: SideNavService
+    
+
   
   ) { 
    
   }
+ 
+  ngOnInit() {
+    if (window.screen.width <= 768) {
+      this.mobile = true;
+      console.log(this.mobile);
+    }
+  }
+ 
 }

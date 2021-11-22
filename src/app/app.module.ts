@@ -32,12 +32,12 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MessageComponent } from './message/message.component';
 import { DialogCreateChannelComponent } from './dialog-create-channel/dialog-create-channel.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DialogChatImageComponent } from './dialog-chat-image/dialog-chat-image.component';
 import { ThreadComponent } from './thread/thread.component';
 import { CommonModule } from '@angular/common';
 import { DialogProfileSettingsComponent } from './dialog-profile-settings/dialog-profile-settings.component';
-
+import { SideNavService } from './services/sidenav.service';
 
 
 
@@ -57,7 +57,7 @@ import { DialogProfileSettingsComponent } from './dialog-profile-settings/dialog
     DialogCreateChannelComponent,
     DialogChatImageComponent,
     ThreadComponent,
-    DialogProfileSettingsComponent
+    DialogProfileSettingsComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -66,7 +66,6 @@ import { DialogProfileSettingsComponent } from './dialog-profile-settings/dialog
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatSidenavModule,
     MatIconModule,
     MatListModule,
     MatInputModule,
@@ -79,10 +78,11 @@ import { DialogProfileSettingsComponent } from './dialog-profile-settings/dialog
     PickerModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
-    CommonModule
-    
+    CommonModule,
+    MatSidenavModule,
   ],
-  providers: [AuthService],
+  
+  providers: [AuthService, SideNavService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

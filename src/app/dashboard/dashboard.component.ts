@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSidenav } from '@angular/material/sidenav';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DialogCreateChannelComponent } from '../dialog-create-channel/dialog-create-channel.component';
+import { SideNavService } from '../services/sidenav.service';
 import { ChatService } from '../shared/chat.service';
 import { AuthService } from '../shared/services/auth.service';
 import { UserService } from '../shared/user.service';
@@ -14,6 +16,8 @@ import { UserService } from '../shared/user.service';
 })
 export class DashboardComponent implements OnInit {
   showAdd: boolean;
+  mobile: boolean = false;
+  @ViewChild('sidenav', { static: false }) public sidenav: MatSidenav | any;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,32 +26,46 @@ export class DashboardComponent implements OnInit {
     private firestore: AngularFirestore,
     public router: Router,
     public chatService: ChatService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private sidenavService: SideNavService
   ) {
     this.showAdd = false;
+    
+  }
+
+  loadSideNav() {
+    this.sidenavService.setSidenav(this.sidenav);
+    console.log(this.sidenav);
   }
 
   ngAfterViewInit() {
     this.authService.loadScreen = false;
     this.authService.closeErrorMessage();
 
-    
-    if(this.userService.loadCurrentUser) {
-      this.userService.saveUserData()
-    }    
+    if (this.userService.loadCurrentUser) {
+      this.userService.saveUserData();
+    }
+    setTimeout(() => {
+      this.loadSideNav();
+    }, 2000);
+
   }
 
   async ngOnInit(): Promise<any> {
+    console.log(window.screen);
+
+    if (window.screen.width <= 768) {
+      this.mobile = true;
+      console.log(this.mobile);
+    }
+
     await this.userService.loadAllUserData();
     await this.chatService.loadAllChannels();
 
-    
     await this.route.params.subscribe((params) => {
       console.log(params.id);
       this.userService.loadCurrentUserData(params.id);
     });
-
-  
   }
 
   openDialog() {
