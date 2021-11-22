@@ -53,13 +53,12 @@
   <mat-drawer-container *ngIf="mobile" class="example-container" autosize>
     <mat-drawer   autoFocus="false" #sidenav class="drawer-field" mode="over"
       ><div
-        (mouseenter)="showAdd = true"
-        (mouseleave)="showAdd = false"
+    
         class="headline"
       >
         <p>
           <b>Channels</b>
-          <mat-icon (click)="openDialog()" *ngIf="showAdd">add</mat-icon>
+          <mat-icon (click)="openDialog()" >add</mat-icon>
         </p>
       </div>
       <div

@@ -5,6 +5,10 @@
   font-family: "Fredoka One", cursive;
   font-size: 1.8rem;
   justify-content: space-between;
+
+  @media only screen and (max-width: 800px) {
+    font-size: 1.5rem;
+  }
 }
 
 .loggedIn-toolbarContainer {
@@ -55,12 +59,14 @@
 .logo img {
   height: 64px;
   width: 64px;
-  
+
+  @media only screen and (max-width: 800px) {
+    height: 48px;
+    width: 48px;
+  }
 }
 
 .material-icons-outlined {
-  position: absolute;
-  right: 20px;
   cursor: pointer;
   color: white;
   font-size: 32px;
@@ -99,4 +105,3 @@
   display: flex;
   align-items: center;
 }
-
