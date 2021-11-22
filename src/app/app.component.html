@@ -3,7 +3,7 @@
   class="toolbar-container"
 [ngClass]="{ 'loggedIn-toolbarContainer': userService.user}"
 >
-<mat-icon *ngIf="mobile"  (click)="sidenav.toggle()"  >menu</mat-icon>
+<mat-icon *ngIf="mobile && !checkRouteSign()"  (click)="sidenav.toggle()"  >menu</mat-icon>
   <div class="logo-container">
     <a  ><div class="logo"><img src="assets/img/slacklogo.png" /></div
       ></a>
@@ -15,7 +15,7 @@
   <!--   profile-icon -->
   <mat-icon aria-hidden="false" aria-label="Example home icon">
     <div class="user-area">
-      <span *ngIf="!userService.user" class="material-icons-outlined"
+      <span *ngIf="checkRouteSign()" class="material-icons-outlined"
         >account_circle</span
       >
       <!-- logged in -->
@@ -23,7 +23,7 @@
       <img
         [matMenuTriggerFor]="menu"
         class="material-icons-outlined"
-        *ngIf="userService.user?.online"
+        *ngIf="userService.user?.online && !checkRouteSign()"
         src="{{ userService.user.photoURL }}"
       />
     </div>

@@ -38,7 +38,7 @@ import { ThreadComponent } from './thread/thread.component';
 import { CommonModule } from '@angular/common';
 import { DialogProfileSettingsComponent } from './dialog-profile-settings/dialog-profile-settings.component';
 import { SideNavService } from './services/sidenav.service';
-
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -80,6 +80,7 @@ import { SideNavService } from './services/sidenav.service';
     MatSnackBarModule,
     CommonModule,
     MatSidenavModule,
+    MatProgressBarModule
   ],
   
   providers: [AuthService, SideNavService],

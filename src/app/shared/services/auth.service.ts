@@ -25,6 +25,10 @@ export class AuthService {
     Validators.minLength(6),
   ]);
 
+  userName = new FormControl('', [
+    Validators.required
+  ]);
+
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public firebase: FirebaseApp,
@@ -36,6 +40,11 @@ export class AuthService {
     private _snackBar: MatSnackBar,
     private firestore: AngularFirestore
   ) {}
+
+  getErrorMessageName() {
+    return 'You must enter a value';
+  }
+
 
   getErrorMessageEmail() {
     if (this.email.hasError('required')) {
@@ -57,10 +66,14 @@ export class AuthService {
     this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        // sends verification Email
+        this.loadScreen = true;
         result.user?.sendEmailVerification();
         this.setUserData(result.user, name);
-        this.navigateToSignIn();
+        setTimeout(() => {
+          this.loadScreen = false;
+          this.navigateToSignIn();
+        }, 2000);
+      
       })
       .catch((error) => {
         console.log(error);
@@ -78,7 +91,11 @@ export class AuthService {
         this.loadScreen = true;
         this.userOnline(result.user?.uid);
         this.currentUserID = result.user?.uid;
-        this.navigateToBoard();
+        setTimeout(() => {
+          this.loadScreen = false;
+          this.navigateToBoard();
+        }, 2000);
+       
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -96,6 +113,10 @@ export class AuthService {
 
   openErrorMessage(message: any) {
     this._snackBar.open(message);
+
+    setTimeout(() => {
+        this.closeErrorMessage();
+    }, 1500);
   }
 
   closeErrorMessage() {
@@ -137,6 +158,7 @@ export class AuthService {
         this.router.navigateByUrl('/');
         this.userService.user.online = false;
         this.userService.saveUserData();
+     
       })
       .catch((error) => {
         const errorCode = error.code;

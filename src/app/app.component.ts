@@ -21,7 +21,8 @@ export class AppComponent {
     public authService: AuthService,
     public userService: UserService,
     public chatService: ChatService,
-    public sidenav: SideNavService
+    public sidenav: SideNavService,
+    private router : Router
     
 
   
@@ -30,10 +31,18 @@ export class AppComponent {
   }
  
   ngOnInit() {
+    
+ 
+    
     if (window.screen.width <= 768) {
       this.mobile = true;
       console.log(this.mobile);
     }
   }
+
+  checkRouteSign() {
+   return this.router.url.includes('sign')
+  }
+
  
 }

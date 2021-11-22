@@ -1,13 +1,19 @@
 <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
-  <mat-spinner *ngIf="authService.loadScreen"></mat-spinner>
-
-  <div *ngIf="!authService.loadScreen">
+  <div>
     <mat-card class="box">
+      <mat-progress-bar
+        *ngIf="authService.loadScreen"
+        mode="indeterminate"
+      ></mat-progress-bar>
+
       <mat-card-header>
         <mat-card-title>Sign In</mat-card-title>
       </mat-card-header>
 
-      <form class="example-form">
+      <form
+        (ngSubmit)="authService.signInUser(email.value, password.value)"
+        class="example-form"
+      >
         <mat-card-content>
           <mat-form-field class="example-full-width">
             <input
@@ -37,24 +43,27 @@
           </mat-form-field>
         </mat-card-content>
         <a
-          ><button
-            (click)="authService.signInUser(email.value, password.value)"
-            [disabled]="!email.value && !password.value"
-            mat-stroked-button
-            color="accent"
-            class="btn-block"
-          >
+          ><button mat-stroked-button color="accent" class="btn-block">
             Sign In
           </button></a
         >
       </form>
 
-      <p class="outside-message">
-        Not Register?
-        <a routerLink="/sign-up" routerLinkActive="router-link-active"
-          >Sign-Up</a
+      <div class="navigation-bar" *ngIf="!authService.loadScreen">
+        <a (click)="signInGuest()"
+          >Continue <br />
+          as guest</a
         >
-      </p>
+
+        <div>
+          <p class="outside-message">
+            Not Registered? <br />
+            <a routerLink="/sign-up" routerLinkActive="router-link-active"
+              >Sign-Up</a
+            >
+          </p>
+        </div>
+      </div>
     </mat-card>
   </div>
 </div>

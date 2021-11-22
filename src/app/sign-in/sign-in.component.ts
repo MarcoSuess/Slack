@@ -11,4 +11,10 @@ export class SignInComponent implements OnInit {
   constructor(public authService: AuthService, public auth: AngularFireAuth) {}
 
   ngOnInit(): void {}
+
+
+  signInGuest() {
+  
+  }
 }
+
