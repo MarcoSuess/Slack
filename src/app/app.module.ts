@@ -39,6 +39,8 @@ import { CommonModule } from '@angular/common';
 import { DialogProfileSettingsComponent } from './dialog-profile-settings/dialog-profile-settings.component';
 import { SideNavService } from './services/sidenav.service';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { DialogLegalnoticeComponent } from './dialog-legalnotice/dialog-legalnotice.component';
+import { DialogDataProtectionComponent } from './dialog-data-protection/dialog-data-protection.component';
 
 
 @NgModule({
@@ -58,6 +60,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     DialogChatImageComponent,
     ThreadComponent,
     DialogProfileSettingsComponent,
+    DialogLegalnoticeComponent,
+    DialogDataProtectionComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

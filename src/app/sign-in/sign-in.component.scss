@@ -3,6 +3,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+	flex-direction: column;
+	position: relative;
 
 }
 
@@ -140,3 +142,21 @@ mat-progress-bar {
 		margin-bottom: 0;
 	}
   }
+
+
+  footer {
+	  position: absolute;
+	  bottom: 8px;
+	  right: 0;
+	  left: 0;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+
+
+		a {
+			margin-right: 16px;	
+			color: white;
+			cursor: pointer;
+		}
+	}

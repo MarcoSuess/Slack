@@ -37,10 +37,14 @@
   <!--content-->
   <mat-drawer-content class="content-field">
     <router-outlet></router-outlet>
+  
   </mat-drawer-content>
+
 </mat-drawer-container>
 
 <!-- profile-menu-bar -->
 <mat-menu #menu="matMenu">
   <app-menu-bar *ngIf="userService.user"></app-menu-bar>
 </mat-menu>
+
+
