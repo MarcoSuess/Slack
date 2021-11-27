@@ -45,9 +45,17 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  height: 40px;
+  padding: 4px;
   margin-top: 16px;
   cursor: pointer;
+  background: #d7d7d7;
+  border-radius: 8px;
+
+  &:hover {
+    background: #0b91ff82;
+    color: white;
+  }
+
   p,
   h5 {
     margin: 0;
@@ -64,3 +72,27 @@
     object-fit: cover;
   }
 }
+
+
+.profile-settings-btn {
+  margin-top: 32px;
+}
+
+
+mat-list {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background: #0b91ff82;
+    color: white;
+
+  }
+
+  mat-icon {
+    margin-right: 8px;
+  } 
+}
+
+

@@ -38,10 +38,12 @@
     <p *ngIf="!changeText">{{ userService.user.status }}</p>
   </button>
 
+  <mat-list (click)="openDialogSettings()" class="profile-settings-btn">
+    Profile settings</mat-list
+  >
 
-  <button (click)="openDialogSettings()" class="status-btn">
-    Profile settings
-  </button>
-
-  <button (click)="authService.signOut()">Logout</button>
+  <mat-list 
+   (click)="authService.signOut()"> 
+   <mat-icon aria-hidden="false">logout</mat-icon> 
+   Logout</mat-list>
 </div>
