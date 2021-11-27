@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
- 
+    
 
     h2 {
         margin-bottom: 0;
@@ -44,10 +44,6 @@ button {
     margin: 0 16px 0 16px;
 }
 
-mat-spinner {
-    position: absolute;
-
-}
 
 .content-container {
     display: flex;
@@ -75,3 +71,5 @@ mat-spinner {
     justify-content: flex-end;
     margin-top: 32px;
 }
+
+

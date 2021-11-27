@@ -4,25 +4,15 @@ import { UserService } from '../shared/user.service';
 @Component({
   selector: 'app-dialog-user-status',
   templateUrl: './dialog-user-status.component.html',
-  styleUrls: ['./dialog-user-status.component.scss']
+  styleUrls: ['./dialog-user-status.component.scss'],
 })
 export class DialogUserStatusComponent implements OnInit {
+  constructor(public userService: UserService) {}
 
-  userStatus: any;
+  ngOnInit(): void {}
 
-  constructor(private userService: UserService) { }
-
-  ngOnInit(): void {
+  saveStatus(status: string) {
+    this.userService.user.status = status;
+    this.userService.saveUserData();
   }
-
-  saveStatus() {
-    
-    if(this.userStatus) {
-      this.userService.user.status = this.userStatus;
-      this.userService.saveUserData();
-    }
-
-    
-  }
-
 }

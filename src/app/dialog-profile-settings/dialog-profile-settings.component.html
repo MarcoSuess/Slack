@@ -1,74 +1,61 @@
+
+    <mat-progress-bar
+    *ngIf="cloudstorageService.userImageUpload"
+    mode="indeterminate"
+  ></mat-progress-bar>
 <div class="header">
   <h2 mat-dialog-title>Profile settings</h2>
-  <mat-icon  mat-dialog-close  aria-hidden="false">close</mat-icon>
+  <mat-icon mat-dialog-close aria-hidden="false">close</mat-icon>
 </div>
 
 <div class="content-container" mat-dialog-content>
-
-
   <div class="profile-settings-container">
-
-        <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
-      <input matInput >
+      <input [disabled]="cloudstorageService.userImageUpload" #name [(ngModel)]="userService.user.displayName" matInput />
     </mat-form-field>
-
-  </div >
+  </div>
 
   <div class="profile-img-container">
-      <h3>Profile photo</h3>
-  <label>
-    <div
-      type="file"
-      class="img-container"
-      (mouseenter)="showAddIcon = true"
-      (mouseleave)="!(showAddIcon = false)"
-    >
-    <mat-icon aria-hidden="false">add_a_photo</mat-icon>
-
-      <mat-spinner
-        [diameter]="24"
-        *ngIf="cloudstorageService.userImageUpload"
-      ></mat-spinner>
-
-      <img
-        *ngIf="cloudstorageService.currentUserIMG"
-        src="{{ cloudstorageService.currentUserIMG }}"
-      />
-      <img
-        *ngIf="!cloudstorageService.currentUserIMG"
-        src="{{ userService.user.photoURL }}"
-      />
-
-      <input
+    <h3>Profile photo</h3>
+    <label>
+      <div
         type="file"
-        (change)="cloudstorageService.handleFileInput($event, 'user')"
-        style="display: none"
-      />
-    </div>
-  </label>
+        class="img-container"
+        (mouseenter)="showAddIcon = true"
+        (mouseleave)="!(showAddIcon = false)"
+      >
+        <mat-icon aria-hidden="false">add_a_photo</mat-icon>
+
+      
+
+        <img
+          *ngIf="cloudstorageService.currentUserIMG"
+          src="{{ cloudstorageService.currentUserIMG }}"
+        />
+        <img
+          *ngIf="!cloudstorageService.currentUserIMG"
+          src="{{ userService.user.photoURL }}"
+        />
+
+        <input
+          type="file"
+          (change)="cloudstorageService.handleFileInput($event, 'user')"
+          style="display: none"
+        />
+      </div>
+    </label>
   </div>
- 
-
-
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
 <div class="dialog-actions" mat-dialog-actions>
- 
-
-  <button mat-button mat-dialog-close>Close</button>
-  <button mat-button  *ngIf="!cloudstorageService.userImageUpload"
-  (click)="saveSettings()" color="primary">Save</button>
- 
+  <button [disabled]="cloudstorageService.userImageUpload" mat-button mat-dialog-close>Close</button>
+  <button
+    mat-button
+    *ngIf="!cloudstorageService.userImageUpload"
+    (click)="saveSettings(name.value)"
+    color="primary"
+  >
+    Save
+  </button>
 </div>

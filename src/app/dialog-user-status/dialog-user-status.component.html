@@ -1,11 +1,18 @@
 <h2 mat-dialog-title>Status setting</h2>
 <div mat-dialog-content>
-   
-    <input [(ngModel)]="userStatus"  placeholder="What's your status" type="text">
-
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input #status [(ngModel)]="userService.user.status" matInput />
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Close</button>
-  <button (click)="saveStatus()" mat-button mat-dialog-close>Save</button>
-
+  <button
+    color="primary"
+    (click)="saveStatus(status.value)"
+    mat-button
+    mat-dialog-close
+  >
+    Save
+  </button>
 </div>

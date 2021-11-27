@@ -19,7 +19,10 @@ export class DialogProfileSettingsComponent implements OnInit {
   }
 
 
-  saveSettings() {
+
+  saveSettings(nameChange: string) {
+    this.userService.user.displayName = nameChange;
+    this.userService.saveUserData();
       this.cloudstorageService.uploadImg('users');
   }
 
