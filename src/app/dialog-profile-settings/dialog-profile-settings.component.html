@@ -1,5 +1,22 @@
-<h2 mat-dialog-title>Profile setting</h2>
-<div mat-dialog-content>
+<div class="header">
+  <h2 mat-dialog-title>Profile settings</h2>
+  <mat-icon  mat-dialog-close  aria-hidden="false">close</mat-icon>
+</div>
+
+<div class="content-container" mat-dialog-content>
+
+
+  <div class="profile-settings-container">
+
+        <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput >
+    </mat-form-field>
+
+  </div >
+
+  <div class="profile-img-container">
+      <h3>Profile photo</h3>
   <label>
     <div
       type="file"
@@ -7,6 +24,8 @@
       (mouseenter)="showAddIcon = true"
       (mouseleave)="!(showAddIcon = false)"
     >
+    <mat-icon aria-hidden="false">add_a_photo</mat-icon>
+
       <mat-spinner
         [diameter]="24"
         *ngIf="cloudstorageService.userImageUpload"
@@ -28,15 +47,28 @@
       />
     </div>
   </label>
+  </div>
+ 
+
+
 </div>
-<div mat-dialog-actions>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="dialog-actions" mat-dialog-actions>
+ 
+
   <button mat-button mat-dialog-close>Close</button>
-  <button
-    *ngIf="!cloudstorageService.userImageUpload"
-    (click)="saveSettings()"
-    mat-button
-  
-  >
-    Save
-  </button>
+  <button mat-button  *ngIf="!cloudstorageService.userImageUpload"
+  (click)="saveSettings()" color="primary">Save</button>
+ 
 </div>

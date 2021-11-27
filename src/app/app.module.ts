@@ -41,7 +41,7 @@ import { SideNavService } from './services/sidenav.service';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { DialogLegalnoticeComponent } from './dialog-legalnotice/dialog-legalnotice.component';
 import { DialogDataProtectionComponent } from './dialog-data-protection/dialog-data-protection.component';
-
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -84,7 +84,8 @@ import { DialogDataProtectionComponent } from './dialog-data-protection/dialog-d
     MatSnackBarModule,
     CommonModule,
     MatSidenavModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatButtonModule
   ],
   
   providers: [AuthService, SideNavService],
