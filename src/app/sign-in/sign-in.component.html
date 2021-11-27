@@ -43,7 +43,7 @@
           </mat-form-field>
         </mat-card-content>
         <a
-          ><button mat-stroked-button color="accent" class="btn-block">
+          ><button [disabled]="authService.loadScreen" mat-stroked-button color="accent" class="btn-block">
             Sign In
           </button></a
         >

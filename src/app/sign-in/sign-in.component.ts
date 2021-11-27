@@ -19,7 +19,10 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  signInGuest() {}
+  signInGuest() {
+      this.authService.setGuestUserData();
+
+  }
 
 
 

@@ -4,7 +4,6 @@ import { SideNavService } from './services/sidenav.service';
 
 import { ChatService } from './shared/chat.service';
 import { AuthService } from './shared/services/auth.service';
-import { User } from './shared/services/user';
 import { UserService } from './shared/user.service';
 
 

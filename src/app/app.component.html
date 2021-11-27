@@ -1,7 +1,7 @@
 <!--toolbar-->
 <mat-toolbar
   class="toolbar-container"
-[ngClass]="{ 'loggedIn-toolbarContainer': userService.user}"
+[ngClass]="{ 'loggedIn-toolbarContainer': !checkRouteSign()}"
 >
 <mat-icon *ngIf="mobile && !checkRouteSign()"  (click)="sidenav.toggle()"  >menu</mat-icon>
   <div class="logo-container">

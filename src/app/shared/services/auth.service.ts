@@ -25,9 +25,7 @@ export class AuthService {
     Validators.minLength(6),
   ]);
 
-  userName = new FormControl('', [
-    Validators.required
-  ]);
+  userName = new FormControl('', [Validators.required]);
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -44,7 +42,6 @@ export class AuthService {
   getErrorMessageName() {
     return 'You must enter a value';
   }
-
 
   getErrorMessageEmail() {
     if (this.email.hasError('required')) {
@@ -73,7 +70,6 @@ export class AuthService {
           this.loadScreen = false;
           this.navigateToSignIn();
         }, 2000);
-      
       })
       .catch((error) => {
         console.log(error);
@@ -95,7 +91,6 @@ export class AuthService {
           this.loadScreen = false;
           this.navigateToBoard();
         }, 2000);
-       
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -115,7 +110,7 @@ export class AuthService {
     this._snackBar.open(message);
 
     setTimeout(() => {
-        this.closeErrorMessage();
+      this.closeErrorMessage();
     }, 1500);
   }
 
@@ -150,6 +145,26 @@ export class AuthService {
     });
   }
 
+  setGuestUserData() {
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/guest`);
+    const userData = {
+      uid: 'guest',
+      email: '',
+      displayName: 'Guest',
+      photoURL: 'assets/img/1.webp',
+      emailVerified: '',
+      online: false,
+      status: '',
+      privateChatUID: [],
+    };
+     userRef.set(userData, {
+      merge: true,
+    });
+    
+    this.currentUserID = 'guest';
+    this.navigateToBoard();
+  }
+
   signOut() {
     const auth = getAuth();
     signOut(auth)
@@ -158,7 +173,6 @@ export class AuthService {
         this.router.navigateByUrl('/');
         this.userService.user.online = false;
         this.userService.saveUserData();
-     
       })
       .catch((error) => {
         const errorCode = error.code;
