@@ -32,12 +32,12 @@
 }
 
 .message-title {
-  background-color: #d8d8d8;
+  background-color:whitesmoke;
   height: 48px;
   display: flex;
   align-items: center;
   border: 8px solid #3f51b5b8;
-
+  
   h3 {
     margin: 0px 0px 0px 20px;
   }
@@ -53,6 +53,7 @@
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+ 
 }
 
 .message-userData {

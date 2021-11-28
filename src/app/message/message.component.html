@@ -12,6 +12,7 @@
     </span>
     <h3 *ngIf="isThreadRoute()"><b> Thread </b></h3>
     <h3># {{ this.chatService.chat.name }}</h3>
+    <span (click)="openDialogChannelSettings()" *ngIf="!isThreadRoute()" class="material-icons backIcon"> keyboard_arrow_down </span>
   </div>
 
   <div
@@ -25,12 +26,14 @@
     >
       undo
     </span>
+
     <div class="privateChatDescription">
       <img src="{{ this.privateChatData.photoURL }}" />
       <h3 *ngIf="isThreadRoute()"><b> Thread </b></h3>
       <h3>
         {{ this.privateChatData.displayName }}
       </h3>
+      <span (click)="openDialogChannelSettings()" *ngIf="!isThreadRoute()" class="material-icons backIcon"> keyboard_arrow_down </span>
     </div>
   </div>
 

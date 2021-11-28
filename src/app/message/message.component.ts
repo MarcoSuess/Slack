@@ -189,4 +189,10 @@ export class MessageComponent implements OnInit {
   goBack() {
     this.location.back();
   }
+
+
+  openDialogChannelSettings() {
+    console.log('test');
+    
+  }
 }
