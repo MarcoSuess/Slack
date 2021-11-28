@@ -14,6 +14,7 @@ import { ChatService } from '../shared/chat.service';
 import { CloudstorageService } from '../shared/services/cloudstorage.service';
 import { UserService } from '../shared/user.service';
 import { Location } from '@angular/common';
+import { DialogChannelSettingsComponent } from '../dialog-channel-settings/dialog-channel-settings.component';
 
 @Component({
   selector: 'app-message',
@@ -190,9 +191,7 @@ export class MessageComponent implements OnInit {
     this.location.back();
   }
 
-
   openDialogChannelSettings() {
-    console.log('test');
-    
+    this.dialog.open(DialogChannelSettingsComponent);
   }
 }

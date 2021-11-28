@@ -42,6 +42,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { DialogLegalnoticeComponent } from './dialog-legalnotice/dialog-legalnotice.component';
 import { DialogDataProtectionComponent } from './dialog-data-protection/dialog-data-protection.component';
 import {MatButtonModule} from '@angular/material/button';
+import { DialogChannelSettingsComponent } from './dialog-channel-settings/dialog-channel-settings.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import {MatButtonModule} from '@angular/material/button';
     DialogProfileSettingsComponent,
     DialogLegalnoticeComponent,
     DialogDataProtectionComponent,
+    DialogChannelSettingsComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

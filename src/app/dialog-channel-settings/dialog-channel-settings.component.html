@@ -1,0 +1,38 @@
+<mat-progress-bar
+  *ngIf="loadBar"
+  mode="indeterminate"
+></mat-progress-bar>
+
+<h2 mat-dialog-title>Channel settings</h2>
+
+<div class="content-container" mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input
+      [disabled]="loadBar"
+      #name
+      [(ngModel)]="chatService.chat.name"
+      matInput
+    />
+  </mat-form-field>
+
+
+</div>
+
+<div class="dialog-actions" mat-dialog-actions>
+  <button
+    [disabled]="loadBar"
+    mat-button
+    mat-dialog-close
+  >
+    Close
+  </button>
+  <button
+    mat-button
+    [disabled]="loadBar"
+    (click)="saveSettings(name.value)"
+    color="primary"
+  >
+    Save
+  </button>
+</div>
