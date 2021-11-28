@@ -3,6 +3,7 @@ import {
   ElementRef,
   OnInit,
   QueryList,
+  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -18,7 +19,13 @@ import { CloudstorageService } from '../shared/services/cloudstorage.service';
 export class ThreadComponent implements OnInit {
   @ViewChildren('messages')
   messages!: QueryList<any>;
+  
+  
+  @ViewChild('scrollEnd')
   private myScrollContainer!: ElementRef;
+
+  index: any;
+  currentThread: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,12 +33,17 @@ export class ThreadComponent implements OnInit {
     public chatService: ChatService,
     public cloudstorageService: CloudstorageService
   ) {}
-  index: any;
-
+ 
   ngOnInit(): void {
+ 
+
     this.route.params.subscribe((params) => {
       this.index = params.id;
       this.messageComponent.threadIndex = params.id;
+
+      this.currentThread = this.chatService.chat.text[params.id]
+      console.log(this.currentThread);
+      
     });
 
     this.messageComponent.scrollToBottom();

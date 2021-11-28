@@ -79,6 +79,9 @@ export class MessageComponent implements OnInit {
       }
       this.scrollToBottom();
     });
+
+    console.log(this.privateChatData);
+    
   }
 
   ngAfterViewInit() {

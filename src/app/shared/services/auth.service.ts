@@ -157,12 +157,14 @@ export class AuthService {
       status: '',
       privateChatUID: [],
     };
-     userRef.set(userData, {
+
+    this.currentUserID = 'guest';
+    this.navigateToBoard();
+    return userRef.set(userData, {
       merge: true,
     });
     
-    this.currentUserID = 'guest';
-    this.navigateToBoard();
+    
   }
 
   signOut() {

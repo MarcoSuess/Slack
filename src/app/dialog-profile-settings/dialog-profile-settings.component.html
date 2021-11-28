@@ -39,6 +39,7 @@
         />
 
         <input
+        #img
           type="file"
           (change)="cloudstorageService.handleFileInput($event, 'user')"
           style="display: none"
@@ -53,7 +54,7 @@
   <button
     mat-button
     *ngIf="!cloudstorageService.userImageUpload"
-    (click)="saveSettings(name.value)"
+    (click)="saveSettings(name.value, img.value)"
     color="primary"
   >
     Save
