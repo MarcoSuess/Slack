@@ -27,3 +27,27 @@ body {
   height: 70vh;
   overflow-y: auto;
 }
+
+
+
+.codeFormat {
+  color: orange !important;
+  font-family: system-ui !important;
+  background: #000000 !important;
+  width: max-content !important;
+  border-radius: 4px;
+  height: fit-content !important;
+}
+
+.hide-mobile {
+  @media (max-width: 800px) { 
+    display: none !important;
+  }
+}
+
+
+.hide-desk {
+  @media (min-width: 800px) { 
+    display: none !important; 
+  }
+}

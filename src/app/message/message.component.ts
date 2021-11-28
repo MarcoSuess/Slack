@@ -123,7 +123,7 @@ export class MessageComponent implements OnInit {
           codeFormat: this.formatText,
         });
       }
-
+      this.formatText = false;
       this.inputText.nativeElement.value = '';
       this.text = '';
       this.cloudstorageService.chatImages = [];
@@ -193,5 +193,16 @@ export class MessageComponent implements OnInit {
 
   openDialogChannelSettings() {
     this.dialog.open(DialogChannelSettingsComponent);
+  }
+
+
+
+  keyDownFunction(key: any) {
+    console.log(key.code);
+    
+     if(key.code === 13) {
+       console.log('test');
+       
+     }
   }
 }

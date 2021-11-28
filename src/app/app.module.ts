@@ -43,6 +43,8 @@ import { DialogLegalnoticeComponent } from './dialog-legalnotice/dialog-legalnot
 import { DialogDataProtectionComponent } from './dialog-data-protection/dialog-data-protection.component';
 import {MatButtonModule} from '@angular/material/button';
 import { DialogChannelSettingsComponent } from './dialog-channel-settings/dialog-channel-settings.component';
+import {MatTreeModule} from '@angular/material/tree';
+
 
 @NgModule({
   declarations: [
@@ -87,7 +89,8 @@ import { DialogChannelSettingsComponent } from './dialog-channel-settings/dialog
     CommonModule,
     MatSidenavModule,
     MatProgressBarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTreeModule
   ],
   
   providers: [AuthService, SideNavService],

@@ -14,7 +14,7 @@ import { UserService } from './shared/user.service';
 })
 export class AppComponent {
   title = 'slack';
-  mobile: boolean = false;
+  
 
   constructor(
     public authService: AuthService,
@@ -30,13 +30,7 @@ export class AppComponent {
   }
  
   ngOnInit() {
-    
- 
-    
-    if (window.screen.width <= 768) {
-      this.mobile = true;
-      console.log(this.mobile);
-    }
+  
   }
 
   checkRouteSign() {

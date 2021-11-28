@@ -18,7 +18,7 @@
 
 .loggedIn-toolbarContainer {
   border-bottom: 2px solid white;
-  position:  unset !important;
+  position:  relative !important;
 }
 
 .sidenav-container {
@@ -110,4 +110,12 @@
 .logo-container {
   display: flex;
   align-items: center;
+}
+
+mat-icon {
+  cursor: pointer;
+
+  &:hover {
+    color: black;
+  }
 }

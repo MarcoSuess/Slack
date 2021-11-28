@@ -27,9 +27,6 @@
   flex-direction: column;
 }
 
-.codeFormat {
-  color: orange;
-}
 
 .message-title {
   background-color:whitesmoke;
@@ -218,4 +215,10 @@
 
 ::ng-deep .mat-menu-content {
   padding: 0px !important;
+}
+
+
+
+p {
+  margin-top: 16px;
 }

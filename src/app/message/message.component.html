@@ -120,10 +120,11 @@
   </div>
 
   <p>
-    <mat-form-field class="message-field" appearance="outline">
+    <mat-form-field   class="message-field" appearance="outline">
       <mat-label>Nachricht senden</mat-label>
 
       <textarea
+      (keydown)="keyDownFunction($event)"
         #inputText
         type="text"
         [(ngModel)]="text"

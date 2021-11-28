@@ -16,7 +16,6 @@ import { UserService } from '../shared/user.service';
 })
 export class DashboardComponent implements OnInit {
   showAdd: boolean;
-  mobile: boolean = false;
   @ViewChild('sidenav', { static: false }) public sidenav: MatSidenav | any;
 
   constructor(
@@ -27,10 +26,9 @@ export class DashboardComponent implements OnInit {
     public router: Router,
     public chatService: ChatService,
     public dialog: MatDialog,
-    private sidenavService: SideNavService
+    public sidenavService: SideNavService
   ) {
     this.showAdd = false;
-    
   }
 
   loadSideNav() {
@@ -45,20 +43,17 @@ export class DashboardComponent implements OnInit {
     if (this.userService.loadCurrentUser) {
       this.userService.saveUserData();
     }
+
     setTimeout(() => {
       this.loadSideNav();
     }, 2000);
+ 
+
 
   }
 
   async ngOnInit(): Promise<any> {
-    console.log(window.screen);
-
-    if (window.screen.width <= 768) {
-      this.mobile = true;
-      console.log(this.mobile);
-    }
-
+  
     await this.userService.loadAllUserData();
     await this.chatService.loadAllChannels();
 
