@@ -75,11 +75,11 @@ export class CloudstorageService {
             name: this.fileToUpload.name,
             src: url,
           });
-
+       
           for (let i = 0; i < this.imageURL.length; i++) {
             this.imageURL[i].uploaded = true;
           }
-
+          this.userImageUpload = false;
           // filter Upload array
         }
       })

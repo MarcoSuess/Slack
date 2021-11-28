@@ -81,7 +81,6 @@ export class MessageComponent implements OnInit {
     });
 
     console.log(this.privateChatData);
-    
   }
 
   ngAfterViewInit() {
