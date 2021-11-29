@@ -200,8 +200,8 @@ export class MessageComponent implements OnInit {
   keyDownFunction(key: any) {
     console.log(key.code);
     
-     if(key.code === 13) {
-       console.log('test');
+     if(key.code === 'Enter') {
+      this.sendMessage();
        
      }
   }
