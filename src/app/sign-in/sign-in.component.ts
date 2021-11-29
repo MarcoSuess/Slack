@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogDataProtectionComponent } from '../dialog-data-protection/dialog-data-protection.component';
+import { DialogDataprotectionComponent } from '../dialog-dataprotection/dialog-dataprotection.component';
 import { DialogLegalnoticeComponent } from '../dialog-legalnotice/dialog-legalnotice.component';
 import { AuthService } from '../shared/services/auth.service';
 
@@ -28,7 +28,7 @@ export class SignInComponent implements OnInit {
 
 
   openDialogDataProtection() {
-    this.dialog.open(DialogDataProtectionComponent);
+    this.dialog.open(DialogDataprotectionComponent);
   }
 
 

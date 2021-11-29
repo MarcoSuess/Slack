@@ -21,8 +21,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ContentComponent } from './content/content.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './verify-email/verify-email.component';
+
 import { AuthService } from './shared/services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -38,13 +37,12 @@ import { ThreadComponent } from './thread/thread.component';
 import { CommonModule } from '@angular/common';
 import { DialogProfileSettingsComponent } from './dialog-profile-settings/dialog-profile-settings.component';
 import { SideNavService } from './services/sidenav.service';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DialogLegalnoticeComponent } from './dialog-legalnotice/dialog-legalnotice.component';
-import { DialogDataProtectionComponent } from './dialog-data-protection/dialog-data-protection.component';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { DialogChannelSettingsComponent } from './dialog-channel-settings/dialog-channel-settings.component';
-import {MatTreeModule} from '@angular/material/tree';
-
+import { MatTreeModule } from '@angular/material/tree';
+import { DialogDataprotectionComponent } from './dialog-dataprotection/dialog-dataprotection.component';
 
 @NgModule({
   declarations: [
@@ -53,8 +51,6 @@ import {MatTreeModule} from '@angular/material/tree';
     ContentComponent,
     SignInComponent,
     SignUpComponent,
-    ForgotPasswordComponent,
-    VerifyEmailComponent,
     DashboardComponent,
     MenuBarComponent,
     DialogUserStatusComponent,
@@ -64,8 +60,8 @@ import {MatTreeModule} from '@angular/material/tree';
     ThreadComponent,
     DialogProfileSettingsComponent,
     DialogLegalnoticeComponent,
-    DialogDataProtectionComponent,
     DialogChannelSettingsComponent,
+    DialogDataprotectionComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -90,9 +86,9 @@ import {MatTreeModule} from '@angular/material/tree';
     MatSidenavModule,
     MatProgressBarModule,
     MatButtonModule,
-    MatTreeModule
+    MatTreeModule,
   ],
-  
+
   providers: [AuthService, SideNavService],
   bootstrap: [AppComponent],
 })

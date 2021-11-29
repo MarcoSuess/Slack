@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit {
 
     setTimeout(() => {
       this.loadSideNav();
-    }, 2000);
+    }, 1500);
  
 
 
@@ -76,6 +76,14 @@ export class DashboardComponent implements OnInit {
   }
 
   goToChat(user: any) {
+
+    if(this.userService.user.uid == 'guest') {
+        this.authService.openErrorMessage('You cannot chat privately because you are a guest')
+ 
+    } else {
+
+   
+   
     let currentUserUID = this.userService.user.uid;
 
     var indexOfUserUID = user.privateChatUID.findIndex(function (
@@ -85,11 +93,17 @@ export class DashboardComponent implements OnInit {
       return item.userUID === currentUserUID;
     });
 
+  
+    
+
     if (indexOfUserUID >= 0) {
       this.navigateToChat(user.privateChatUID[indexOfUserUID].chatID);
     } else {
+      console.log('create private chat! ', user);
+      
       this.addPrivateChatUID(user);
     }
+  }
   }
 
   addPrivateChatUID(user: any) {
@@ -105,6 +119,8 @@ export class DashboardComponent implements OnInit {
       chatID: this.userService.user.uid + user.uid,
     };
 
+
+    
     this.userService.user.privateChatUID.push(currentUser);
     this.userService.saveUserData();
 
