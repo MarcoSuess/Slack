@@ -195,14 +195,9 @@ export class MessageComponent implements OnInit {
     this.dialog.open(DialogChannelSettingsComponent);
   }
 
-
-
   keyDownFunction(key: any) {
-    console.log(key.code);
-    
-     if(key.code === 'Enter') {
+    if (key.code === 'Enter') {
       this.sendMessage();
-       
-     }
+    }
   }
 }
