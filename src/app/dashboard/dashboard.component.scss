@@ -117,3 +117,32 @@
   align-items: flex-start;
   padding-left: 16px;
 }
+
+
+
+.welcome-container-mobile {
+  background: #3f51b5;
+  height: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h2 {
+    font-family: 'Fredoka One';
+  }
+
+}
+
+.welcome-container-desk {
+  height: 100%;
+
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    font-family: 'Fredoka One';
+  }
+}

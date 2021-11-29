@@ -6,7 +6,6 @@ import { ChatService } from './shared/chat.service';
 import { AuthService } from './shared/services/auth.service';
 import { UserService } from './shared/user.service';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,28 +13,18 @@ import { UserService } from './shared/user.service';
 })
 export class AppComponent {
   title = 'slack';
-  
 
   constructor(
     public authService: AuthService,
     public userService: UserService,
     public chatService: ChatService,
     public sidenav: SideNavService,
-    private router : Router
-    
+    private router: Router
+  ) {}
 
-  
-  ) { 
-   
-  }
- 
-  ngOnInit() {
-  
-  }
+  ngOnInit() {}
 
-  checkRouteSign() {
-   return this.router.url.includes('sign')
+  public checkRouteSign() {
+    return this.router.url.includes('sign');
   }
-
- 
 }

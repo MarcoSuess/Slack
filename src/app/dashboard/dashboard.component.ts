@@ -63,6 +63,14 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+
+  public checkRouteChannelAndChat() {
+    if(this.router.url.includes('chat') || this.router.url.includes('channel')) 
+    return true
+    else return false 
+  }
+
+  
   openDialog() {
     this.dialog.open(DialogCreateChannelComponent);
   }

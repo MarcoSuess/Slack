@@ -3,14 +3,12 @@
   class="sidenav-container"
   *ngIf="userService.user?.online"
 >
-  <mat-drawer  class="drawer-field hide-mobile" mode="side" opened
+  <mat-drawer class="drawer-field hide-mobile" mode="side" opened
     ><div
       (mouseenter)="showAdd = true"
       (mouseleave)="showAdd = false"
       class="headline"
     >
-
-    
       <p>
         <b>Channels</b>
         <mat-icon (click)="openDialog()">add</mat-icon>
@@ -52,7 +50,7 @@
     </div>
   </mat-drawer>
 
-  <mat-drawer-container  class="example-container hide-desk" autosize>
+  <mat-drawer-container class="example-container hide-desk" autosize>
     <mat-drawer autoFocus="false" #sidenav class="drawer-field" mode="over"
       ><div class="headline">
         <p>
@@ -65,7 +63,9 @@
         class="list-container"
       >
         <mat-list class="list">
-          <mat-list-item (click)="goToChannel(channel); sidenavService.close()" class="list-item"
+          <mat-list-item
+            (click)="goToChannel(channel); sidenavService.close()"
+            class="list-item"
             ># {{ channel.name }}</mat-list-item
           >
         </mat-list>
@@ -96,6 +96,18 @@
       </div>
     </mat-drawer>
   </mat-drawer-container>
+
+  <div  *ngIf="!checkRouteChannelAndChat()" class="welcome-container-mobile hide-desk">
+
+    <h2>Welcome To Slack Clone :) </h2>
+      <h3>Choose a chat and enjoy the Communication</h3>
+  </div>
+
+  <div  *ngIf="!checkRouteChannelAndChat()" class="welcome-container-desk hide-mobile">
+    <h2>Welcome To Slack Clone :) </h2>
+    <h3>Choose a chat and enjoy the Communication</h3>
+  </div>
+
 
   <router-outlet *ngIf="userService.loadCurrentUser"></router-outlet>
 </mat-drawer-container>

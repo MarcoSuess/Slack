@@ -1,17 +1,18 @@
-
 <!--toolbar -->
 <mat-toolbar
   class="toolbar-container"
   [ngClass]="{ 'loggedIn-toolbarContainer': !checkRouteSign() }"
 >
   <mat-icon
-  class="hide-desk"
-    *ngIf="!checkRouteSign() && !sidenav.sidenav?._opened && sidenav.loadSideNav"
+    class="hide-desk"
+    *ngIf="
+      !checkRouteSign() && !sidenav.sidenav?._opened && sidenav.loadSideNav
+    "
     (click)="sidenav.toggle()"
     >menu</mat-icon
   >
   <mat-icon
-  class="hide-desk"
+    class="hide-desk"
     *ngIf="!checkRouteSign() && sidenav.sidenav?._opened && sidenav.loadSideNav"
     (click)="sidenav.close()"
     >close</mat-icon
@@ -45,12 +46,17 @@
 </mat-toolbar>
 
 <!--sidebar-->
-<mat-drawer-container class="sidenav-container">
+<mat-drawer-container 
+  
+  class="sidenav-container">
   <!--channel-list-->
 
   <!--content-->
-  <mat-drawer-content class="content-field">
-    <router-outlet></router-outlet>
+  <mat-drawer-content
+
+    
+  >
+    <router-outlet ></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>
 
