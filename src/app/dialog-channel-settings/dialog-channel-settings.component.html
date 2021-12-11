@@ -1,7 +1,4 @@
-<mat-progress-bar
-  *ngIf="loadBar"
-  mode="indeterminate"
-></mat-progress-bar>
+<mat-progress-bar *ngIf="loadBar" mode="indeterminate"></mat-progress-bar>
 
 <h2 mat-dialog-title>Channel settings</h2>
 
@@ -15,18 +12,10 @@
       matInput
     />
   </mat-form-field>
-
-
 </div>
 
 <div class="dialog-actions" mat-dialog-actions>
-  <button
-    [disabled]="loadBar"
-    mat-button
-    mat-dialog-close
-  >
-    Close
-  </button>
+  <button [disabled]="loadBar" mat-button mat-dialog-close>Close</button>
   <button
     mat-button
     [disabled]="loadBar"

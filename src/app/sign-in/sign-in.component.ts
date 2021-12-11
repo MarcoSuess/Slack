@@ -19,6 +19,10 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {}
 
+
+  /**
+   * This function sign in the Guest user.
+   */
   signInGuest() {
       this.authService.setGuestUserData();
 
@@ -27,11 +31,16 @@ export class SignInComponent implements OnInit {
 
 
 
+  /**
+   * This function open the Dialog data protection.
+   */
   openDialogDataProtection() {
     this.dialog.open(DialogDataprotectionComponent);
   }
 
-
+/**
+   * This function open the Dialog legal notice.
+   */
   openDialogLegalNotice() {
     this.dialog.open(DialogLegalnoticeComponent);
   }

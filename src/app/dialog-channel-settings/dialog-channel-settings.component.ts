@@ -15,6 +15,12 @@ export class DialogChannelSettingsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  /**
+   * This function save the edit channel name.
+   * 
+   * @param {string} name - This is the channel name.
+   */
   saveSettings(name: string) {
       this.chatService.chat.name = name;
       this.chatService.updateCurrentChat('channels');

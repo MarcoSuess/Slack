@@ -49,21 +49,6 @@ export class MessageComponent implements OnInit {
     this.formatText = false;
   }
 
-  onHoverThread(i: number) {
-    this.hoverIndexThreadIcon = i;
-  }
-
-  onHoverChatImage(i: number) {
-    this.hoverIndexChatImageIcon = i;
-  }
-
-  scrollToBottom = () => {
-    try {
-      this.myScrollContainer.nativeElement.scrollTop =
-        this.myScrollContainer.nativeElement.scrollHeight;
-    } catch (err) {}
-  };
-
   ngOnInit() {
     console.log(this.isThreadRoute());
 
@@ -89,6 +74,40 @@ export class MessageComponent implements OnInit {
     this.messages.changes.subscribe(this.scrollToBottom);
   }
 
+  /**
+   * This function declare the index from icon.
+   *
+   * @param {number} i - this is the index from the icon.
+   */
+  onHoverThread(i: number) {
+    this.hoverIndexThreadIcon = i;
+  }
+
+  /**
+   * This function declare the index from icon.
+   *
+   * @param {number} i - this is the index from the icon.
+   */
+  onHoverChatImage(i: number) {
+    this.hoverIndexChatImageIcon = i;
+  }
+
+  /**
+   * This function scroll the native element to the bottom.
+   */
+  scrollToBottom = () => {
+    try {
+      this.myScrollContainer.nativeElement.scrollTop =
+        this.myScrollContainer.nativeElement.scrollHeight;
+    } catch (err) {}
+  };
+
+  /**
+   * THis function filter the private chat user data.
+   *
+   * @param {any} params
+   * @returns  {any}
+   */
   filterPrivateChatUser(params: any) {
     let chatData = this.userService.user.privateChatUID.filter(
       (privateChatUID: any) => privateChatUID.chatID == params
@@ -97,6 +116,9 @@ export class MessageComponent implements OnInit {
     return chatData;
   }
 
+  /**
+   * This function send the message.
+   */
   sendMessage() {
     if (
       (this.text && this.cloudstorageService.imageURL.length <= 0) ||
@@ -106,33 +128,68 @@ export class MessageComponent implements OnInit {
       let getTime = date.getHours() + ':' + date.getMinutes();
 
       if (this.isThreadRoute() && this.threadIndex) {
-        this.chatService.chat.text[this.threadIndex].answer.push({
-          userID: this.userService.user.uid,
-          time: getTime,
-          message: this.text,
-          images: this.cloudstorageService.chatImages,
-          codeFormat: this.formatText,
-        });
+        this.threadMessage(getTime, this.threadIndex);
       } else {
-        this.chatService.chat.text.push({
-          userID: this.userService.user.uid,
-          time: getTime,
-          message: this.text,
-          images: this.cloudstorageService.chatImages,
-          answer: [],
-          codeFormat: this.formatText,
-        });
+        this.chatMessage(getTime);
       }
-      this.formatText = false;
-      this.inputText.nativeElement.value = '';
-      this.text = '';
-      this.cloudstorageService.chatImages = [];
-      this.cloudstorageService.imageURL = [];
-      this.chatService.updateCurrentChat(this.currentlocation);
+      this.resetChat();
     }
   }
 
-  changeText(value: any) {
+
+  /**
+   * This function push the message to the thread.
+   * 
+   * @param {string} getTime 
+   * @param {number} threadIndex 
+   */
+  threadMessage(getTime: string, threadIndex: number) {
+    this.chatService.chat.text[threadIndex].answer.push({
+      userID: this.userService.user.uid,
+      time: getTime,
+      message: this.text,
+      images: this.cloudstorageService.chatImages,
+      codeFormat: this.formatText,
+    });
+  }
+
+
+  /**
+   * This function push the message to the chat.
+   * 
+   * @param {string} getTime 
+   */
+  chatMessage(getTime: string) {
+    this.chatService.chat.text.push({
+      userID: this.userService.user.uid,
+      time: getTime,
+      message: this.text,
+      images: this.cloudstorageService.chatImages,
+      answer: [],
+      codeFormat: this.formatText,
+    });
+  }
+
+
+  /**
+   * This function reset the chat.
+   */
+  resetChat() {
+    this.formatText = false;
+    this.inputText.nativeElement.value = '';
+    this.text = '';
+    this.cloudstorageService.chatImages = [];
+    this.cloudstorageService.imageURL = [];
+    this.chatService.updateCurrentChat(this.currentlocation);
+  }
+
+
+  /**
+   * This function format the text.
+   * 
+   * @param {string} value 
+   */
+  changeText(value: string) {
     let replaceValue = value.replace(/^(.)|(.)$/g, '');
 
     if (value.includes('`' + replaceValue + '`') && replaceValue) {
@@ -144,6 +201,12 @@ export class MessageComponent implements OnInit {
     }
   }
 
+  /**
+   * This function return the user data.
+   * 
+   * @param {any} userUID 
+   * @returns {any}
+   */
   returnUserData(userUID: any) {
     let getUser = this.userService.allUser.filter(
       (user: { uid: any }) => user.uid == userUID
@@ -152,6 +215,12 @@ export class MessageComponent implements OnInit {
     return getUser[0];
   }
 
+
+  /**
+   * This function check all upload images.
+   * 
+   * @returns {boolean}
+   */
   checkUploadAllImages() {
     for (var index in this.cloudstorageService.imageURL)
       if (this.cloudstorageService.imageURL[index].uploaded) return true;
@@ -159,6 +228,12 @@ export class MessageComponent implements OnInit {
     return false;
   }
 
+
+  /**
+   * This function open the dialog chat image.
+   * 
+   * @param {any} img 
+   */
   openImageDialog(img: any) {
     this.dialog.open(DialogChatImageComponent, {
       data: {
@@ -168,10 +243,22 @@ export class MessageComponent implements OnInit {
     });
   }
 
+
+  /**
+   * This function check if the route includes thread.
+   * 
+   * @returns {any}
+   */
   isThreadRoute() {
     return this.router.url.includes('/thread');
   }
 
+
+  /**
+   * This function navigate the url to the thread.
+   * 
+   * @param {number} index 
+   */
   navigateToThread(index: number) {
     let loction = this.currentlocation == 'channels' ? 'channel' : 'chat';
 
@@ -185,16 +272,27 @@ export class MessageComponent implements OnInit {
         '/thread/' +
         index
     );
-  }
+  } 
 
+  /**
+   * This function set the url one back.
+   */
   goBack() {
     this.location.back();
   }
 
+  /**
+   * This function open the channel settings dialog.
+   */
   openDialogChannelSettings() {
     this.dialog.open(DialogChannelSettingsComponent);
   }
 
+  /**
+   * This function send the message if press enter.
+   * 
+   * @param {any} key 
+   */
   keyDownFunction(key: any) {
     if (key.code === 'Enter') {
       this.sendMessage();

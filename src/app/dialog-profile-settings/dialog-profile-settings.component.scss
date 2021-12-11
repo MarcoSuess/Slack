@@ -1,75 +1,65 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    h2 {
-        margin-bottom: 0;
-    }
+  h2 {
+    margin-bottom: 0;
+  }
 
-    mat-icon {
-        cursor: pointer;
-    }
+  mat-icon {
+    cursor: pointer;
+  }
 }
 
 img {
-    height: 10vh;
-    width: 128px;
-    object-fit: cover;
-    cursor: pointer;
-    &:hover {
+  height: 10vh;
+  width: 128px;
+  object-fit: cover;
+  cursor: pointer;
+  &:hover {
     opacity: 0.4;
-    }
+  }
 }
 
-
 .img-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
 
-    mat-icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-        cursor: pointer;
-    }
-
+  mat-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+  }
 }
 
 button {
-    margin: 0 16px 0 16px;
+  margin: 0 16px 0 16px;
 }
-
 
 .content-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 32px;
 
-
-    @media (max-width: 600px) {
-        flex-direction: column;
-    }
-
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 }
 
-
 .profile-settings-container {
-    margin-right: 32px;
+  margin-right: 32px;
 }
 
 .profile-img-container {
-
 }
 
 .dialog-actions {
-    justify-content: flex-end;
-    margin-top: 32px;
+  justify-content: flex-end;
+  margin-top: 32px;
 }
-
-

@@ -13,6 +13,10 @@ export class DialogCreateChannelComponent implements OnInit {
 
   ngOnInit(): void {}
 
+
+  /**
+   * This function calls the chat service to create a new channel.
+   */
   createChannel() {
     this.chatService.createNewChannel(this.channelName);
   }

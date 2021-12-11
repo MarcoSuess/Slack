@@ -1,13 +1,21 @@
 <div class="message-show-container">
   <div class="message-user-container thread-data">
     <div class="message-userData">
-      <img src="{{ messageComponent.returnUserData(currentThread.userID).photoURL }}" />
-      <h4>{{ messageComponent.returnUserData(currentThread.userID).displayName }}</h4>
+      <img
+        src="{{
+          messageComponent.returnUserData(currentThread.userID).photoURL
+        }}"
+      />
+      <h4>
+        {{ messageComponent.returnUserData(currentThread.userID).displayName }}
+      </h4>
       <p>{{ currentThread.time }} Uhr</p>
     </div>
-   
- 
-    <p class="word-break" [ngClass]="currentThread.codeFormat ? 'codeFormat' : ''">
+
+    <p
+      class="word-break"
+      [ngClass]="currentThread.codeFormat ? 'codeFormat' : ''"
+    >
       {{ currentThread.message }}
     </p>
 
@@ -20,10 +28,10 @@
       </div>
     </div>
 
-    <p class="answers-length">{{chatService.chat.text[index].answer.length}} Answers</p>
+    <p class="answers-length">
+      {{ chatService.chat.text[index].answer.length }} Answers
+    </p>
   </div>
-
- 
 
   <div
     [ngStyle]="{

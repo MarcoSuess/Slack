@@ -1,13 +1,11 @@
-  <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="box">
-
     <mat-progress-bar
       *ngIf="authService.loadScreen"
       mode="indeterminate"
     ></mat-progress-bar>
 
     <mat-card-header>
-
       <mat-card-title>Sign Up</mat-card-title>
     </mat-card-header>
 
@@ -59,14 +57,16 @@
         </mat-form-field>
       </mat-card-content>
       <a>
-        <button [disabled]="authService.loadScreen" mat-raised-button color="primary" class="btn-block">
+        <button
+          [disabled]="authService.loadScreen"
+          mat-raised-button
+          color="primary"
+          class="btn-block"
+        >
           Sign Up
         </button>
       </a>
     </form>
-
-    
-
 
     <p class="outside-message">
       Already Register?

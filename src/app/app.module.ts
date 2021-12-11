@@ -16,9 +16,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
-import { UserComponent } from './user/user.component';
+
 import { MatCardModule } from '@angular/material/card';
-import { ContentComponent } from './content/content.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
@@ -47,8 +46,6 @@ import { DialogDataprotectionComponent } from './dialog-dataprotection/dialog-da
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
-    ContentComponent,
     SignInComponent,
     SignUpComponent,
     DashboardComponent,

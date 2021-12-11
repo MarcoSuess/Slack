@@ -12,7 +12,13 @@
     </span>
     <h3 *ngIf="isThreadRoute()"><b> Thread </b></h3>
     <h3># {{ this.chatService.chat.name }}</h3>
-    <span (click)="openDialogChannelSettings()" *ngIf="!isThreadRoute()" class="material-icons backIcon"> keyboard_arrow_down </span>
+    <span
+      (click)="openDialogChannelSettings()"
+      *ngIf="!isThreadRoute()"
+      class="material-icons backIcon"
+    >
+      keyboard_arrow_down
+    </span>
   </div>
 
   <div
@@ -33,7 +39,6 @@
       <h3>
         {{ this.privateChatData.displayName }}
       </h3>
-    
     </div>
   </div>
 
@@ -120,11 +125,11 @@
   </div>
 
   <p>
-    <mat-form-field   class="message-field" appearance="outline">
+    <mat-form-field class="message-field" appearance="outline">
       <mat-label>Nachricht senden</mat-label>
 
       <textarea
-      (keydown)="keyDownFunction($event)"
+        (keydown)="keyDownFunction($event)"
         #inputText
         type="text"
         [(ngModel)]="text"

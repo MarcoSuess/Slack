@@ -97,17 +97,21 @@
     </mat-drawer>
   </mat-drawer-container>
 
-  <div  *ngIf="!checkRouteChannelAndChat()" class="welcome-container-mobile hide-desk">
-
-    <h2>Welcome To Slack Clone :) </h2>
-      <h3>Choose a chat and enjoy the Communication</h3>
-  </div>
-
-  <div  *ngIf="!checkRouteChannelAndChat()" class="welcome-container-desk hide-mobile">
-    <h2>Welcome To Slack Clone :) </h2>
+  <div
+    *ngIf="!checkRouteChannelAndChat()"
+    class="welcome-container-mobile hide-desk"
+  >
+    <h2>Welcome To Slack Clone :)</h2>
     <h3>Choose a chat and enjoy the Communication</h3>
   </div>
 
+  <div
+    *ngIf="!checkRouteChannelAndChat()"
+    class="welcome-container-desk hide-mobile"
+  >
+    <h2>Welcome To Slack Clone :)</h2>
+    <h3>Choose a chat and enjoy the Communication</h3>
+  </div>
 
   <router-outlet *ngIf="userService.loadCurrentUser"></router-outlet>
 </mat-drawer-container>

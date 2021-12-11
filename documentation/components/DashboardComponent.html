@@ -1,0 +1,1789 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>slack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">slack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  DashboardComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/dashboard/dashboard.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-dashboard</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./dashboard.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./dashboard.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#chatService" >chatService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dialog" >dialog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#router" >router</a>
+                            </li>
+                            <li>
+                                <a href="#showAdd" >showAdd</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sidenav" >sidenav</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sidenavService" >sidenavService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#userService" >userService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addPrivateChatUID" >addPrivateChatUID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#checkRouteChannelAndChat" >checkRouteChannelAndChat</a>
+                            </li>
+                            <li>
+                                <a href="#createPrivateChatCurrentUser" >createPrivateChatCurrentUser</a>
+                            </li>
+                            <li>
+                                <a href="#createPrivateChatPickedUser" >createPrivateChatPickedUser</a>
+                            </li>
+                            <li>
+                                <a href="#goToChannel" >goToChannel</a>
+                            </li>
+                            <li>
+                                <a href="#goToChat" >goToChat</a>
+                            </li>
+                            <li>
+                                <a href="#loadSideNav" >loadSideNav</a>
+                            </li>
+                            <li>
+                                <a href="#navigateToChat" >navigateToChat</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openDialog" >openDialog</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, firestore: AngularFirestore, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, chatService: <a href="../injectables/ChatService.html" target="_self">ChatService</a>, dialog: MatDialog, sidenavService: <a href="../injectables/SideNavService.html" target="_self">SideNavService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/dashboard/dashboard.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>firestore</td>
+                                                  
+                                                        <td>
+                                                                    <code>AngularFirestore</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>chatService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ChatService.html" target="_self" >ChatService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sidenavService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SideNavService.html" target="_self" >SideNavService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addPrivateChatUID"></a>
+                    <span class="name">
+                        <span ><b>addPrivateChatUID</b></span>
+                        <a href="#addPrivateChatUID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addPrivateChatUID(user: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/app/dashboard/dashboard.component.ts:120</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function create  a new private chat uid.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkRouteChannelAndChat"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>checkRouteChannelAndChat</b></span>
+                        <a href="#checkRouteChannelAndChat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkRouteChannelAndChat()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">src/app/dashboard/dashboard.component.ts:72</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function check the route if includes chat or channel.</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createPrivateChatCurrentUser"></a>
+                    <span class="name">
+                        <span ><b>createPrivateChatCurrentUser</b></span>
+                        <a href="#createPrivateChatCurrentUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createPrivateChatCurrentUser(pickedUser: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">src/app/dashboard/dashboard.component.ts:144</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function create the private chat for current user.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>pickedUser</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createPrivateChatPickedUser"></a>
+                    <span class="name">
+                        <span ><b>createPrivateChatPickedUser</b></span>
+                        <a href="#createPrivateChatPickedUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createPrivateChatPickedUser(user: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, currentUser: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="156"
+                            class="link-to-prism">src/app/dashboard/dashboard.component.ts:156</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function create the private chat for picked user.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToChannel"></a>
+                    <span class="name">
+                        <span ><b>goToChannel</b></span>
+                        <a href="#goToChannel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToChannel(channel: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="182"
+                            class="link-to-prism">src/app/dashboard/dashboard.component.ts:182</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function navigate to the channel.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>channel</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToChat"></a>
+                    <span class="name">
+                        <span ><b>goToChat</b></span>
+                        <a href="#goToChat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToChat(user: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">src/app/dashboard/dashboard.component.ts:93</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function check the chat or channel for navigate.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadSideNav"></a>
+                    <span class="name">
+                        <span ><b>loadSideNav</b></span>
+                        <a href="#loadSideNav"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadSideNav()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/dashboard/dashboard.component.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function declare the sidenav.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateToChat"></a>
+                    <span class="name">
+                        <span ><b>navigateToChat</b></span>
+                        <a href="#navigateToChat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateToChat(chatUID: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="167"
+                            class="link-to-prism">src/app/dashboard/dashboard.component.ts:167</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This  function navigate to the chat.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>chatUID</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/dashboard/dashboard.component.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/dashboard/dashboard.component.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDialog"></a>
+                    <span class="name">
+                        <span ><b>openDialog</b></span>
+                        <a href="#openDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openDialog()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">src/app/dashboard/dashboard.component.ts:82</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function open the create channel dialog.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chatService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>chatService</b></span>
+                        <a href="#chatService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/ChatService.html" target="_self" >ChatService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/dashboard/dashboard.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialog"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dialog</b></span>
+                        <a href="#dialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatDialog</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/dashboard/dashboard.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/dashboard/dashboard.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showAdd"></a>
+                    <span class="name">
+                        <span ><b>showAdd</b></span>
+                        <a href="#showAdd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/dashboard/dashboard.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sidenav"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>sidenav</b></span>
+                        <a href="#sidenav"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatSidenav | any</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;sidenav&#x27;, {static: false})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/dashboard/dashboard.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sidenavService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>sidenavService</b></span>
+                        <a href="#sidenavService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/SideNavService.html" target="_self" >SideNavService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/dashboard/dashboard.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>userService</b></span>
+                        <a href="#userService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/dashboard/dashboard.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { AngularFirestore } from &#x27;@angular/fire/compat/firestore&#x27;;
+import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
+import { MatSidenav } from &#x27;@angular/material/sidenav&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { DialogCreateChannelComponent } from &#x27;../dialog-create-channel/dialog-create-channel.component&#x27;;
+import { SideNavService } from &#x27;../services/sidenav.service&#x27;;
+import { ChatService } from &#x27;../shared/chat.service&#x27;;
+import { AuthService } from &#x27;../shared/services/auth.service&#x27;;
+import { UserService } from &#x27;../shared/user.service&#x27;;
+
+@Component({
+  selector: &#x27;app-dashboard&#x27;,
+  templateUrl: &#x27;./dashboard.component.html&#x27;,
+  styleUrls: [&#x27;./dashboard.component.scss&#x27;],
+})
+export class DashboardComponent implements OnInit {
+  showAdd: boolean;
+  @ViewChild(&#x27;sidenav&#x27;, { static: false }) public sidenav: MatSidenav | any;
+
+  constructor(
+    private route: ActivatedRoute,
+    public userService: UserService,
+    private authService: AuthService,
+    private firestore: AngularFirestore,
+    public router: Router,
+    public chatService: ChatService,
+    public dialog: MatDialog,
+    public sidenavService: SideNavService
+  ) {
+    this.showAdd &#x3D; false;
+  }
+
+  async ngOnInit(): Promise&lt;any&gt; {
+    await this.userService.loadAllUserData();
+    await this.chatService.loadAllChannels();
+
+    await this.route.params.subscribe((params) &#x3D;&gt; {
+      console.log(params.id);
+      this.userService.loadCurrentUserData(params.id);
+    });
+  }
+
+  ngAfterViewInit() {
+    this.authService.loadScreen &#x3D; false;
+    this.authService.closeErrorMessage();
+
+    if (this.userService.loadCurrentUser) {
+      this.userService.saveUserData();
+    }
+
+    setTimeout(() &#x3D;&gt; {
+      this.loadSideNav();
+    }, 1500);
+  }
+
+  /**
+   * This function declare the sidenav.
+   */
+  loadSideNav() {
+    this.sidenavService.setSidenav(this.sidenav);
+    console.log(this.sidenav);
+  }
+
+
+
+  /**
+   * This function check the route if includes chat or channel.
+   * 
+   * @returns {boolean}
+   */
+  public checkRouteChannelAndChat() {
+    if (this.router.url.includes(&#x27;chat&#x27;) || this.router.url.includes(&#x27;channel&#x27;))
+      return true;
+    else return false;
+  }
+
+
+  /**
+   * This function open the create channel dialog.
+   */
+  openDialog() {
+    this.dialog.open(DialogCreateChannelComponent);
+  }
+
+
+
+  /**
+   * This function check the chat or channel for navigate.
+   * 
+   * @param {any} user 
+   */
+  goToChat(user: any) {
+    if (this.userService.user.uid &#x3D;&#x3D; &#x27;guest&#x27;) {
+      this.authService.openErrorMessage(&#x27;You cannot chat privately because you are a guest&#x27;);
+    } else {
+      let currentUserUID &#x3D; this.userService.user.uid;
+      var indexOfUserUID &#x3D; user.privateChatUID.findIndex(function (
+        item: any,
+        i: any
+      ) {
+        return item.userUID &#x3D;&#x3D;&#x3D; currentUserUID;
+      });
+
+      if (indexOfUserUID &gt;&#x3D; 0) {
+        this.navigateToChat(user.privateChatUID[indexOfUserUID].chatID);
+      } else {
+        this.addPrivateChatUID(user);
+      }
+    }
+  }
+
+
+
+  /**
+   * This function create  a new private chat uid.
+   * 
+   * @param {any} user 
+   */
+  addPrivateChatUID(user: any) {
+    let pickedUser &#x3D; {
+      chatName: user.displayName,
+      userUID: user.uid,
+      chatID: this.userService.user.uid + user.uid,
+    };
+    let currentUser  &#x3D; {
+      chatName: this.userService.user.displayName,
+      userUID: this.userService.user.uid,
+      chatID: this.userService.user.uid + user.uid,
+    };
+    this.createPrivateChatCurrentUser(pickedUser);
+    this.createPrivateChatPickedUser(user, currentUser);
+    this.chatService.createNewChat(this.userService.user.uid + user.uid);
+    this.navigateToChat(this.userService.user.uid + user.uid);
+  }
+
+
+
+  /**
+   * This function create the private chat for current user.
+   * 
+   * @param {any} pickedUser 
+   */
+  createPrivateChatCurrentUser(pickedUser: any) {
+    this.userService.user.privateChatUID.push(pickedUser);
+    this.userService.saveUserData();
+  } 
+
+
+  /**
+   * This function create the private chat for picked user.
+   * 
+   * @param {any} user 
+   * @param {any} currentUser 
+   */
+  createPrivateChatPickedUser(user: any, currentUser:any) {
+    user.privateChatUID.push(currentUser);
+    this.userService.saveOtherUserData(user);
+  } 
+
+
+  /**
+   * This  function navigate to the chat.
+   * 
+   * @param {any} chatUID 
+   */
+  navigateToChat(chatUID: any) {
+    this.chatService.deleteCurrentChatroom();
+    this.chatService.saveCurrentChatroom(&#x27;chats&#x27;);
+
+    this.router.navigateByUrl(
+      &#x27;/dashboard/&#x27; + this.userService.user.uid + &#x27;/chat/&#x27; + chatUID
+    );
+  }
+
+
+  /**
+   * This function navigate to the channel.
+   * 
+   * @param {any} channel 
+   */
+  goToChannel(channel: any) {
+    this.chatService.deleteCurrentChatroom();
+    this.chatService.saveCurrentChatroom(&#x27;channels&#x27;);
+
+    this.router.navigateByUrl(
+      &#x27;/dashboard/&#x27; + this.userService.user.uid + &#x27;/channel/&#x27; + channel.ID
+    );
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-drawer-container
+  flex
+  class&#x3D;&quot;sidenav-container&quot;
+  *ngIf&#x3D;&quot;userService.user?.online&quot;
+&gt;
+  &lt;mat-drawer class&#x3D;&quot;drawer-field hide-mobile&quot; mode&#x3D;&quot;side&quot; opened
+    &gt;&lt;div
+      (mouseenter)&#x3D;&quot;showAdd &#x3D; true&quot;
+      (mouseleave)&#x3D;&quot;showAdd &#x3D; false&quot;
+      class&#x3D;&quot;headline&quot;
+    &gt;
+      &lt;p&gt;
+        &lt;b&gt;Channels&lt;/b&gt;
+        &lt;mat-icon (click)&#x3D;&quot;openDialog()&quot;&gt;add&lt;/mat-icon&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div
+      *ngFor&#x3D;&quot;let channel of this.chatService.allChannels&quot;
+      class&#x3D;&quot;list-container&quot;
+    &gt;
+      &lt;mat-list class&#x3D;&quot;list&quot;&gt;
+        &lt;mat-list-item (click)&#x3D;&quot;goToChannel(channel)&quot; class&#x3D;&quot;list-item&quot;
+          &gt;# {{ channel.name }}&lt;/mat-list-item
+        &gt;
+      &lt;/mat-list&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;message&quot;&gt;
+      &lt;p&gt;&lt;b&gt;Direktnachrichten&lt;/b&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;list-container&quot;&gt;
+      &lt;mat-list class&#x3D;&quot;list&quot;&gt;
+        &lt;mat-list-item
+          *ngFor&#x3D;&quot;let user of userService.allUser&quot;
+          (click)&#x3D;&quot;goToChat(user)&quot;
+          class&#x3D;&quot;list-item&quot;
+        &gt;
+          &lt;div class&#x3D;&quot;user-status&quot;&gt;
+            &lt;div
+              class&#x3D;&quot;userOnline&quot;
+              [ngStyle]&#x3D;&quot;{
+                &#x27;background-color&#x27;: user.online ? &#x27;green&#x27; : &#x27;red&#x27;
+              }&quot;
+            &gt;&lt;/div&gt;
+            &lt;img src&#x3D;&quot;{{ user.photoURL }}&quot; /&gt;
+          &lt;/div&gt;
+          {{ user.displayName }}&lt;/mat-list-item
+        &gt;
+      &lt;/mat-list&gt;
+    &lt;/div&gt;
+  &lt;/mat-drawer&gt;
+
+  &lt;mat-drawer-container class&#x3D;&quot;example-container hide-desk&quot; autosize&gt;
+    &lt;mat-drawer autoFocus&#x3D;&quot;false&quot; #sidenav class&#x3D;&quot;drawer-field&quot; mode&#x3D;&quot;over&quot;
+      &gt;&lt;div class&#x3D;&quot;headline&quot;&gt;
+        &lt;p&gt;
+          &lt;b&gt;Channels&lt;/b&gt;
+          &lt;mat-icon (click)&#x3D;&quot;openDialog()&quot;&gt;add&lt;/mat-icon&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div
+        *ngFor&#x3D;&quot;let channel of this.chatService.allChannels&quot;
+        class&#x3D;&quot;list-container&quot;
+      &gt;
+        &lt;mat-list class&#x3D;&quot;list&quot;&gt;
+          &lt;mat-list-item
+            (click)&#x3D;&quot;goToChannel(channel); sidenavService.close()&quot;
+            class&#x3D;&quot;list-item&quot;
+            &gt;# {{ channel.name }}&lt;/mat-list-item
+          &gt;
+        &lt;/mat-list&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;message&quot;&gt;
+        &lt;p&gt;&lt;b&gt;Direktnachrichten&lt;/b&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;list-container&quot;&gt;
+        &lt;mat-list class&#x3D;&quot;list&quot;&gt;
+          &lt;mat-list-item
+            *ngFor&#x3D;&quot;let user of userService.allUser&quot;
+            (click)&#x3D;&quot;goToChat(user); sidenavService.close()&quot;
+            class&#x3D;&quot;list-item&quot;
+          &gt;
+            &lt;div class&#x3D;&quot;user-status&quot;&gt;
+              &lt;div
+                class&#x3D;&quot;userOnline&quot;
+                [ngStyle]&#x3D;&quot;{
+                  &#x27;background-color&#x27;: user.online ? &#x27;green&#x27; : &#x27;red&#x27;
+                }&quot;
+              &gt;&lt;/div&gt;
+              &lt;img src&#x3D;&quot;{{ user.photoURL }}&quot; /&gt;
+            &lt;/div&gt;
+            {{ user.displayName }}&lt;/mat-list-item
+          &gt;
+        &lt;/mat-list&gt;
+      &lt;/div&gt;
+    &lt;/mat-drawer&gt;
+  &lt;/mat-drawer-container&gt;
+
+  &lt;div
+    *ngIf&#x3D;&quot;!checkRouteChannelAndChat()&quot;
+    class&#x3D;&quot;welcome-container-mobile hide-desk&quot;
+  &gt;
+    &lt;h2&gt;Welcome To Slack Clone :)&lt;/h2&gt;
+    &lt;h3&gt;Choose a chat and enjoy the Communication&lt;/h3&gt;
+  &lt;/div&gt;
+
+  &lt;div
+    *ngIf&#x3D;&quot;!checkRouteChannelAndChat()&quot;
+    class&#x3D;&quot;welcome-container-desk hide-mobile&quot;
+  &gt;
+    &lt;h2&gt;Welcome To Slack Clone :)&lt;/h2&gt;
+    &lt;h3&gt;Choose a chat and enjoy the Communication&lt;/h3&gt;
+  &lt;/div&gt;
+
+  &lt;router-outlet *ngIf&#x3D;&quot;userService.loadCurrentUser&quot;&gt;&lt;/router-outlet&gt;
+&lt;/mat-drawer-container&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./dashboard.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.toolbar-container {
+  color: white;
+  background-color: #3f51b5;
+  border: 0.5px solid #3f51b5;
+}
+
+.sidenav-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.drawer-field {
+  width: 300px;
+  color: white;
+  background-color: #3f51b5;
+  text-align: center;
+  overflow-y: auto;
+
+  .list-item {
+    color: lightgrey;
+    cursor: pointer;
+  }
+
+  .list-item:hover {
+    color: white;
+  }
+}
+
+.headline {
+  color: white;
+  display: flex;
+  width: 100%;
+
+  p {
+    position: relative;
+    padding-top: 40px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  mat-icon {
+    &amp;:hover {
+      background-color: #5d76ff;
+      border-radius: 8px;
+    }
+  }
+}
+
+.message {
+  padding-top: 70px;
+  color: white;
+
+  p {
+    font-size: 20px;
+  }
+}
+
+.logo img {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.material-icons-outlined {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+
+.list-item {
+  margin-right: 20px;
+}
+
+.list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    margin-right: 8px;
+    height: 32px;
+    width: 32px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+
+  mat-list-item {
+    margin-top: 16px;
+  }
+}
+
+.user-status {
+  display: flex;
+  position: relative;
+
+  div {
+    position: absolute;
+    right: 4px;
+    bottom: 0;
+  }
+}
+
+.mat-drawer-container {
+  position: unset;
+}
+
+:host::ng-deep .mat-drawer-inner-container {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 16px;
+}
+
+.welcome-container-mobile {
+  background: #3f51b5;
+  height: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h2 {
+    font-family: &quot;Fredoka One&quot;;
+  }
+
+  h3 {
+    margin-bottom: 128px;
+  }
+}
+
+.welcome-container-desk {
+  height: 100%;
+
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    font-family: &quot;Fredoka One&quot;;
+  }
+
+  h3 {
+    margin-bottom: 128px;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-drawer-container  flex  class="sidenav-container"  *ngIf="userService.user?.online">  <mat-drawer class="drawer-field hide-mobile" mode="side" opened    ><div      (mouseenter)="showAdd = true"      (mouseleave)="showAdd = false"      class="headline"    >      <p>        <b>Channels</b>        <mat-icon (click)="openDialog()">add</mat-icon>      </p>    </div>    <div      *ngFor="let channel of this.chatService.allChannels"      class="list-container"    >      <mat-list class="list">        <mat-list-item (click)="goToChannel(channel)" class="list-item"          ># {{ channel.name }}</mat-list-item        >      </mat-list>    </div>    <div class="message">      <p><b>Direktnachrichten</b></p>    </div>    <div class="list-container">      <mat-list class="list">        <mat-list-item          *ngFor="let user of userService.allUser"          (click)="goToChat(user)"          class="list-item"        >          <div class="user-status">            <div              class="userOnline"              [ngStyle]="{                \'background-color\': user.online ? \'green\' : \'red\'              }"            ></div>            <img src="{{ user.photoURL }}" />          </div>          {{ user.displayName }}</mat-list-item        >      </mat-list>    </div>  </mat-drawer>  <mat-drawer-container class="example-container hide-desk" autosize>    <mat-drawer autoFocus="false" #sidenav class="drawer-field" mode="over"      ><div class="headline">        <p>          <b>Channels</b>          <mat-icon (click)="openDialog()">add</mat-icon>        </p>      </div>      <div        *ngFor="let channel of this.chatService.allChannels"        class="list-container"      >        <mat-list class="list">          <mat-list-item            (click)="goToChannel(channel); sidenavService.close()"            class="list-item"            ># {{ channel.name }}</mat-list-item          >        </mat-list>      </div>      <div class="message">        <p><b>Direktnachrichten</b></p>      </div>      <div class="list-container">        <mat-list class="list">          <mat-list-item            *ngFor="let user of userService.allUser"            (click)="goToChat(user); sidenavService.close()"            class="list-item"          >            <div class="user-status">              <div                class="userOnline"                [ngStyle]="{                  \'background-color\': user.online ? \'green\' : \'red\'                }"              ></div>              <img src="{{ user.photoURL }}" />            </div>            {{ user.displayName }}</mat-list-item          >        </mat-list>      </div>    </mat-drawer>  </mat-drawer-container>  <div    *ngIf="!checkRouteChannelAndChat()"    class="welcome-container-mobile hide-desk"  >    <h2>Welcome To Slack Clone :)</h2>    <h3>Choose a chat and enjoy the Communication</h3>  </div>  <div    *ngIf="!checkRouteChannelAndChat()"    class="welcome-container-desk hide-mobile"  >    <h2>Welcome To Slack Clone :)</h2>    <h3>Choose a chat and enjoy the Communication</h3>  </div>  <router-outlet *ngIf="userService.loadCurrentUser"></router-outlet></mat-drawer-container></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DialogChannelSettingsComponent', 'selector': 'app-dialog-channel-settings'},{'name': 'DialogChatImageComponent', 'selector': 'app-dialog-chat-image'},{'name': 'DialogCreateChannelComponent', 'selector': 'app-dialog-create-channel'},{'name': 'DialogDataprotectionComponent', 'selector': 'app-dialog-dataprotection'},{'name': 'DialogLegalnoticeComponent', 'selector': 'app-dialog-legalnotice'},{'name': 'DialogProfileSettingsComponent', 'selector': 'app-dialog-profile-settings'},{'name': 'DialogUserStatusComponent', 'selector': 'app-dialog-user-status'},{'name': 'MenuBarComponent', 'selector': 'app-menu-bar'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'ThreadComponent', 'selector': 'app-thread'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DashboardComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DashboardComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

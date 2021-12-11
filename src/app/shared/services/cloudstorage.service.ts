@@ -21,29 +21,36 @@ export class CloudstorageService {
   currentUserIMG: any;
   userImageUpload: boolean = false;
 
+  /**
+   * This function handle the img file.
+   *
+   * @param  {any} event
+   * @param {string} location
+   */
   handleFileInput(event: any, location: string) {
     this.fileToUpload = event.target.files[0];
 
-    // File Preview
     const reader = new FileReader();
     reader.onload = () => {
       let imageResult = reader.result as string;
-      if(location == 'chat') {
+      if (location == 'chat') {
         this.imageURL.push({
           name: this.fileToUpload.name,
           src: imageResult,
           uploaded: false,
         });
       } else {
-     
         this.currentUserIMG = imageResult;
       }
-   
     };
     reader.readAsDataURL(this.fileToUpload);
-
   }
 
+  /**
+   * This function upload the img to Firebase storage.
+   *
+   * @param {string} folder
+   */
   uploadImg(folder: string) {
     this.userImageUpload = true;
     console.log(this.fileToUpload);
@@ -55,6 +62,11 @@ export class CloudstorageService {
     });
   }
 
+  /**
+   * This function fetch the Image url.
+   *
+   * @param {string} folder
+   */
   fetchImgUrl(folder: string) {
     const storage = getStorage();
     getDownloadURL(ref(storage, folder + '/' + this.fileToUpload.name))
@@ -66,34 +78,51 @@ export class CloudstorageService {
         };
         xhr.open('GET', url);
         xhr.send();
-        if (folder == 'users') {
-          this.userImageUpload = false;
-          this.userService.user.photoURL = url;
-          this.userService.saveUserData();
-        } else if (folder == 'chat') {
-          this.chatImages.push({
-            name: this.fileToUpload.name,
-            src: url,
-          });
-       
-          for (let i = 0; i < this.imageURL.length; i++) {
-            this.imageURL[i].uploaded = true;
-          }
-          this.userImageUpload = false;
-          // filter Upload array
-        }
-      })
 
+        this.handleFetchImgUrl(folder, url);
+      })
       .catch((error) => {
         console.log('error', error);
       });
   }
 
+
+  /**
+   * This function handle the Fetch img url.
+   * 
+   * @param {string} folder 
+   * @param {string} url 
+   */
+  handleFetchImgUrl(folder: string, url: string) {
+    if (folder == 'users') {
+      this.userImageUpload = false;
+      this.userService.user.photoURL = url;
+      this.userService.saveUserData();
+
+    } else if (folder == 'chat') {
+      this.chatImages.push({
+        name: this.fileToUpload.name,
+        src: url,
+      });
+
+      for (let i = 0; i < this.imageURL.length; i++) {
+        this.imageURL[i].uploaded = true;
+      }
+      this.userImageUpload = false;
+    }
+  }
+
+
+  /**
+   * This function delete the picked img.
+   * 
+   * @param {any} img 
+   */
   deletePickedImg(img: any) {
     const desertRef = ref(this.storage, 'chat' + '/' + img.name);
     let spiceIndex = this.imageURL.indexOf(img);
 
-    // Delete the file
+  
     deleteObject(desertRef)
       .then(() => {
         this.chatImages.splice(spiceIndex, 1);

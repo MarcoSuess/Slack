@@ -11,14 +11,30 @@ export class SideNavService {
     this.loadSideNav = true;
   }
 
+  /** 
+   * This function open the sidenav.
+   * 
+   * @returns  {any}
+   */
   public open() {
     return this.sidenav.open();
   }
 
+  /** 
+   * This function close the sidenav.
+   * 
+   * @returns  {any}
+   */
   public close() {
     return this.sidenav.close();
   }
 
+
+  /** 
+   * This function toggle the sidenav.
+   * 
+   * @returns  {any}
+   */
   public toggle(): void {
     return this.sidenav.toggle();
   }

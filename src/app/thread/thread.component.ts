@@ -49,11 +49,17 @@ export class ThreadComponent implements OnInit {
     this.messageComponent.scrollToBottom();
   }
 
+
   ngAfterViewInit() {
     this.scrollToBottom();
     this.messages.changes.subscribe(this.scrollToBottom);
   }
 
+
+
+  /**
+   * This function scroll the container to the bottom.
+   */
   scrollToBottom = () => {
     try {
       this.myScrollContainer.nativeElement.scrollTop =

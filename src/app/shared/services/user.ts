@@ -6,10 +6,16 @@ export class User {
   public emailVerified: boolean | undefined;
   public online: boolean | undefined;
   public status: string | undefined;
-  public privateChatUID:any =  [];
+  public privateChatUID: any = [];
 
   constructor() {}
 
+
+  /**
+   * This function return the class to json.
+   * 
+   * @returns {json}
+   */
   public toJson() {
     return {
       uid: this.uid,
@@ -19,7 +25,7 @@ export class User {
       emailVerified: this.emailVerified,
       online: this.online,
       status: this.status,
-      privateChatUID: this.privateChatUID
+      privateChatUID: this.privateChatUID,
     };
   }
 }

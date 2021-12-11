@@ -22,12 +22,19 @@ export class SignUpComponent implements OnInit {
   }
 
 
-  
+
+  /**
+   * This function open the Dialog data protection.
+   */
   openDialogDataProtection() {
     this.dialog.open(DialogDataprotectionComponent);
   }
 
 
+
+  /**
+   * This function open the Dialog legal notice.
+   */
   openDialogLegalNotice() {
     this.dialog.open(DialogLegalnoticeComponent);
   }

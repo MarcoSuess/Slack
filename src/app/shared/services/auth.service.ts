@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 import { getAuth, signOut } from 'firebase/auth';
 import { ChatService } from '../chat.service';
 import { UserService } from '../user.service';
-import { doc, getDoc } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -36,13 +35,22 @@ export class AuthService {
     public chatService: ChatService,
     public userService: UserService,
     private _snackBar: MatSnackBar,
-    private firestore: AngularFirestore
   ) {}
 
+  /**
+   * This function return a error message as string.
+   *
+   * @returns {string}
+   */
   getErrorMessageName() {
     return 'You must enter a value';
   }
 
+  /**
+   * This function return a error message as string.
+   *
+   * @returns {string}
+   */
   getErrorMessageEmail() {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
@@ -51,6 +59,12 @@ export class AuthService {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
+
+   /**
+   * This function return a error message as string.
+   * 
+   * @returns {string}
+   */
   getErrorMessagePassword() {
     if (this.password.hasError('required')) {
       return 'You must enter a value';
@@ -59,6 +73,14 @@ export class AuthService {
     return this.password.hasError('minlength') ? 'min 6 length required' : '';
   }
 
+
+  /**
+   * This function sign up the user.
+   * 
+   * @param {string} email 
+   * @param {string} password 
+   * @param {string} name 
+   */
   signUpUser(email: string, password: string, name: string) {
     this.afAuth
       .createUserWithEmailAndPassword(email, password)
@@ -72,14 +94,22 @@ export class AuthService {
         }, 2000);
       })
       .catch((error) => {
-        console.log(error);
-
-        console.log('errorMessage', error.message);
-        console.log('errorCode', error.code);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
         this.openErrorMessage(error.message);
       });
   }
 
+
+
+
+  /**
+   * This function sign in the user.
+   * 
+   * @param {string} email 
+   * @param {string} password 
+   */
   signInUser(email: string, password: string) {
     this.afAuth
       .signInWithEmailAndPassword(email, password)
@@ -100,32 +130,62 @@ export class AuthService {
       });
   }
 
+
+  /**
+   * This function update the user to online.
+   * 
+   * @param {any} uid 
+   */
   userOnline(uid: any) {
     var db = this.firebase.firestore();
 
     db.collection('users').doc(uid).update({ online: true });
   }
 
-  openErrorMessage(message: any) {
+  /**
+   * This function open the error message.
+   * 
+   * @param {string} message 
+   */
+  openErrorMessage(message: string) {
     this._snackBar.open(message);
 
     setTimeout(() => {
       this.closeErrorMessage();
     }, 1500);
-  }
+  } 
 
+
+  /**
+   * This function close the error message.
+   */
   closeErrorMessage() {
     this._snackBar.ngOnDestroy();
   }
 
+  /**
+   * This function navigate to the dashboard.
+   */
   navigateToBoard() {
     this.router.navigateByUrl('/dashboard/' + this.currentUserID);
   }
 
+
+  /**
+   * This function navigate to the sign in.
+   */
   navigateToSignIn() {
     this.router.navigateByUrl('/sign-in');
   }
 
+
+  /**
+   * This function set the user data.
+   *  
+   * @param {any} user 
+   * @param {string} name 
+   * @returns  {any}
+   */
   setUserData(user: any, name: string) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
@@ -143,8 +203,13 @@ export class AuthService {
     return userRef.set(userData, {
       merge: true,
     });
-  }
+  } 
 
+  /**
+   * This function set the guest user data.
+   * 
+   * @returns {any}
+   */
   setGuestUserData() {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/guest`);
     const userData = {
@@ -163,10 +228,12 @@ export class AuthService {
     return userRef.set(userData, {
       merge: true,
     });
-    
-    
   }
 
+
+  /**
+   * This function sign out the user.
+   */
   signOut() {
     const auth = getAuth();
     signOut(auth)

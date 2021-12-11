@@ -20,9 +20,16 @@ export class ChatService {
     public userService: UserService,
     public afs: AngularFirestore,
     private firestore: AngularFirestore
-  ) {}
+  ) {}  
 
-  createNewChat(chatUID: any) {
+
+  /**
+   * This function create a new Chat. 
+   * 
+   * @param {string} chatUID 
+   * @returns {any}
+   */
+  createNewChat(chatUID: string) {
     const chatRef: AngularFirestoreDocument<any> = this.afs.doc(
       `chats/${chatUID}`
     );
@@ -35,7 +42,14 @@ export class ChatService {
     });
   }
 
-  createNewChannel(channelName: any) {
+
+  /**
+   * This function create a new channel.
+   * 
+   * @param {string} channelName 
+   * @returns  {any}
+   */
+  createNewChannel(channelName: string) {
     const newID = this.afs.createId();
 
     const channelRef: AngularFirestoreDocument<any> = this.afs.doc(
@@ -49,9 +63,16 @@ export class ChatService {
     return channelRef.set(channelData, {
       merge: true,
     });
-  }
+  } 
 
-  loadCurrentChat(paramsID: any, location: any) {
+
+  /**
+   * This function load the current chat.
+   * 
+   * @param {string} paramsID 
+   * @param {string} location 
+   */
+  loadCurrentChat(paramsID: string, location: string) {
     this.currentChatID = paramsID;
     this.chat = new Chat();
     this.firestore
@@ -67,6 +88,12 @@ export class ChatService {
       });
   }
 
+
+  /**
+   * This function update the current chat.
+   * 
+   * @param {string} location 
+   */
   updateCurrentChat(location: string) {
     this.firestore
       .collection(location)
@@ -74,6 +101,10 @@ export class ChatService {
       .update(this.chat.toJson());
   }
 
+
+  /**
+   * This function subscribe  all channels.
+   */
   loadAllChannels() {
     this.firestore
       .collection('channels')
@@ -83,15 +114,31 @@ export class ChatService {
       });
   }
 
+
+  /**
+   * This function save the current chat room in a local storage.
+   * 
+   * @param {string} location 
+   */
   saveCurrentChatroom(location: string) {
     localStorage.setItem('chatRoom', location);
   }
 
+
+  /**
+   * This function load the current chatroom from the local storage.
+   * 
+   * @returns {string}
+   */
   loadCurrentChatroom() {
     let location = localStorage.getItem('chatRoom');
     return location;
   }
 
+
+  /**
+   * This function clear the local storage.
+   */
   deleteCurrentChatroom() {
     localStorage.clear();
   }

@@ -11,6 +11,12 @@ export class DialogUserStatusComponent implements OnInit {
 
   ngOnInit(): void {}
 
+
+  /**
+   * This function save the user status.
+   * 
+   * @param {string} status 
+   */
   saveStatus(status: string) {
     this.userService.user.status = status;
     this.userService.saveUserData();

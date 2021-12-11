@@ -21,7 +21,12 @@ export class DialogProfileSettingsComponent implements OnInit {
   }
 
 
-
+  /**
+   * This function save the user settings.
+   * 
+   * @param {string} nameChange 
+   * @param {any} img 
+   */
   saveSettings(nameChange: string, img: any) {
     this.userService.user.displayName = nameChange;
  

@@ -23,7 +23,13 @@ export class AppComponent {
   ) {}
 
   ngOnInit() {}
+  
 
+  /**
+   * This function return if the route includes sign.
+   * 
+   * @returns {any}
+   */
   public checkRouteSign() {
     return this.router.url.includes('sign');
   }

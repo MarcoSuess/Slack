@@ -20,11 +20,18 @@ export class MenuBarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
-
+  
+  /**
+   * This function open the dialog user status.
+   */
   openDialog() {
     this.dialog.open(DialogUserStatusComponent);
   }
 
+
+  /**
+   * This function open the dialog user settings.
+   */
   openDialogSettings() {
     this.dialog.open(DialogProfileSettingsComponent);
   }

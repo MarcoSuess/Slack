@@ -1,8 +1,7 @@
-
-    <mat-progress-bar
-    *ngIf="cloudstorageService.userImageUpload"
-    mode="indeterminate"
-  ></mat-progress-bar>
+<mat-progress-bar
+  *ngIf="cloudstorageService.userImageUpload"
+  mode="indeterminate"
+></mat-progress-bar>
 <div class="header">
   <h2 mat-dialog-title>Profile settings</h2>
   <mat-icon mat-dialog-close aria-hidden="false">close</mat-icon>
@@ -12,7 +11,12 @@
   <div class="profile-settings-container">
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
-      <input [disabled]="cloudstorageService.userImageUpload" #name [(ngModel)]="userService.user.displayName" matInput />
+      <input
+        [disabled]="cloudstorageService.userImageUpload"
+        #name
+        [(ngModel)]="userService.user.displayName"
+        matInput
+      />
     </mat-form-field>
   </div>
 
@@ -27,8 +31,6 @@
       >
         <mat-icon aria-hidden="false">add_a_photo</mat-icon>
 
-      
-
         <img
           *ngIf="cloudstorageService.currentUserIMG"
           src="{{ cloudstorageService.currentUserIMG }}"
@@ -39,7 +41,7 @@
         />
 
         <input
-        #img
+          #img
           type="file"
           (change)="cloudstorageService.handleFileInput($event, 'user')"
           style="display: none"
@@ -50,7 +52,13 @@
 </div>
 
 <div class="dialog-actions" mat-dialog-actions>
-  <button [disabled]="cloudstorageService.userImageUpload" mat-button mat-dialog-close>Close</button>
+  <button
+    [disabled]="cloudstorageService.userImageUpload"
+    mat-button
+    mat-dialog-close
+  >
+    Close
+  </button>
   <button
     mat-button
     *ngIf="!cloudstorageService.userImageUpload"
